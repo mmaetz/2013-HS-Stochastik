@@ -1,0 +1,55 @@
+\chapter{Der Begriff der Wahrscheinlichkeit}
+\label{kap1}
+Stochastik befasst sich mit \emph{Zufallsexperimenten}. Deren Ergebnisse sind unter \glqq Versuchsbedingungen\grqq verschieden.
+\begin{bspl}
+	\begin{compactitem}
+		\item Kartenziehen, Würfeln, Roulette
+		\item Simulation
+		\item Komplexe Phänomene (zumindest approximativ): Börse, Data-Mining, Genetik, Wetter
+	\end{compactitem}
+\end{bspl}
+Ergebnisse von Zufallsexperimenten werden in \emph{Ereignisse} zusammengefasst.
+\begin{compactitem}
+	\item \emph{Ereignisraum} (Grundraum) $\Omega$: Menge aller möglichen Ergebnisse des Zufallsexperiments
+	\item \emph{Elementarereignisse $\omega$}: Elemente von $\Omega$, also die möglichen Ergebnisse des Zufallsexperiments
+	\item \emph{Ereignis}: Teilmenge von $\Omega$
+	\item Operationen der Mengenlehre haben natürliche Interpretation in der Sprache der Ereignisse.
+\end{compactitem}
+Das Vorgehen der Stochastik zur Lösung eines Problems kann in drei Schritte unterteilt werden:
+\begin{enumerate}[1.]
+	\item Man bestimmt die Wahrscheinlichkeiten gewisser Ereignisse $A_i$. Dabei sind Expertenwissen, Daten und Plausibilitäten wichtig.
+	\item Man berechnet aus den Wahrscheinlichkeiten $\p(B_j)$ die Wahrscheinlichkeiten von gewissen anderen Ereignissen $B_j$ gemäss den Gesetzen der Wahrscheinlichkeitstheorie (oft vereinfachend unter Unabhängigkeitsannahme).
+	\item Man interpretiert die Wahrscheinlichkeiten $\p(B_j)$ im Hinblick auf die Problemstellung.
+\end{enumerate}
+Das \emph{Bestimmen von Wahrscheinlichkeiten} (siehe Schritt 1) wird oft konkreter formalisiert. 
+\begin{bspl}[Kombinatorische Abzählung bei endlichem $\Omega$.]
+	Die Wahrscheinlichkeit von einem Ereignis $A$ ist gegeben durch
+	\begin{align}
+		\p(A)&=\frac{\abs{A}}{\abs{\Omega}}\quad \left( =\frac{\text{\# güstige Fälle}}{\text{\#mögliche Fälle}} \right).
+		\intertext{Dies ist das \emph{Laplace-Modell}. Dem Laplace-Modell liegt die \emph{uniforme Verteilung} von  Elemntarereignissen $\omega$ zugrunde:}
+		\p(\{\omega\})&=\frac{1}{\abs{\Omega}}
+		\label{}
+	\end{align}
+\end{bspl}
+Andere Wahrscheinlichkeitsverteilungen werden mit Hilfe des Konzepts von \emph{Zufallsvariablen} (siehe Kapitel \ref{kap2}) eingeführt. Es sei aber bereits hier festgehalten: die Stochastik geht weit über das Laplace-Modell hinaus. Für viele Anwendungen ist das Laplace-Modell ungeeignet.
+\section{Rechenregeln für Wahrscheinlichkeiten}
+Die drei Axiome sind:
+\begin{compactenum}[1.]
+	\item $\p(A)\geq 0$: Wahrscheinlichkeiten sind immer nicht-negativ.
+	\item $\p(\Omega)=1$: sicheres Ereignis $\Omega$ hat Wahrscheinlichkeit eins.
+	\item $\p(A\cup B)=\p(A)+\p(B)$ $\forall$ Ereignisse $A, B$, die sich gegenseitig ausschliessen (d.h. $A\cup B=\varnothing$).
+\end{compactenum}
+Weitere (abgeleitete) Regeln:
+\begin{align}
+	\p(A^{c})&=1-\p(A)
+	\shortintertext{für jedes Ereignis $A$,}
+	\p(A\cup B)&=\p(A)+\p(B)-\p(A\cap B)\\
+	\shortintertext{\text{für je zwei Ereignisse $A$ und $B$},}
+	\p(A_1\cup \cdots \cup A_n)&\leq \p(A_1)+\cdots + \p(A_n)
+	\shortintertext{für je $n$ Ereignisse $A_1,\ldots,A$}
+	\p(B\setminus A)&=\p(B)-\p(A)
+	\shortintertext{für je zwei Ereignisse $A$ und $B$ mit $A\subset B$}.
+	\label{}
+\end{align}
+\chapter{Zufallsvariable und Wahrscheinlichkeitsverteilung}
+\label{kap2}

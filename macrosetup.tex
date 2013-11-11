@@ -1,0 +1,111 @@
+%% Custom commands =============================================================
+
+%% Depends on this
+\usepackage{ifthen}
+\usepackage{rotating}
+%\usepackage[all]{xy}
+
+%% Differential d. This sets it as proper operator in roman type. With correct
+%% spacing. ISO standards for mathematical typesetting says it should be printed
+%% like this.
+%\newcommand{\diff}[1]{\operatorname{d}\ifthenelse{\equal{#1}{}}{\,}{\!#1}}
+\newcommand{\dd}[1]{\operatorname{d}\ifthenelse{\equal{#1}{}}{\,}{\!#1}}
+\newcommand{\rd}{\mathrm d}
+\newcommand{\p}{\mathrm P}
+
+%% Symbols for euler number and imaginary unit
+\providecommand*{\eu}%
+{\ensuremath{\mathrm{e}}}
+% The imaginary unit
+\providecommand*{\iu}%
+{\ensuremath{\mathrm{i}}} % i can be replaced with j on preference.
+
+%% Uncomment below what style you prefer for printing differential operators
+%\DeclareMathOperator{\grad}{grad}
+%\DeclareMathOperator{\rot}{rot}
+%\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\grad}{\nabla}
+\DeclareMathOperator{\rot}{\nabla\times}
+\DeclareMathOperator{\Div}{\nabla\cdot}
+
+%% Additional mathematical operators
+%% Just use the physics package
+\DeclareMathOperator{\sgn}{tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\artanh}{artanh}
+%% German variants
+%\DeclareMathOperator{\Kern}{Kern}
+%\DeclareMathOperator{\Bild}{Bild}
+%\DeclareMathOperator{\Grad}{Grad}
+%% English variants
+%% \ker is provided by LaTeX
+\DeclareMathOperator{\im}{im}
+%% \grad is provided by LaTeX
+
+%% Special characters for number sets, e.g. real or complex numbers.
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\X}{\mathbb{X}}
+
+%% Fixed size delimiter examples
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\seq}[1]{\langle #1 \rangle}
+\newcommand{\set}[1]{\{ #1 \}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\indic}[1]{\bigl[#1\bigr]}
+\newcommand{\comm}[2]{\left[ {#1}, {#2} \right] }
+\newcommand{\acomm}[2]{\left\{ {#1}, {#2} \right\} }
+
+%% Scaling delimiter examples
+\newcommand{\Floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\Ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\Seq}[1]{\left\langle #1 \right\rangle}
+\newcommand{\Set}[1]{\left\{ #1 \right\}}
+\newcommand{\Abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\Norm}[1]{\left\lVert #1 \right\rVert}
+
+%% Absolute and partial derrivate fractions
+%% Calculus
+\newcommand{\dv}[2]{\frac{\mathrm d #1}{\mathrm d #2}}
+\newcommand{\dvt}[3]{\frac{\mathrm d ^{2} #1}{\mathrm d #2 ^{2}}}
+\newcommand{\dvn}[3]{\frac{\mathrm d ^{#1} #2}{\mathrm d #3 ^{#1}}}
+\newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pddv}[2]{\frac{\partial^{2} #1}{\partial #2 ^{2}}}
+\newcommand{\pddvm}[3]{\frac{\partial^{2} #1}{\partial #2 \partial #3}}
+\newcommand{\pdvn}[3]{\frac{\partial^{#1} #2}{\partial #3 ^{#1}}}
+\newcommand{\fdv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vtr}[1]{\boldsymbol{\mathrm{#1}}}
+
+
+%% Set an index and print it to the current position at the same time
+\newcommand{\Index}[1]{\emph{#1}\index{#1}}
+
+%% Displaystyle math for inline math mode
+\newcommand{\ds}{\displaystyle}
+
+%% Easy to use alias for the default matrices with round braces
+\newcommand{\Mx}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+
+%% Include a lecture from the lectures/ folder by date.
+%% Added ddmmyydate option because the default format is too large.
+
+
+%% Use the alternative epsilon per default and define the old one as \oldepsilon
+\let\oldepsilon\epsilon
+
+\renewcommand{\epsilon}{\ensuremath\varepsilon}
+
+%% Also set the alternate phi as default.
+%\renewcommand{\phi}{\ensuremath{\varphi}}
+
+%% Uncomment to type bra, kets etc.

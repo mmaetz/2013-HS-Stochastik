@@ -1,0 +1,86 @@
+\usepackage{multicol}
+%\usepackage{setspace}
+\usepackage[alwaysadjust]{paralist}
+%\usepackage[compact]{titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman,english]{babel}
+\usepackage{tikz,tikz-3dplot,pgflibraryshapes}
+%\usepackage[headings,cm]{fullpage}
+\usetikzlibrary{positioning,calc,matrix,chains,scopes,fit,decorations,decorations.pathmorphing,decorations.pathreplacing,arrows,patterns,3d}
+
+%\usepackage{epsfig,cite,amsmath,amssymb,amsbsy,mathrsfs}
+\usepackage{epsfig,cite,amsmath,amssymb,amsbsy,mathrsfs}
+\usepackage{color,graphicx}
+\usepackage{latexsym}
+%%% mmaetz packages
+%%% Side captions
+\usepackage{sidecap}
+%%% Theorems like Theorem 3.1, proof environment
+%\usepackage{amsthm}
+%% NTheorem is a reimplementation of the AMS Theorem package. This will allow
+%% us to typeset theorems like examples, proofs and similar.
+%% NOTE: Must be loaded AFTER amsmath, or the \qed placement will break
+\usepackage[amsthm,thmmarks]{ntheorem}
+%%% Using this packages numbers with units are always typed correctly.
+\usepackage{siunitx}
+%%% To cross out some stuff.
+\usepackage{cancel}
+%%% To have an enumerate environment with options to get like.
+%%% i) bla
+%%% ii) lala
+%%% typing just \item
+\usepackage{enumerate}
+%%% To use \bm\mathrm instead of \vec one needs the appropriate greek letters
+\usepackage{upgreek}
+%%% bold math
+\usepackage{bm}
+%%% Nice tabular
+\usepackage{booktabs}
+%%% For iddots (Inverse diagonal triple dot.)
+\usepackage{mathdots}
+%%% To change the headers. 
+\newcommand{\changefont}{%
+	\fontsize{9}{11}\selectfont
+}
+%%% fancy headers
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhead[LE]{\changefont\slshape\nouppercase \rightmark} %section
+%\fancyhead[RE]{\thepage}
+%\fancyhead[RO]{\changefont\slshape\nouppercase \leftmark} % chapter
+%\fancyhead[LO]{\thepage}
+%\fancyfoot[C]{}
+
+%%% To use mathclap.
+\usepackage{mathtools}
+%%% To have a set of bigger braces.
+%%% I found out the guy who made that was at at the university of Lille, the city I was born! =)
+\usepackage{yhmath}
+%%% subfigures, subfloat used in week8.
+\usepackage{subfig}
+
+%%% mmaetz: This is for the change notes
+%\usepackage[deletedmarkup=none]{changes}
+
+%%% Use this option instead of the above one to make the red stuff disappear and the blue stuff become black. (And also remove the footnotes done with the change package.)
+%%% Below are the options used for the change package. Note that the default is to cross out the deleted stuff but this doesn't work well in a math environment so the default settings have been changed.
+%%% They have been commented out because all change markups have been removed.
+%\usepackage[deletedmarkup=none]{changes}
+%\setdeletedmarkup{\textcolor{red!75!black}{#1}}
+%\setauthormarkupposition{left}
+%\setremarkmarkup{\footnote{#1: \textcolor{Changes@Color#1}{#2}}}
+%\setremarkmarkup{\marginpar{#1:#2}}
+%%% mmaetz: To suppress the change notes put the final option like that:
+%\usepackage[final]{changes}
+%%% mmaetz: I'm using an authors id
+%\definechangesauthor[name={Marc Maetz},color=blue!50!black]{MM}
+
+%%% mmaetz: Can be useful for something but forgot what and I'm not using it here.
+%\usepackage{etoolbox}
+%%% mmaetz: Just discovered breqn which provides automatic line breaking. Very nice, more powerful but requires a bit of getting used to it.
+%%% flexisym is needed by breqn
+\usepackage{flexisym}
+\usepackage{breqn}
+%%% To make the references clickable
+%%% The color settings are in the tikzstuff.tex file.
+\usepackage{hyperref}

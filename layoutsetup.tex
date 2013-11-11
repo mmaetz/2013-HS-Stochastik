@@ -1,0 +1,164 @@
+%% Memoir layout setup
+
+%% NOTE: You are strongly advised not to change any of them unless you
+%% know what you are doing.  These settings strongly interact in the
+%% final look of the document.
+
+% Dependencies
+\usepackage{array}
+
+% Define the default sans serif font as the lighter computer modern bright by
+% D. Knuth.
+\renewcommand{\sfdefault}{cmbr}
+
+%%% Define a nice orange color and use it for hyperref
+%%% Needs xcolor
+\usepackage{xcolor}
+\definecolor{rioday}{RGB}{255,166,0} 
+\hypersetup{colorlinks=false,linkbordercolor=rioday}
+
+
+% Turn extra space before chapter headings off.
+
+% Chapter style redefinition
+\makeatletter
+\newcommand\thickhrulefill{\leavevmode \leaders%
+\hrule height 6.25pt depth -3.25pt \hfill \kern \z@}
+
+\let\old@rule\@rule
+\def\@rule[#1]#2#3{\textcolor{rulecolor}{\old@rule[#1]{#2}{#3}}}
+\newcommand{\colorhrule}[1]{%
+	\begingroup\color{#1}\hrule\endgroup
+}%
+\def\saturation{200}
+\def\brightness{170}
+\definecolor{chapterlinecolor}{HSB}{250,\saturation,\brightness}
+\definecolor{sectionlinecolor}{HSB}{166,\saturation,\brightness}
+\definecolor{subsectionlinecolor}{HSB}{80,\saturation,\brightness}
+
+\makechapterstyle{test}{
+	\setlength\midchapskip{5pt}
+	\setlength\afterchapskip{2pt}
+	\setlength\beforechapskip{2pt}
+	%\setlength\beforesecskip{0cm}
+	%\setlength\aftersecskip{0cm}
+	\colorlet{rulecolor}{chapterlinecolor}
+	\renewcommand{\chapterheadstart}{\rule{\columnwidth}{11pt}%\vspace{-1pt}}
+}
+	\renewcommand{\printchaptername}{}
+	%\renewcommand\colorchapnum{\color{\chapterlinecolor}}
+	\renewcommand{\chapternamenum}{}
+	\renewcommand{\chapnumfont}{\normalfont\Huge\bfseries}
+	\renewcommand{\printchapternum}{\chapnumfont\space\thechapter}
+	\renewcommand{\afterchapternum}{\space}
+	\renewcommand{\afterchaptertitle}{\par\nobreak\vspace{-10pt}\rule{\columnwidth}{2pt}\vskip\afterchapskip}
+}
+
+%\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
+%\titlespacing*{\section}{0pt}{*0}{0pt}
+
+
+
+% Set the way pages are layed out (headers and page numbering)
+\pagestyle{empty}
+%\if@twoside
+  %\pagestyle{Ruled}
+%\else
+  %\pagestyle{ruled}
+%\fi
+
+% Use the newly defined style
+%\chapterstyle{VZ14}
+\chapterstyle{test}
+
+% Redefine sectional headings to contain rules
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+{-2\baselineskip}{8pt}
+	%{-3.5ex \@plus -1ex \@minus -.2ex}%
+	%{2.3ex \@plus.2ex}%
+	{%
+	\vspace{\baselineskip}
+	\textcolor{sectionlinecolor}{\hrule depth 8pt}
+	%
+\Large\bfseries\sffamily}}
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+{-2\baselineskip}{8pt}
+	{%
+	\vspace{\baselineskip}
+	\textcolor{subsectionlinecolor}{\hrule depth 5pt}
+	%
+\Large\bfseries\sffamily}}
+
+%\titlespacing{\section}{\z@}{\z@}{\z@}
+
+\setparaheadstyle{\normalsize\bfseries\sffamily}
+\setsubparaheadstyle{\normalsize\bfseries\sffamily}
+
+% Set captions to a more separated style for clearness
+\captionnamefont{\sffamily\bfseries\footnotesize}
+\captiontitlefont{\sffamily\footnotesize}
+\setlength{\intextsep}{16pt}
+\setlength{\belowcaptionskip}{1pt}
+
+%%% Make a bit of additional space for footnotes
+\addtolength{\skip\footins}{4pt}
+\renewcommand{\footnoterule}{%
+   \kern -7pt                   % call this kerna
+   \hrule height 0.4pt width 0.4\columnwidth
+   \kern 6.6pt                  % call this kernb
+}
+
+% Set section and TOC numbering depth to subsection
+\setsecnumdepth{subsection}
+\settocdepth{subsection}
+
+% Turn off american style paragraph indentation and add some space to be
+% printed when a new paragraph starts.
+
+\setlength{\parindent}{0pt}
+\addtolength{\parskip}{2pt}
+
+\newcommand{\professor}[1]{\def\@professor{#1}}
+\renewcommand{\maketitlehookb}%
+{\vspace{2em}\centering\Large\@professor\vspace{0.3\textheight}}
+
+%% This provides a frontend to set the lecture date into the header
+%% The chapter names are usually shorter than the section names. So the date should be at this place.
+%\newcommand{\lecturedate}[1]{\def\@lecdate{#1}}
+%\makeevenhead{ruled}{\normalfont\leftmark,}{}{\@lecdate}
+%%% Make the header the same width as the text
+%\makerunningwidth{ruled}{\textwidth}
+%\makeheadrule{ruled}{\textwidth}{\normalrulethickness}
+\renewcommand{\footruleskip}{-5pt}
+\makeatother
+
+% This defines how theorems should look. Best leave as is.
+\theoremstyle{plain}
+\theoremseparator{:\quad}
+\theoremprework{}
+\theoremindent2em
+\theoremheaderfont{\sffamily\bfseries}
+\theorembodyfont{\normalfont}
+%\theoremsymbol{}
+%% Minimal margin to print two pages on an A4 paper or viewing it on tablets.
+\expandafter\def\expandafter\normalsize\expandafter{%
+\normalsize
+\setlength\abovedisplayskip{5pt}
+\setlength\belowdisplayskip{5pt}
+\setlength\abovedisplayshortskip{2pt}
+\setlength\belowdisplayshortskip{2pt}
+}
+
+\pltopsep0.7em
+\plpartopsep0.7ex
+\plitemsep0.7ex
+\plparsep0.7ex
+
+\setstocksize{21.0cm}{29.7cm}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settypeblocksize{18.5cm}{27.5cm}{*}
+\setlrmargins{1cm}{*}{*}
+\setulmargins{1.2cm}{*}{*}
+\setheadfoot{7pt}{20pt}
+\checkandfixthelayout
