@@ -72,12 +72,14 @@
 \chapterstyle{test}
 
 % Redefine sectional headings to contain rules
+\let\origsection\section
+%\renewcommand\section{\@ifstar{\starsection}{\nostarsection}}
 \renewcommand{\section}{\@startsection{section}{1}{\z@}%
 {-2\baselineskip}{8pt}
 	%{-3.5ex \@plus -1ex \@minus -.2ex}%
 	%{2.3ex \@plus.2ex}%
 	{%
-	\vspace{\baselineskip}
+	\vspace{-2\baselineskip}
 	\textcolor{sectionlinecolor}{\hrule depth 8pt}
 	%
 \Large\bfseries\sffamily}}
