@@ -70,27 +70,52 @@
 %\chapterstyle{VZ14}
 \chapterstyle{test}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Redefine sectional headings to contain rules
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\origsection\section
+%\renewcommand\section{\@ifstar{\starsection}{\nostarsection}}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+{-2\baselineskip}{1em}
+	%{-3.5ex \@plus -1ex \@minus -.2ex}%
+	%{2.3ex \@plus.2ex}%
+	{%
+	\vspace{-2\baselineskip}
+	\textcolor{sectionlinecolor}{\hrule depth 1em}
+	%
+\Large\bfseries\sffamily}}
 \let\origsection\section
 \renewcommand\section{\@ifstar{\starsection}{\nostarsection}}
 
 \newcommand\nostarsection[1]
 {\sectionprelude\origsection{#1}\sectionpostlude}
 %{\origsection{#1}\sectionpostlude}
-
 \newcommand\starsection[1]
 {\sectionprelude\origsection*{#1}\sectionpostlude}
 
 \newcommand\sectionprelude{%
 	\vspace{\baselineskip}
-	\colorhrule{sectionlinecolor}{1em}{\columnwidth} 
-	\vspace{-0.5\baselineskip}
+	%\colorhrule{sectionlinecolor}{1em}{\columnwidth} 
+	%\vspace{-0.5\baselineskip}
 	}
-
 \newcommand\sectionpostlude{%
-	\vspace{-1ex}
-	\colorhrule{sectionlinecolor}{0.2em}{\columnwidth} 
-	\vspace{\baselineskip}
+	%\vspace{-0.5ex}
+	%\colorhrule{sectionlinecolor}{0.2em}{\columnwidth} 
+	%\vspace{0.5\baselineskip}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Redefine subsectional headings to contain rules
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+{-2\baselineskip}{0.5em}
+	%{-3.5ex \@plus -1ex \@minus -.2ex}%
+	%{2.3ex \@plus.2ex}%
+	{%
+	\vspace{-2\baselineskip}
+	\textcolor{subsectionlinecolor}{\hrule depth 0.5em}
+	%
+\Large\bfseries\sffamily}}
 
 \let\origsubsection\subsection
 \renewcommand\subsection{\@ifstar{\starsubsection}{\nostarsubsection}}
@@ -98,21 +123,21 @@
 \newcommand\nostarsubsection[1]
 {\subsectionprelude\origsubsection{#1}\subsectionpostlude}
 %{\origsubsection{#1}\subsectionpostlude}
-
 \newcommand\starsubsection[1]
 {\subsectionprelude\origsubsection*{#1}\subsectionpostlude}
 
 \newcommand\subsectionprelude{%
 	\vspace{\baselineskip}
-	\colorhrule{subsectionlinecolor}{1em}{\columnwidth} 
-	\vspace{-0.5\baselineskip}
+	%\colorhrule{subsectionlinecolor}{1em}{\columnwidth} 
+	%\vspace{-0.5\baselineskip}
 	}
-
 \newcommand\subsectionpostlude{%
-	\vspace{-1ex}
-	\colorhrule{subsectionlinecolor}{0.2em}{\columnwidth} 
-	\vspace{\baselineskip}
+	\vspace{-0.2ex}
+	%\colorhrule{subsectionlinecolor}{0.1em}{\columnwidth} 
+	%\vspace{0.5\baselineskip}
 }
+
+
 %\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
 %{-2\baselineskip}{8pt}
 %	{%
@@ -165,12 +190,12 @@
 \makeatother
 
 % This defines how theorems should look. Best leave as is.
-\theoremstyle{plain}
-\theoremseparator{:\quad}
-\theoremprework{}
-\theoremindent2em
-\theoremheaderfont{\sffamily\bfseries}
-\theorembodyfont{\normalfont}
+%\theoremstyle{plain}
+%\theoremseparator{:\quad}
+%\theoremprework{}
+%\theoremindent2em
+%\theoremheaderfont{\sffamily\bfseries}
+%\theorembodyfont{\normalfont}
 %\theoremsymbol{}
 %% Minimal margin to print two pages on an A4 paper or viewing it on tablets.
 \expandafter\def\expandafter\normalsize\expandafter{%
