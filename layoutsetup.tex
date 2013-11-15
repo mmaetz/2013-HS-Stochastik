@@ -1,4 +1,4 @@
-%% Memoir layout setup
+%\quad ,\\% Memoir layout setup
 
 %% NOTE: You are strongly advised not to change any of them unless you
 %% know what you are doing.  These settings strongly interact in the
@@ -27,8 +27,8 @@
 
 \let\old@rule\@rule
 \def\@rule[#1]#2#3{\textcolor{rulecolor}{\old@rule[#1]{#2}{#3}}}
-\newcommand{\colorhrule}[1]{%
-	\begingroup\color{#1}\hrule\endgroup
+\newcommand{\colorhrule}[3]{%
+	\begingroup\color{#1}\hrule height #2 width #3\endgroup
 }%
 \def\saturation{200}
 \def\brightness{170}
@@ -37,13 +37,12 @@
 \definecolor{subsectionlinecolor}{HSB}{80,\saturation,\brightness}
 
 \makechapterstyle{test}{
-	\setlength\midchapskip{5pt}
-	\setlength\afterchapskip{2pt}
-	\setlength\beforechapskip{2pt}
+	\setlength\midchapskip{0.5em}
+	\setlength\afterchapskip{0.2em}
+	\setlength\beforechapskip{0.2em}
 	%\setlength\beforesecskip{0cm}
 	%\setlength\aftersecskip{0cm}
-	\colorlet{rulecolor}{chapterlinecolor}
-	\renewcommand{\chapterheadstart}{\rule{\columnwidth}{11pt}%\vspace{-1pt}}
+	\renewcommand{\chapterheadstart}{\colorlet{rulecolor}{chapterlinecolor}\rule{\columnwidth}{1.5em}%\vspace{-1pt}}
 }
 	\renewcommand{\printchaptername}{}
 	%\renewcommand\colorchapnum{\color{\chapterlinecolor}}
@@ -51,7 +50,7 @@
 	\renewcommand{\chapnumfont}{\normalfont\Huge\bfseries}
 	\renewcommand{\printchapternum}{\chapnumfont\space\thechapter}
 	\renewcommand{\afterchapternum}{\space}
-	\renewcommand{\afterchaptertitle}{\par\nobreak\vspace{-10pt}\rule{\columnwidth}{2pt}\vskip\afterchapskip}
+	\renewcommand{\afterchaptertitle}{\par\nobreak\vspace{-0.5em}\rule{\columnwidth}{0.2em}\vskip\afterchapskip}
 }
 
 %\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{}
@@ -71,26 +70,56 @@
 %\chapterstyle{VZ14}
 \chapterstyle{test}
 
-% Redefine sectional headings to contain rules
 \let\origsection\section
-%\renewcommand\section{\@ifstar{\starsection}{\nostarsection}}
-\renewcommand{\section}{\@startsection{section}{1}{\z@}%
-{-2\baselineskip}{8pt}
-	%{-3.5ex \@plus -1ex \@minus -.2ex}%
-	%{2.3ex \@plus.2ex}%
-	{%
-	\vspace{-2\baselineskip}
-	\textcolor{sectionlinecolor}{\hrule depth 8pt}
-	%
-\Large\bfseries\sffamily}}
+\renewcommand\section{\@ifstar{\starsection}{\nostarsection}}
 
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
-{-2\baselineskip}{8pt}
-	{%
+\newcommand\nostarsection[1]
+{\sectionprelude\origsection{#1}\sectionpostlude}
+%{\origsection{#1}\sectionpostlude}
+
+\newcommand\starsection[1]
+{\sectionprelude\origsection*{#1}\sectionpostlude}
+
+\newcommand\sectionprelude{%
 	\vspace{\baselineskip}
-	\textcolor{subsectionlinecolor}{\hrule depth 5pt}
-	%
-\Large\bfseries\sffamily}}
+	\colorhrule{sectionlinecolor}{1em}{\columnwidth} 
+	\vspace{-0.5\baselineskip}
+	}
+
+\newcommand\sectionpostlude{%
+	\vspace{-1ex}
+	\colorhrule{sectionlinecolor}{0.2em}{\columnwidth} 
+	\vspace{\baselineskip}
+}
+
+\let\origsubsection\subsection
+\renewcommand\subsection{\@ifstar{\starsubsection}{\nostarsubsection}}
+
+\newcommand\nostarsubsection[1]
+{\subsectionprelude\origsubsection{#1}\subsectionpostlude}
+%{\origsubsection{#1}\subsectionpostlude}
+
+\newcommand\starsubsection[1]
+{\subsectionprelude\origsubsection*{#1}\subsectionpostlude}
+
+\newcommand\subsectionprelude{%
+	\vspace{\baselineskip}
+	\colorhrule{subsectionlinecolor}{1em}{\columnwidth} 
+	\vspace{-0.5\baselineskip}
+	}
+
+\newcommand\subsectionpostlude{%
+	\vspace{-1ex}
+	\colorhrule{subsectionlinecolor}{0.2em}{\columnwidth} 
+	\vspace{\baselineskip}
+}
+%\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+%{-2\baselineskip}{8pt}
+%	{%
+%	\vspace{\baselineskip}
+%	\textcolor{subsectionlinecolor}{\hrule depth 5pt}
+%	%
+%\Large\bfseries\sffamily}}
 
 %\titlespacing{\section}{\z@}{\z@}{\z@}
 
