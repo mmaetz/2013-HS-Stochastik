@@ -1,0 +1,50 @@
+\chapter{Zufallsvariable und Wahrscheinlichkeitsverteilung}
+\label{kap2}
+Ergebnisse eines physikalischen Versuchs (Zufallsexperiment) sind oft Zahlen (Messungen). Diese werden als Beobachtung von so genannten Zufallsvariablen interpertiert, d.h. beobachtet wird nicht das $\omega$ welches bei einem Zufallsexperiment herauskommnt, sondern die Werte aller beobachtetetn Zufallsvariablen.
+\section{Definition einer Zufallsvariablen}
+Eine Zufallsvariable $X$ ist ein Zuffalsexperiment mit möglichen Werten in $\mathbb{R}$, bzw. in einer Teilmenge von $\mathbb{R}$, z.B. $\mathbb{N}_0=\{0,1,\ldots\}$. Deren Wert ist im Voraus nicht bekannt, sondern hängt vom Ergebnis eines Zufallsexperiments ab. Mathematisch ist eine Zufallsvariable einfach nur eine Abbildung von $\Omega$ nach $\mathbb{R}$:
+\begin{align*}
+	X:\Omega&\to \mathbb{R},\\
+	\omega &\mapsto X(\omega).
+\end{align*}
+Das heisst wenn das Ergebnis $\omega$ herauskommt, nimmt die Zufallsvariable den Wert $X(\omega)$ an.
+\begin{bspl}[Wert einer zuf. gez. Jasskarte.]
+	Sei $\Omega=\{\text{Jasskarten}\}$; ein $\omega\in\Omega$ ist z.B. ein Schilten-As; Zufallsvariable $X$:
+	\begin{align*}
+		\text{As irgendeiner Farbe}&\mapsto 11\\
+		\text{König irgendeiner Farbe}&\mapsto 4\\
+		\text{\glqq Brettchen \grqq irgendeiner Farbe}&\mapsto 0.
+	\end{align*}
+\end{bspl}
+\section{Wahrscheinlichkeitsverteilung auf $\mathbb{R}$}
+Eine Zufallsvariable $X$ legt eine Wahrscheinlichkeit $Q$ auf $\mathbb{R}$ fest, die segenannte \emph{Verteilung} von $X$:
+\begin{align*}
+\gdls
+	Q(B)&=\p \!\left(\left\{  \omega; X(\omega)\in B  \right\}\right)\\
+	&= \p (X\in B)
+\end{align*}
+\begin{bspl}[Wert einer zuf. gez. Jk. Forts.]
+	In obigem Beispiel ist beispielsweise 
+	\begin{align*}
+		Q(11)&=\p (\text{As irgendeiner Farbe})\\
+		&=\frac{4}{36}.
+	\end{align*}
+\end{bspl}
+Die \emph{kumulative Verteilungsfunktion} ist definiert als
+\begin{align*}
+	F(b)&=\p (X\leq b)\\
+	&=Q\!\left( ( -\infty,b ]  \right).
+\end{align*}
+Sie enthält dieselbe Information wie die Verteilung $Q(\cdot)$, ist aber einfacher darzustellen. Die Umkehrung der Verteilungsfunktion stellen di esogenannten Quantile dar, für $\alpha\in (0,1)$ ist das $\alpha$\emph{-Quantil von} $X$ definiert als das kleinste $x\in \mathbb{R}$ für welches $F(x)\geq \alpha$ gilt, also
+\begin{align*}
+	q_{\alpha}&\coloneqq q(\alpha)\\
+	&\coloneqq \min\{x\in \mathbb{R} \mid  F(x)\geq \alpha\}
+\end{align*}
+Es gilt 
+\begin{align*}
+	F(q_{\alpha})
+	\intertext{bzw. äquivalent dazu}
+	q_{\alpha}=F^{-1}(\alpha).
+\end{align*}
+Das $\frac{1}{2}$-Quantil von $X$ heisst auch \emph{Median von} $X$.
+

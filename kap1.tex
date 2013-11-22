@@ -22,7 +22,7 @@ Das Vorgehen der Stochastik zur Lösung eines Problems kann in drei Schritte unt
 	\item Man interpretiert die Wahrscheinlichkeiten $\p(B_j)$ im Hinblick auf die Problemstellung.
 \end{enumerate}
 Das \emph{Bestimmen von Wahrscheinlichkeiten} (siehe Schritt 1) wird oft konkreter formalisiert. 
-\begin{bspl}[Kombinatorische Abzählung bei endlichem $\Omega$.]
+\begin{bspl}[Komb. Abz. bei endl. $\Omega$.]
 	Die Wahrscheinlichkeit von einem Ereignis $A$ ist gegeben durch
 	\begin{align}
 		\p(A)&=\frac{\abs{A}}{\abs{\Omega}}\quad \left( =\frac{\text{\# günstige Fälle}}{\text{\#mögliche Fälle}} \right).
@@ -48,14 +48,18 @@ Weitere (abgeleitete) Regeln:
 	\p(A_1\cup \cdots \cup A_n)&\leq \p(A_1)+\cdots + \p(A_n)
 	\shortintertext{für je $n$ Ereignisse $A_1,\ldots,A$}
 	\p(B\setminus A)&=\p(B)-\p(A)
-	\shortintertext{für je zwei Ereignisse $A$ und $B$ mit $A\subset B$}.
-	\label{}
 \end{align}
-\chapter{Zufallsvariable und Wahrscheinlichkeitsverteilung}
-\label{kap2}
-aoeu
-\section{aoeu}
-aoeu
-\subsection{aoeu}
-aoeu
-din laptop isch scheisse
+	für je zwei Ereignisse $A$ und $B$ mit $A\subset B$.
+\section{Unabhängigkeit von Ereignissen}
+Wenn zwischen zwei Ereignissen $A$ und $B$ kein kausaler Zusammenhang besteht (d.h. es gibt keine gemeinsamen Ursachen oder Ausschliessungen), dann werden sie \emph{unabhängig} genannt, genauer: Zwei Ereignisse $A$ und $B$ heissen (\emph{stochastisch}) \emph{unabhängig} wenn für jedes $k\leq n$ und all $1\leq i_1< \cdots < i_k \leq n$ gilt
+\begin{gather*}
+	\p(A_{i_1}\cap \cdots \cup A_{i_{k}})=\p(A_{i_1})\cdots \p(A_{i_k}).
+\end{gather*}
+\section{Interpretation von Wahrscheinlichkeiten}
+Die beiden wichtigsten Interpretationen sind:
+\begin{itemize}
+	\item frequentistisch: \glqq Idealisierung der relative Häufigkeiten bei vielen unabhängigen Wiederholungen\grqq
+	\item subjektive: \glqq Mass für den Glauben, dass ein Ereignis eintreten wird\grqq (Bayes'sch)
+\end{itemize}
+
+

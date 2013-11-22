@@ -11,7 +11,7 @@
 %\newcommand{\diff}[1]{\operatorname{d}\ifthenelse{\equal{#1}{}}{\,}{\!#1}}
 \newcommand{\dd}[1]{\operatorname{d}\ifthenelse{\equal{#1}{}}{\,}{\!#1}}
 \newcommand{\rd}{\mathrm d}
-\newcommand{\p}{\mathrm P}
+\newcommand{\p}{\mathcal P}
 
 %% Symbols for euler number and imaginary unit
 \providecommand*{\eu}%
@@ -92,6 +92,10 @@
 
 %% Displaystyle math for inline math mode
 \newcommand{\ds}{\displaystyle}
+
+%% Delimiter shortfall
+\newcommand{\dls}{\delimitershortfall=-1pt}
+\newcommand{\gdls}{\global\delimitershortfall=-1pt}
 
 %% Easy to use alias for the default matrices with round braces
 \newcommand{\Mx}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}

@@ -80,8 +80,9 @@
 	%{-3.5ex \@plus -1ex \@minus -.2ex}%
 	%{2.3ex \@plus.2ex}%
 	{%
-	\vspace{-2\baselineskip}
+		\vspace{-2\baselineskip}
 	\textcolor{sectionlinecolor}{\hrule depth 1em}
+%\nolinebreak[4]
 	%
 \Large\bfseries\sffamily}}
 \let\origsection\section
@@ -94,7 +95,7 @@
 {\sectionprelude\origsection*{#1}\sectionpostlude}
 
 \newcommand\sectionprelude{%
-	\vspace{\baselineskip}
+	%\vspace{-\baselineskip}
 	%\colorhrule{sectionlinecolor}{1em}{\columnwidth} 
 	%\vspace{-0.5\baselineskip}
 	}
@@ -181,22 +182,17 @@
 
 %% This provides a frontend to set the lecture date into the header
 %% The chapter names are usually shorter than the section names. So the date should be at this place.
-%\newcommand{\lecturedate}[1]{\def\@lecdate{#1}}
-%\makeevenhead{ruled}{\normalfont\leftmark,}{}{\@lecdate}
-%%% Make the header the same width as the text
-%\makerunningwidth{ruled}{\textwidth}
-%\makeheadrule{ruled}{\textwidth}{\normalrulethickness}
 \renewcommand{\footruleskip}{-5pt}
 \makeatother
 
 % This defines how theorems should look. Best leave as is.
-%\theoremstyle{plain}
-%\theoremseparator{:\quad}
-%\theoremprework{}
-%\theoremindent2em
-%\theoremheaderfont{\sffamily\bfseries}
-%\theorembodyfont{\normalfont}
-%\theoremsymbol{}
+\theoremstyle{nonumberbreak}
+\theoremseparator{:\quad}
+\theoremprework{}
+\theoremindent2em
+\theoremheaderfont{\sffamily\bfseries}
+\theorembodyfont{\normalfont}
+\theoremsymbol{}
 %% Minimal margin to print two pages on an A4 paper or viewing it on tablets.
 \expandafter\def\expandafter\normalsize\expandafter{%
 \normalsize
@@ -206,15 +202,20 @@
 \setlength\belowdisplayshortskip{2pt}
 }
 
+%%% paralist config
 \pltopsep0.7em
 \plpartopsep0.7ex
 \plitemsep0.7ex
 \plparsep0.7ex
 
+%%% Page layout
+\newcommand{\margin}{0.8cm}
 \setstocksize{21.0cm}{29.7cm}
 \settrimmedsize{\stockheight}{\stockwidth}{*}
-\settypeblocksize{18.5cm}{27.5cm}{*}
-\setlrmargins{1cm}{*}{*}
-\setulmargins{1.2cm}{*}{*}
-\setheadfoot{7pt}{20pt}
+\settypeblocksize{\stockheight-\margin*2}{\stockwidth-\margin*2}{*}
+\setlrmargins{\margin}{*}{*}
+\setlrmarginsandblock{\margin}{*}{*}
+\setulmargins{\margin}{*}{*}
+\setulmarginsandblock{\margin}{*}{*}
+\setheadfoot{7pt}{7pt}
 \checkandfixthelayout
