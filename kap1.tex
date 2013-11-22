@@ -13,8 +13,17 @@ Ergebnisse von Zufallsexperimenten werden in \emph{Ereignisse} zusammengefasst.
 	\item \emph{Ereignisraum} (Grundraum) $\Omega$: Menge aller möglichen Ergebnisse des Zufallsexperiments
 	\item \emph{Elementarereignisse $\omega$}: Elemente von $\Omega$, also die möglichen Ergebnisse des Zufallsexperiments
 	\item \emph{Ereignis}: Teilmenge von $\Omega$
-	\item Operationen der Mengenlehre haben natürliche Interpretation in der Sprache der Ereignisse.
+	\item Operationen der Mengenlehre haben natürliche Interpretation in der Sprache der Ereignisse:
+	\begin{tabular}{|l|c|l|}
+		\hline
+		Durchschnitt	& $A\cap B$			& $A$ \textbf{und} $B$	\\
+		Vereinigung		& $A\cup B$			& $A$ \textbf{oder} $B$	\\
+		Komplement		& $A^c$				& \textbf{Nicht} $A$	\\
+		Differenz		& $A\setminus B$	& $A$ \textbf{ohne} $B$ \\
+		\hline
+	\end{tabular}
 \end{compactitem}
+
 Das Vorgehen der Stochastik zur Lösung eines Problems kann in drei Schritte unterteilt werden:
 \begin{enumerate}[1.]
 	\item Man bestimmt die Wahrscheinlichkeiten gewisser Ereignisse $A_i$. Dabei sind Expertenwissen, Daten und Plausibilitäten wichtig.
@@ -22,11 +31,11 @@ Das Vorgehen der Stochastik zur Lösung eines Problems kann in drei Schritte unt
 	\item Man interpretiert die Wahrscheinlichkeiten $\p(B_j)$ im Hinblick auf die Problemstellung.
 \end{enumerate}
 Das \emph{Bestimmen von Wahrscheinlichkeiten} (siehe Schritt 1) wird oft konkreter formalisiert. 
-\begin{bspl}[Komb. Abz. bei endl. $\Omega$.]
+\begin{bspl}[Laplace-Modell]
 	Die Wahrscheinlichkeit von einem Ereignis $A$ ist gegeben durch
 	\begin{align}
 		\p(A)&=\frac{\abs{A}}{\abs{\Omega}}\quad \left( =\frac{\text{\# günstige Fälle}}{\text{\#mögliche Fälle}} \right).
-		\intertext{Dies ist das \emph{Laplace-Modell}. Dem Laplace-Modell liegt die \emph{uniforme Verteilung} von  Elemntarereignissen $\omega$ zugrunde:}
+		\intertext{Dem Laplace-Modell liegt die \emph{uniforme Verteilung} von  Elemntarereignissen $\omega$ zugrunde:}
 		\p(\{\omega\})&=\frac{1}{\abs{\Omega}}
 		\label{}
 	\end{align}
@@ -34,7 +43,7 @@ Das \emph{Bestimmen von Wahrscheinlichkeiten} (siehe Schritt 1) wird oft konkret
 Andere Wahrscheinlichkeitsverteilungen werden mit Hilfe des Konzepts von \emph{Zufallsvariablen} (siehe Kapitel \ref{kap2}) eingeführt. Es sei aber bereits hier festgehalten: die Stochastik geht weit über das Laplace-Modell hinaus. Für viele Anwendungen ist das Laplace-Modell ungeeignet.
 \section{Rechenregeln für Wahrscheinlichkeiten}
 Die drei Axiome sind:
-\begin{compactenum}[1.]
+\begin{compactenum}[({A}1)]
 	\item $\p(A)\geq 0$: Wahrscheinlichkeiten sind immer nicht-negativ.
 	\item $\p(\Omega)=1$: sicheres Ereignis $\Omega$ hat Wahrscheinlichkeit eins.
 	\item $\p(A\cup B)=\p(A)+\p(B)$ $\forall$ Ereignisse $A, B$, die sich gegenseitig ausschliessen (d.h. $A\cup B=\varnothing$).
@@ -63,3 +72,13 @@ Die beiden wichtigsten Interpretationen sind:
 \end{itemize}
 
 
+=======
+kk
+\chapter{Zufallsvariable und Wahrscheinlichkeitsverteilung}
+\label{kap2}
+aoeu
+\section{aoeu}
+aoeu
+\subsection{aoeu}
+aoeu
+din laptop isch scheisse
