@@ -48,3 +48,14 @@ Es gilt
 \end{align*}
 Das $\frac{1}{2}$-Quantil von $X$ heisst auch \emph{Median von} $X$.
 
+\section{Diskrete und stetige Zufallsvariablen}
+Eine Zufallsvariable $X$ heisst \emph{diskret}, falls die Menge $W$ der möglichen Werte von $X$ endlich oder abzählbar ist. Zum Beispiel $W=\{0,1,2,\ldots,100$ oder $W=\mathbb{N}_0=\{0,1,2,\ldots\}$. Die Verteilung einer diskreten Zufallsvariablen ist festgelegt durch die Angabe der sogenannten \emph{Wahrscheinlichkeitsfunktion}:
+\begin{align*}
+	p(x)&\coloneqq \p(X=x), \qquad x\in W.
+	\intertext{Offensichtlich ist die kumulative Verteilungsfunktion eine Troppenfunktion mit Sprüngen an den Stellen $x\in W$ mit Sprunghöhen $p(x)$, also nicht stetig. Ferner gilt}
+	Q(B)&=\sum_{x\in B}^{}p(x).
+\end{align*}
+Eine Zufallsvariable $X$ heisst \emph{stetig} falls die Menge der möglichen Werte $W$ ein Intervall enthält. Zum Beispiel $W=[0,1]$ oder $W=\mathbb{R}$.
+\section{Erwartungswert und Varianz}
+Eine Verteilung einer Zufallsvariablen $X$ kann durch mindestens zwei Kennzahlen zusammengefasst werden, eine für die Lage (der Erwartungswert)
+
