@@ -1,0 +1,70 @@
+\chapter{Stetige Wahrscheinlichkeitsverteilung}
+Bei einer stetigen Zufallsvariablen $X$ ist $\p(X=x)=0$ für jedes feste $x$. Wir betrachten nur Fälle, wo $\p(x\leq X\leq x+h)$ für kleine $h$ ungefähr proportional zu $h$ ist. Die Proportionalitätskonstante heisst die \emph{Dichte} $f$ von $X$.
+%
+\section{Wahrscheinlichkeitsdichte}
+Die Dichte von einer stetigen Verteilung $P$ ist definiert als
+\begin{equation}
+	f(x) = \lim\limits_{h\downarrow 0}\frac{\p(x\leq X\leq x+h)}{h}
+\end{equation}
+Zwischen der Dichte $f$ und der kumulativen Verteilungsfunktion $F$ bestehen die folgenden Beziehungen:
+\begin{equation}
+	f(x) = F'(x), \ \ F(x) = \int\limits_{-\infty}^x f(x) \, dx
+\end{equation}
+Erwartungswert und Varianz berechnen sich gemäss
+\begin{align}
+	E(X) &= \mu_X = \int\limits_{-\infty}^\infty xf(x)\,dx \\
+	V(X) &= \sigma^2_X = \int\limits_{-\infty}^\infty (x-\mu_X)^2f(x)\,dx
+\end{align}
+und es gelten die gleichen Rechenregeln wie im diskreten Fall (TODO: Referenz hier?).
+%
+\section{Die wichtigsten stetigen Verteilungen}
+\subsection{Uniforme Verteilung}
+Die \emph{uniforme Verteilung} $\text{Uni}[a,b]$ tritt auf bei Rundungsfehlern und als Formalisierung der völligen "Ignoranz".
+\begin{align}
+	W&=[a,b]\\
+	f(x)&=\frac{1}{b-a}1_{[a,b]}(x)=
+	\begin{cases}
+		\frac{1}{b-a} & a\leq x \leq b \\
+		0 & \text{sonst}
+	\end{cases}\\
+	E(X)&=\frac{a+b}{2}\\
+	\sigma_X&=\frac{b-a}{\sqrt{12}}
+\end{align}
+%
+\subsection{Exponentialverteilung}
+Die \emph{Exponentialverteilung} $\text{Exp}(\lambda)$ ist das einfachste Modell für Wartezeiten auf Ausfälle und eine stetige Version der geometrischen Verteilung.
+\begin{align}
+	W&=[0,\infty)\\
+	f(x)&=\lambda e^{-\lambda x} \ \text{für}\ x>0\\
+	F(x)&=1-e^{-\lambda x}\\
+	E(X)&=\sigma_X=\frac{1}{\lambda}
+\end{align}
+Wenn die Zeiten zwischen den Ausfällen eines Systems Exponential$(\lambda)$-verteilt sind, dann ist die Anzahl Ausfälle in einem Intervall der Länge $t$ $\text{Poi}(\lambda t)$-verteilt.
+%
+\subsection{Normal- oder Gaussverteilung}
+Die \emph{Normal- oder Gaussverteilung} $\mathcal{N}(\mu,\sigma^2)$ ist die häufigste Verteilung für Messwerte.
+\begin{align}
+	W&=\mathbb{R}\\
+	f(x)&=\frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right)\\
+	E(X)&=\mu\\
+	\sigma_X&=\sigma
+\end{align}
+Die $\mathcal{N}(0,1)$Verteilung, auch \emph{Standardverteilung} bezeichnet, ist ein wichtiger Sonderfall, weshalb es für dessen Verteilungsfunktion sogar ein eigenes Symbol gibt: $\Phi(x) := F_{\mathcal{N}(0,1)}, \ x\in\mathbb{R}$ und deren Umkehrfunktionen (d.h. die Quantile) kürzen wir ab mit $z_\alpha := \Phi^{-1}(\alpha), \ \alpha \in [0,1]$. Die Verteilungsfunktion $F$ einer $\mathcal{N}(\mu,\sigma^2)$-verteilten Zufallsvariable ist nicht geschlossen darstellbar, sie wird aus der Verteilungsfunktion $\Phi$ der Standardnormalverteilung (welche tabelliert ist) berechnet mittels der Formel:
+\begin{equation}
+	F(x)=\Phi\left(\frac{x-\mu}{\sigma}\right), \ \ x \in \mathbb{R}
+\end{equation}
+%
+\section{Transformationen}
+Bei stetigen Verteilungen spielen Transformationen $Y=g(X)$ eine wichtige Rolle. Falls $g$ \emph{linear} ist: $g(x)=a+bx$ mit $b>0$, dann gilt $E(Y)=a+bE(X)$, $\sigma_Y=b\sigma_X$, $F_Y(x)=F_X((x-a)/b)$ und $f_Y(x)=f_X((x-a)/b)/b$. Durch Skalenänderungen kann man also alle Exponentialverteilungen ineinander überführen, und ebenso durch lineare Transformationen alle Normalverteilungen ineinander. Für beliebiges $g$ gilt
+\begin{equation}
+	E(Y)=E(g(X))=\int\limits_{-\infty}^\infty g(x)f(x)\, dx
+\end{equation}
+Wenn $X\sim \mathcal{N}(\mu,\sigma^2)$ normalverteilt ist, dann heisst $Y=e^X$ \emph{lognormal-verteilt}. Es gilt z.B. $E(Y)=\exp(\mu+\sigma^2/2)$.
+%
+\section{Simulation von Zufallsvariablen}
+Wenn $U$ uniform auf $[0,1]$ verteilt ist und $F$ eine beliebige kumulative Verteilungsfunktion, dann ist die Verteilungsfunktion von $X=F^{-1}(U)$ gleich $F$. Dies ist ein wichtiges Faktum um Verteilungen, respektive Realisierungen von Zufallsvariabeln, zu \emph{simulieren}:
+\begin{enumerate}[1.]
+	\item Erzeuge Realisation $u$ von uniform verteilter Zufallsvariable $U\sim\text{Uni}[0,1]$. Dies wird mittels einem "Standard-Paket" gemacht.
+	\item Berechne $x=F^{-1}(u)$. Gemäss obigem Faktum ist dann $x$ eine Realisation einer Zufallsvariablen $X$ mit kumulativer Verteilungsfunktion $F$.
+\end{enumerate}
+Diese Methode ist nicht immer rechentechnisch effizient.
