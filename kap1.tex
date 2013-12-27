@@ -25,20 +25,20 @@ Ergebnisse von Zufallsexperimenten werden in \emph{Ereignisse} zusammengefasst.
 \end{compactitem}
 
 Das Vorgehen der Stochastik zur Lösung eines Problems kann in drei Schritte unterteilt werden:
-\begin{enumerate}[1.]
+\begin{compactenum}[1.]
 	\item Man bestimmt die Wahrscheinlichkeiten gewisser Ereignisse $A_i$. Dabei sind Expertenwissen, Daten und Plausibilitäten wichtig.
 	\item Man berechnet aus den Wahrscheinlichkeiten $\p(B_j)$ die Wahrscheinlichkeiten von gewissen anderen Ereignissen $B_j$ gemäss den Gesetzen der Wahrscheinlichkeitstheorie (oft vereinfachend unter Unabhängigkeitsannahme).
 	\item Man interpretiert die Wahrscheinlichkeiten $\p(B_j)$ im Hinblick auf die Problemstellung.
-\end{enumerate}
+\end{compactenum}
 Das \emph{Bestimmen von Wahrscheinlichkeiten} (siehe Schritt 1) wird oft konkreter formalisiert. 
 \begin{bspl}[Laplace-Modell]
 	Die Wahrscheinlichkeit von einem Ereignis $A$ ist gegeben durch
-	\begin{align}
+	\begin{align*}
 		\p(A)&=\frac{\abs{A}}{\abs{\Omega}}\quad \left( =\frac{\text{\# günstige Fälle}}{\text{\#mögliche Fälle}} \right).
 		\intertext{Dem Laplace-Modell liegt die \emph{uniforme Verteilung} von  Elemntarereignissen $\omega$ zugrunde:}
 		\p(\{\omega\})&=\frac{1}{\abs{\Omega}}
 		\label{}
-	\end{align}
+	\end{align*}
 \end{bspl}
 Andere Wahrscheinlichkeitsverteilungen werden mit Hilfe des Konzepts von \emph{Zufallsvariablen} (siehe Kapitel \ref{kap2}) eingeführt. Es sei aber bereits hier festgehalten: die Stochastik geht weit über das Laplace-Modell hinaus. Für viele Anwendungen ist das Laplace-Modell ungeeignet.
 
@@ -50,7 +50,7 @@ Die drei Axiome sind:
 	\item $\p(A\cup B)=\p(A)+\p(B)$ $\forall$ Ereignisse $A, B$, die sich gegenseitig ausschliessen (d.h. $A\cup B=\varnothing$).
 \end{compactenum}
 Weitere (abgeleitete) Regeln:
-\begin{align}
+\begin{align*}
 	\p(A^{c})&=1-\p(A)
 	\shortintertext{für jedes Ereignis $A$,}
 	\p(A\cup B)&=\p(A)+\p(B)-\p(A\cap B)\\
@@ -58,7 +58,7 @@ Weitere (abgeleitete) Regeln:
 	\p(A_1\cup \cdots \cup A_n)&\leq \p(A_1)+\cdots + \p(A_n)
 	\shortintertext{für je $n$ Ereignisse $A_1,\ldots,A$}
 	\p(B\setminus A)&=\p(B)-\p(A)
-\end{align}
+\end{align*}
 	für je zwei Ereignisse $A$ und $B$ mit $A\subset B$.
 
 \section{Unabhängigkeit von Ereignissen}
@@ -75,49 +75,49 @@ Die beiden wichtigsten Interpretationen sind:
 	\item subjektive: \glqq Mass für den Glauben, dass ein Ereignis eintreten wird\grqq (Bayes'sch)
 \end{itemize}
 
-\section{Bedingte Wahrscheinlichkeiten}
-Die \emph{bedingte Wahrscheinlichkeit von $A$ gegeben $B$} ist definiert als:
-\begin{equation}
-	\p(A|B) = \frac{\p(A\cap B)}{\p(B)}
-\end{equation}
-"$\p(A|B)$ ist die Wahrscheinlichkeit für das Ereignis $A$, wenn wir \emph{wissen}, dass das Ereignis $B$ schon eingetroffen ist."\\
-Rechenregeln:
-\begin{align}
-	0 &\leq \p(A|B) \leq 1
-	\shortintertext{für jedes Ereignis $A$}
-	\p(B|B) &= 1\\
-	\p(A_1 \cup A_2|B) &= \p(A_1|B)+\p(A_2|B)
-	\shortintertext{für $A_1$, $A_1$ disjunkt}
-	\p(A^c|B)&=1-\p(A|B)
-\end{align}
-Allgemein gilt: $\p(\bullet|B)$ ist W'keit mit allen Regeln, $\p(A|\bullet)$ nicht.\\
-Weiterhin gilt:
-\begin{equation}
-	\label{1_6}
-	\p(A\cap B)=\p(A|B)\p(B)=\p(B|A)\p(A)
-\end{equation}
-Deshalb können wir \emph{Unabhängigkeit} auch definieren als:
-\begin{equation}
-	A, B \textrm{unabhängig} \Leftrightarrow \p(A|B)=\p(A) \Leftrightarrow \p(B|A)=\p(B)
-\end{equation}
-D.h. die Wahrscheinlichkeiten ändern sich nicht, wenn das andere Ereignis schon eingetreten ist.\\
-Achtung, im Allgemeinfall gilt:
-\begin{align}
-	\p(A|B) &\neq \p(B|A)\\
-	\p(A|B^c) &\neq 1-\p(A|B)
-\end{align}
-
-\section{Satz der totalen Wahrscheinlichkeit}
-Haben $k$ disjunkte Ereignisse $B_1,\cdots,B_k$ mit $B_1\cup \cdots \cup B_k = \Omega$, d.h. "alle möglichen Fälle sind abgedeckt", dann gilt:
-\begin{equation}
-	\label{tot_wkeit}
-	\p(A)\stackrel{(A3)}{=}\sum\limits_{i=1}^k\p(A\cap B_i)\stackrel{(\ref{1_6})}{=}\sum\limits_{i=1}^k \p(A|B_i)\p(B_i)
-\end{equation}
-
-\section{Satz von Bayes}
-Haben wieder $k$ disjunkte Ereignisse $B_1,\cdots,B_k$ mit $B_1\cup \cdots \cup B_k = \Omega$, d.h. "alle möglichen Fälle sind abgedeckt", dann gilt:
-\begin{align}
-	\p(B_i|A) &= \frac{\p(A\cap B_i)}{\p(A)}\\
-	&= \frac{\p(A|B_i)\p(B_i)}{\p(A)}\\
-	&\stackrel{\ref{tot_wkeit}}{=} \frac{\p(A|B_i)\p(B_i)}{\sum\limits_{l=1}^k \p(A|B_l)\p(B_l)}
-\end{align}
+%\section{Bedingte Wahrscheinlichkeiten}
+%Die \emph{bedingte Wahrscheinlichkeit von $A$ gegeben $B$} ist definiert als:
+%\begin{equation*}
+%	\p(A|B) = \frac{\p(A\cap B)}{\p(B)}
+%\end{equation*}
+%"$\p(A|B)$ ist die Wahrscheinlichkeit für das Ereignis $A$, wenn wir \emph{wissen}, dass das Ereignis $B$ schon eingetroffen ist."\\
+%Rechenregeln:
+%\begin{align*}
+%	0 &\leq \p(A|B) \leq 1
+%	\shortintertext{für jedes Ereignis $A$}
+%	\p(B|B) &= 1\\
+%	\p(A_1 \cup A_2|B) &= \p(A_1|B)+\p(A_2|B)
+%	\shortintertext{für $A_1$, $A_1$ disjunkt}
+%	\p(A^c|B)&=1-\p(A|B)
+%\end{align*}
+%Allgemein gilt: $\p(\bullet|B)$ ist W'keit mit allen Regeln, $\p(A|\bullet)$ nicht.\\
+%Weiterhin gilt:
+%\begin{equation*}
+%	\label{1_6}
+%	\p(A\cap B)=\p(A|B)\p(B)=\p(B|A)\p(A)
+%\end{equation*}
+%Deshalb können wir \emph{Unabhängigkeit} auch definieren als:
+%\begin{equation*}
+%	A, B \textrm{unabhängig} \Leftrightarrow \p(A|B)=\p(A) \Leftrightarrow \p(B|A)=\p(B)
+%\end{equation*}
+%D.h. die Wahrscheinlichkeiten ändern sich nicht, wenn das andere Ereignis schon eingetreten ist.\\
+%Achtung, im Allgemeinfall gilt:
+%\begin{align*}
+%	\p(A|B) &\neq \p(B|A)\\
+%	\p(A|B^c) &\neq 1-\p(A|B)
+%\end{align*}
+%
+%\section{Satz der totalen Wahrscheinlichkeit}
+%Haben $k$ disjunkte Ereignisse $B_1,\cdots,B_k$ mit $B_1\cup \cdots \cup B_k = \Omega$, d.h. "alle möglichen Fälle sind abgedeckt", dann gilt:
+%\begin{equation*}
+%	\label{tot_wkeit}
+%	\p(A)\stackrel{(A3)}{=}\sum\limits_{i=1}^k\p(A\cap B_i)\stackrel{(\ref{1_6})}{=}\sum\limits_{i=1}^k \p(A|B_i)\p(B_i)
+%\end{equation*}
+%
+%\section{Satz von Bayes}
+%Haben wieder $k$ disjunkte Ereignisse $B_1,\cdots,B_k$ mit $B_1\cup \cdots \cup B_k = \Omega$, d.h. "alle möglichen Fälle sind abgedeckt", dann gilt:
+%\begin{align*}
+%	\p(B_i|A) &= \frac{\p(A\cap B_i)}{\p(A)}\\
+%	&= \frac{\p(A|B_i)\p(B_i)}{\p(A)}\\
+%	&\stackrel{\ref{tot_wkeit}}{=} \frac{\p(A|B_i)\p(B_i)}{\sum\limits_{l=1}^k \p(A|B_l)\p(B_l)}
+%\end{align*}

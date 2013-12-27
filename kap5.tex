@@ -1,0 +1,58 @@
+\chapter{Gemeinsame und bedingte Wahrscheinlichkeiten}
+Oft besteht ein Zufallsexperiment aus verschiedenen Stufen, und amn erfährt das Resultat auch entsprechend diesen Stufen. Im einfachsten Fall erfährt man in der ersten Stufe, ob ein bestimmtes Ereignis $B$ eingetreten ist oder nicht, und in der zweiten Stufe erfährt man, welches Ergebnis $\omega$ eingetreten ist.
+\section{Bedingte Wahrscheinlichkeit}
+Im allgemeinen wird die information aus der ersten Stufe die Unsicherheit über die zweite Stufe verändern, Dies modifizierten Unsicherheit wird gemessen durch die \emph{bedingte Wahrscheinlichkein von $A$ gegeben $B$ bzw. $B^c$} definiert durch
+\begin{align*}
+	\p(A\mid B)&\coloneqq \frac{\p(A\cap B)}{\p(B)}
+	\shortintertext{bzw.}
+	\p(A\mid B^c)&\coloneqq \frac{\p(A\cap B^c)}{\p(B^c)}.
+\end{align*}
+Dass diese Definition sinnvoll ist, kann man anhand der Entsprechung von Wahrscheinlichkeiten und relativen Häufigkeiten sehen. Insbesondere gilt für 2 Ereignisse $A,B$ mit $\p(A)\neq 0$ und $\p(B)\neq 0$:
+\begin{align*}
+	&A,B \text{ unabhängig}\\
+	\Leftrightarrow\quad& \p(A\mid B)= \p(A)\\
+	\Leftrightarrow\quad& \p(B\mid A)=\p(B).
+\end{align*}
+\section{Satz der totalen Wahrscheinlichkeit und Satz von Bayes}
+Die obige Definition kann man aber auch als 
+\begin{gather*}
+	\p(A\cup B)=\p(A\mid B)P(B)
+\end{gather*}
+lesen, d.h. $\p(A\cup B)$ ist bestimmt durch $\p(A\mid B)$ und $\p(B)$. In vielen Anwendungen wird dieser Weg beschritten. Man legt die Wahrscheinlichkeiten für die erste Stufe $\p(B)$ und die bedingten Wahrscheinlichkeiten $\p(A\mid B)$ und $\p(A\mid B^{c})$ für die zweite Stufe gegeben die erste fest (aufgrund von Daten, Plausibilität und subjektiven Einschätzungen). Dann lassen sich die übrigen Wahrscheinlichkeiten berechnen. Es gilt zum beispiel der folgende Satz:
+\begin{satz}[Satz der tot. Wahrsch.keit I]
+	\begin{align*}
+		\p(A)&=\p(A\cup B)+ \p(A\cup B^c)\\
+		&= \p(A\mid B)\p(B)+\p(A\mid B^{c})\p(B^c)
+	\end{align*}
+\end{satz}
+Dieses Vorgehen wird besonders anschaulich, wenn man das Experiment als Baum darstellt. Wenn man dagegen von den Wahrscheinlichkeiten der Durchschnitte ausgeht, wählt man besser eine Matrixdarstellung.
+
+Wenn die einzelnen Stufen komplizierter sisdn, geht alles analog. Betrachte den Fall mit $k$ Ereignissen auf der ersten Stufe $B_1,\ldots,B_k$, wobei $B_i\cup B_j=\varnothing$ falls $i\neq j$ und $B_1\cup \cdots \cup B_k=\Omega$.
+\begin{satz}[Satz der tot. Wahrsch.keit II]
+	\begin{gather*}
+		\p(A)=\sum_{i=1}^{k}\p(A\mid B_i)\p(B_i).
+	\end{gather*}
+\end{satz}
+In manchen Situationen erhält man die Information über die verschiedenen Stufen aber nicht in der ursprünglichen Reihenfolge, d.h. man kennt zuerst das Ergebnis der zweiten Stufe, weiss also z.B. dass $A$ eingetreten ist. in einem solchen Fall will man die bedingten Wahrscheinlichkieten der ersten Stufe gegeben die zweite Stufe $\p(B_i\mid A)$ berechnen. Das Ergebnis liefert der folgende Satz:
+\begin{satz}[Satz von Byes]
+	\begin{multline*}
+		\p(B_i\mid A)\\=\frac{\p(A\mid B_i)\p(B_i)}{\p(A\mid B_1)\p(B_1)+ \cdots+ \p(A\mid B_k)\p(B_k)}.
+	\end{multline*}
+\end{satz}
+Oft ist das numerische Resultat einer solchen Berechnung stark verschieden von dem, was man naiverweise erwartet. Der Satz von Bayes ist vor allem in der subjektiven Wahrscheinlichkeitstheorie sehr wichtig: Wenn man für die verschiedenen Möglichkeiten $B_1,\cdots,B_k$ subjektive Wahrscheinlichkeiten festlegt und danach erfährt, dass $A$ eingetreten ist, dann muss man die subjektiven Wahrscheinlichkeiten gemäss diesem Satz modifizieren.
+\section{Gemeinsame und bedingte diskrete Verteilungen}
+Die beiden, obig beschriebenen Stufen können auch ducrh Zufallsvariablen $X$ und $Y$ gegeben sein. Die gemeinsame Verteilung zweier diskreter Zufallsvariablen $X$ und $Y$ ist eindeutig charakterisiert durch ihre \emph{gemeinsame Wahrscheinlichkeitsfunktion von $X$ und $Y$}, d.h. die Werte
+\begin{align*}
+	\p(X=x,Y=y), \qquad x\in W_{X}, y\in W_{Y}
+	\intertext{weshalb diese dann auch (eigentlich fälschlicherweise) die gemeinsame Verteilung von $X$ und $Y$ genannt wird. In diesem \glqq gemeinsamen\grqq\ Zusammenhang nennt man die einzelnen Verteilungen $\p(X=x), x\in W_X$ von $X$ und $\p(Y=y), y\in W_y$ von $Y$ die \emph{Randverteilungen (der gemeinsamen Zufallsvariable $(X,Y)$)}, sie lassen sich aus der gemeinsamen Verteilung berechnen durch}
+	\p(X=x)=\sum_{y\in W_y}^{}\p(X=x,Y=y)
+	\intertext{und analog für $Y$. Aus den randverteilungen auf die gemeinsame Verteilung zu schliessen geht \emph{nur} im Falle der Unabhängigkeit von $X$ und $Y$, denn es gilt: Zwei diskrete Zufallsvariablen $X$ und $Y$ sind unabhängig genau dann wenn}
+	\p(X=x,Y=y)&=\p(X=x)\p(Y=y),\qquad x\in W_X,y\in W_y.
+	\intertext{In diesem Fall ist die gemeinsame Verteilung durch die Randverteilungen vollständig bestimmt und man erhält sie einfach durch Multiplikation. Schlussendlich defiiniert man noch die \emph{bedingte Verteilung von $X$ gegeben $Y=y$} durch die Werte}
+	& \p(X=x\mid X=y),\qquad x\in W_{y}.
+	\intertext{Der Satz von der totalen Wahrscheinlichkeit lässt sich dann schreiben als}
+	\p(X=x)=\sum_{y\in W_{Y}}^{}\p(X=x\mid Y=y)\p(Y=y)
+\end{align*}
+und kommt immer dann zum Einsatz wenn man die Verteilung von $X$ berechnen will, aber nur dessen bedingte Verteilung gegeben $Y$ und die Verteilung von $Y$ kennt.
+
+Bei mehr als zwei STufen bzw. Zufallsvariablen geht alles analog. Die Bäume werden einfach länger und die Matrizen werden zu Feldern in höheren Dimensionen. Das Ganze wird aber sehr rasch unübersichtlich, und es gibt sehr viele Wahrscheinlichkeiten, die man zu Beginn festlegen muss. Eine wesentliche Vereinfachung erhält man, wenn man annimmt, dass jede STu zwar von der unmittelbar vorangehenden, aber nicht von den weiter zurückliegenden Stufen abhängt. Das fühlt auf die sogenannten \emph{Markovketten}, deren Verhalten durch eine Startverteilung und eine Übergangsmatrix gegeben ist.

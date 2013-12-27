@@ -1,0 +1,4 @@
+- added E, V, Uni operator
+- changed \text{exp} to \exp (natively implemented)
+- changed dx to \dd{x} \rd also possible, but please use the upright d
+- changed class to article -> no page break before new chapter

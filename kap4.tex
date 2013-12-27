@@ -1,0 +1,73 @@
+\chapter{Mehrere Zufallsvariablen und Funktionen davon}
+Das Ziel ist hier, Genaueres über den Unterschied von $\p(A)$ und der relative Häufigkeit $f_N[A]$ respektive von $A$, respektive von $\E(X)$ und dem arithmetischen Mittel, bei $n$ Wiederholungen zu sagen.
+\section{Die i.i.d. Annahme}
+Dabeid müssen wir präzisieren was eine \glqq Wiederholung\grqq\ ist. Die $n$-fache Wiederholung eines Zufallsexperimentes ist selber wieder ein Zufallsexperiment. Wenn $A$ ein Ereignis im urpsrünglichen Experiment ist, bezeichnen wir mit $A_i$ das Ereignis \glqq $A$ tritt bei der $i$-ten Wiederholung ein\grqq. Dann ist es sinnvoll, folgendes anzunehmen:
+\begin{compactitem}
+	\item $A_1,\ldots,A_n$ sind unabhängig: Unabhängigkeit der Ereignisse
+	\item $\p(A_1)=\ldots = \p(A_n)=\p(A)$: gleiche Wahrscheinlichkeiten\\
+\end{compactitem}
+Ebenso, wenn $X$ die ursprüngliche Zufallsvariable ist, dann soll $X_i$ die Zufallsvariable der $i$-ten Wiederholung bezeichnen. Die \emph{i.i.d.} Annahme verlangt folgendes:
+\begin{compactitem}
+	\item $X_1,\ldots,X_n$ sind unabhängig
+	\item alle $X_i$ haben dieselbe Verteilung
+\end{compactitem}
+Die Abkürzung \glqq i.i.d.\grqq\ kommt vom Englischen: \emph{i}ndependent and \emph{i}dentically \emph{d}istributed. Unabhängigkeit von Zufallsvariablen heisst, dass zum Beispiel
+\begin{gather*}
+	\p(X_i\in A\text{ und }X_j\in B)= \p(X_i\in A)\p(X_j\in B)
+\end{gather*}
+für alle $i\neq j$ und für all $A\subseteq \mathbb{R}, B\subseteq \mathbb{R}$, und analog für Trippel etc. Die i.i.d. ANnahme ist ein \glqq Postulat\grqq, welches in der Praxis in vielen Fällen vernünftig scheint. Die Annahme bringt erhebliche Vereinfachungen um mit mehreren Zufallsvariablen zurechnen.
+\section{Funktionen von Zufallsvariablen}
+Ausgehend von $X_1,\ldots,X_n$ kann man neue Zufallsvariablen 
+\begin{align*}
+	Y&=g(X_1,\ldots,X_n)
+	\intertext{bilden. Hier betrachten wir die wichtigen Spezialfälle Summe}
+	S_n&=X_1+\cdots+X_n
+	\intertext{und arithmetisches Mittel}
+	\overline{X}_n&=\frac{S_n}{n}
+\end{align*}
+Wir nehmen stets an, dass $X_1,\ldots,X_n$ i.i.d. sind.
+Wenn $X_i=1$ falls ein bestimmtes Ereignis bei der $i$-ten Wiederholung eintritt und $X_i=0$ sonst, dann ist $\overline{X}_n$ nichts anderes als die relative Häufigkeit dieses Ereignisses. Die Verteilung von $S_n$ ist im allgemeinen schwierig exakt zu bestimmen, mit den folgenden Ausnahmen:
+\begin{compactenum}[1.]
+	\item Wenn $X_i\in \left\{ 0,1 \right\}$ wie oben, dann ist $S_n \sim \bin(n,p)$ mit $p=\p(X_i=1)$.
+	\item Wenn $X_i\sim \poi(\lambda)$, dann ist $S_n\sim \poi(n\lambda)$.
+	\item Wenn $X_i\sim \mathcal{N}(\mu,\sigma^2)$, dann ist $S_n\sim \text{TODO}$ (normal$n\mu n \sigma^2$)
+\end{compactenum}
+Einfacher sind die Berechnungen von Erwartungswert, Varianz und Standardabweichung, allgemein gilt
+\begin{align*}
+	\E(S_n)&=n\E(X_i),& \E(\overline{X}_n)&=\E(X_i);\\
+	\V(S_n)&=n\V(X_i),& \V(\overline{X}_n)&=\frac{1}{n}\V(X_i);\\
+	\sigma_{S_n}&=\sqrt{n}\sigma_{X_i},& \sigma_{\overline{X}_n}&=\frac{1}{\sqrt{n}}\sigma_{X_i}.
+\end{align*}
+Die Streuung der Summe wächst also, aber langsamer als die Anzahl Beobachtungen, während die Streuung des arithmetischen Mittels abnimmt, aber ebenfalls langsamer als die Anzahl Beobachtungen. Um die Genauigkeit des arithmetischen Mittels zu verdoppeln (d.h. die Standardabweichung zu halbieren), braucht man viermal soviele Beobachtungen. Die zufälligen Abweichungen von $\overline{X}_n$ zum Erwartungswert $\E(X)$ kompensieren sich in dem Sinne, dass $\sigma_{\overline{X}_n}$ abnimmt mit der Ordnung $1/\sqrt{n}$ wenn $n$ wächst.
+\section{Das Gesetz der Grossen Zahlen und der Zentrale Grenzwertsatz}
+Von den obigen Formeln über Erwartungswert und Varianz wissen wir, dass:
+\begin{compactenum}[1.]
+	\item $\E(\overline{X}_n)=\E(X_i)$: das heisst $\overline{X}_n$ hat denselben Erwartungswert wie die einzelnen Variablen $X_i$.
+	\item $\V(\overline{X}_n)\xrightarrow{n\to\infty} 0$: das heisst, $\overline{X}_n$ besitzt keine Variabilität mehr im Limes.
+\end{compactenum}
+Diese beiden Punktu implizieren den folgenden Satz.
+\begin{satz}[Gesetz der Grossen Zahlen]
+	Seien $X_1,\ldots,X_n$ i.i.d. mit Erwartungswert $\mu$. Dann
+	\begin{align*}
+		\overline{X}_n\xrightarrow{n\to\infty}\mu.
+		\intertext{Als Spezialfall davon gilt:}
+		f_n[A]\xrightarrow{n\to \infty}\p(A).
+	\end{align*}
+	(Der Begriff der Konvergenz muss für Zufallsvariablen geeignet definiert werden).
+\end{satz}
+Zur Berechnung der genäherten \emph{Verteilung} von $S_n$ und $\overline{X}_n$ (dies ist ein bedeutend präziseres Resultat als das GGZ) stützt man sich auf den folgenden berühmten Satz.
+\begin{satz}[Zentraler Grenzwertsatz (ZGS)]
+	Seien $X_1,\ldots, X_n$ i.i.d. mit Erwartungswert $\mu$ und Varianz $\sigma^2$, dann ist
+	\begin{align*}
+		S_n&\approx \mathcal{N}(n\mu,n\sigma^2),\\
+		\overline{X}_n&\approx \mathcal{N}\!\left( \mu,\frac{\sigma^2}{n} \right),
+	\end{align*}
+	für grosse $n$.
+\end{satz}
+Wie gut diese Approximationen für ein gegebenes $n$ sind, hängt von der Verteilung der $X_i$ ab. Mit der sogenannten \emph{Chebychev-Ungleichung}
+\begin{gather*}
+	\p\!\left( \abs{\overline{X}_n-\mu}>c \right)\leq \frac{\sigma^2}{nc^)}
+\end{gather*}
+ist man stets auf der sicheren Seit. Dafür ist diese aber meistens ziemlich grob.
+
+Immer wenn eine Zufallsvariable als eine Summe von vielen kleinen Effekten aufgefasst werden kann, ist sie wegen des Zentralen Grenzwertsatzes in erster Näherung normalverteilt. Das wichtigse Beispiel dafür sind Messfehler. Wenn sich die Effekte eher multiplizieren als addieren lassen, kommt man zur lognormal-Verteilung (Beispiel Teilchengrößsen).
