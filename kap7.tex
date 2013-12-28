@@ -1,0 +1,39 @@
+\chapter{Deskriptive Statistik}
+In der \emph{Statistik} will man aus beobachtetet Daten Schlüsse ziehen. Meist nimmt man an, dass die Daten Realisierungen von Zufallsvariablen sind (siehe Kapitel \ref{sec8.1}), deren Verteilung man aufgrund der Daten bestimmen möchte. Als erste Schritt geht es aber zunächst einmal darum, die vorhandenen Daten übersichtlich darzustellen und zusammenzufassen. Dies ist das Thema der \emph{beschreibenden} oder \emph{deskriptiven Statistik}.
+\section{Kennzahlen}
+Für die numerische Zusammenfassung von Daten gibt es diverse Kennzahlen. das \emph{arithmetische Mittel} ist
+\begin{align*}
+	\overline{x}&= \frac{1}{n}\left( x_1+\cdots +x_n \right)
+	\intertext{als Kennzahl für die Lage der Daten. Die \emph{empirische Standardabweichung} ist die Wurzel aus der \emph{empirischen Varianz}}
+	s^2&=\frac{1}{n-1}\sum_{i=1}^{n}\left( x_i-\overline{x} \right)^2,
+\end{align*}
+als Kennzahl für die Streuung der Daten. (Eine Begründung für den Nenner $n-1$ statt $n$ folgt später.) \\
+Um weitere Kennzahlen zu definieren, führen wir die geordneten Werte
+\begin{gather*}
+	x_{(1)}\leq x_{(2)}\leq x_{(n)}
+\end{gather*}
+ein. Das \emph{empirische $\alpha$-Quantil} ($0<\alpha<1$) ist
+\begin{gather*}
+	x_{(k)}, k\text{ die kleinste ganze Zahl}> \alpha n.
+\end{gather*}
+Wenn $\alpha n$ eine ganze Zahl ist, nimmt man $\frac{1}{2}\left( x_{(\alpha n)}+x_{\left( \alpha n +1 \right)} \right)$. Der \emph{empirische Median} ist ads 50\%-Quantil und ist eine Kennzahl für die Lage. Die Quartilsdifferenz ist das empirische 75\%-QUantil minus empirisches 25\%-Quantil und ist eine Kennzahl für die Streuung.
+
+Einen ganz anderen Aspekt erfasst man, wenn man die werte gegen den Beobachtungszeitpunkt aufträgt. Damit kann man Trends und andere Arten von systematischen Veränderungen in der Zeit erkennen.
+\section{Histogramm und Boxplot}
+Wenn man $n$ Werte $x_1,\ldots,x_n$ einer Variablen hat, dann gibt es als grafische Darstellungen das \emph{Histogramm}, den \emph{Boxplot} und die empirische \emph{kumulative Verteilungsfunktion}. 
+
+Beim Histogramm bilden wir Klassen $(c_{k-1},c_k)$ und berechnen die Häufigkeiten $h_k=$\#Werte in diesem Intervall. Dann träggt man über den Klassen Balken auf, deren Höhe \emph{proportional} ist zu $h_k/(c_k-c_{k-1})$ ist.
+
+Beim Boxplot hat man ein Rechteck, das von 25\%- und vom 75\%-Quantil begrenzt ist, und Linien, die von diesem Rechteck bis zum kleinsten- bzw. grössten \glqq normalen \grqq Wert gehen (per Definition ist ein normaler wert höchstens 1.5 mal die QUartilsdifferenz von einem der beiden Quartile). Zusätzlich gibt man noch Ausreisser durch Sterne und den Median durch einen Strich an. Der Boxplot ist vor allem dann geeignet, wenn man die Verteilungen einer Variablen in verschiedenen Gruppen (die im allgemeinen verschiedenen Versuchsbedingungen entsprechen) vergleichen will.
+springt. Für eine glattere Version verbindet man die Punkte $(x_{(i)},(i-0.5)/n)$
+Die empirische Verteilungsfunktion ist eine Treppenfunktion, die an den Stellen $x_{(i)}$ von $(i-1)/n$ auf $i/n$ durch Strecken.
+\section{Normal- und QQ-Plot}
+Der Normal- und QQ-Plot (\glqq Quantil-Quantil-Plot\grqq) sind of viel geeignetere grafische Mittel als die empirische kumulative Verteilungsfunktion.
+
+Die empirische Quantile für $\alpha_k=(k-0.5)/n$ sind gerade die geordneten Beobachtungen $x_{(k)}$ $(x_{(1)}\leq x_{(2)}\leq \cdots \leq x_{(n)})$. Der QQ-Plot trägt die Punkte $F^{-1}(\alpha_k)$ (die theoretischen Quantile einer kumulativen Verteilung $F$) gegen $x_{(k)}$ (die empirischen Quantile) auf. Wir interpretieren die Daten $x_1,\ldots,x_n$ als Realisierungen von $X_1,\ldots,X_n$ i.i.d. $\sim \tilde{F}$, siehe \ref{sec8.1}. Falls nun die wahre Verteilung $\tilde{F}$ mit der gewählten Verteilung $F$ in QQ-Plot übereinstimmt, so liefert der QQ-Plot approximativ eine Gerade durch Null mit Steigung 45 Grad. Man kann also Abweichungen der Daten von einer gewählten Modell-Verteilung so grafisch überprüfen.
+
+Der Normal-Plot ist ein QQ-Plot wo die Modell-Verteilung $F$ die Standard-Normalverteilung $\mathcal{N}(0,1)$ ist. Es gilt dann das folgende: Wenn die wahre Verteilung $\tilde{F}$ eine Normalverteilung $\mathcal{N}(\mu,\sigma^2)$ ist, so liefert der Normal-Plot approximativ eine Gerade, welche jedoch im allgemeinen nicht durch Null und nicht Steigung 45 Grad hat. Das heisste: Der Normal-Plot liefert eine gute Überprüfung für irgendeine Normalverteilung, auch wenn die Model-Verteilung als Standard-Normal gewählt wird.
+
+In Normal- und QQ-Plot kann man insbesondere sehen, ob eine Transformation der Daten angebracht ist, oder ob es Ausreisser gibt, die man besonders behandeln sollte.
+
+Im Grunde genommen ist der QQ-Plot bereits mehr als bloss deskriptive Statistik: Es ist ein grafisches Werkzeug um eventuelle Abweichungen von einem Modell festzustellen: Vergleiche mit dem Formalismus des statistischen Tests in Kapitel \ref{sec8.3}.

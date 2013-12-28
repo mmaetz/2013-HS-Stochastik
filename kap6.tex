@@ -125,35 +125,3 @@ wird $\Sigma$ eine Diagonalmatrix und man kann nachrechnen dass dann die Bedingu
 Alle diese Begriffe und Definitionen lassen sich natürlich auf mehr als zwei Zufallsvariablen verallgemeinern. Die Formeln sehen im wesentlichen gleich aus, vor allem wenn man die Sprache der Linearen Algebra verwendet.
 
 \emph{Ausblick:} Wenn man eine dynamische Grösse während eines Zeitintervalls misst, erhält man einen stochastischen Prozess $\left\{ X(t); t\in \left[ a,b \right] \right\}$. Die linearen Abhängigkeiten zwischen den Werten zu verschiedenen Zeitpunkten werden dann durch die sogenannte \emph{Autokovarianzfunktion} beschrieben.
-\chapter{Deskriptive Statistik}
-In der \emph{Statistik} will man aus beobachtetet Daten Schlüsse ziehen. Meist nimmt man an, dass die Daten Realisierungen von Zufallsvariablen sind (siehe Kapitel \ref{sec8.1}), deren Verteilung man aufgrund der Daten bestimmen möchte. Als erste Schritt geht es aber zunächst einmal darum, die vorhandenen Daten übersichtlich darzustellen und zusammenzufassen. Dies ist das Thema der \emph{beschreibenden} oder \emph{deskriptiven Statistik}.
-\section{Kennzahlen}
-Für die numerische Zusammenfassung von Daten gibt es diverse Kennzahlen. das \emph{arithmetische Mittel} ist
-\begin{align*}
-	\overline{x}&= \frac{1}{n}\left( x_1+\cdots +x_n \right)
-	\intertext{als Kennzahl für die Lage der Daten. Die \emph{empirische Standardabweichung} ist die Wurzel aus der \emph{empirischen Varianz}}
-	s^2&=\frac{1}{n-1}\sum_{i=1}^{n}\left( x_i-\overline{x} \right)^2,
-\end{align*}
-als Kennzahl für die Streuung der Daten. (Eine Begründung für den Nenner $n-1$ statt $n$ folgt später.) \\
-Um weitere Kennzahlen zu definieren, führen wir die geordneten Werte
-\begin{gather*}
-	x_{(1)}\leq x_{(2)}\leq x_{(n)}
-\end{gather*}
-ein. Das \emph{empirische $\alpha$-Quantil} ($0<\alpha<1$) ist
-\begin{gather*}
-	x_{(k)}, k\text{ die kleinste ganze Zahl}> \alpha n.
-\end{gather*}
-Wenn $\alpha n$ eine ganze Zahl ist, nimmt man $\frac{1}{2}\left( x_{(\alpha n)}+x_{\left( \alpha n +1 \right)} \right)$. Der \emph{empirische Median} ist ads 50\%-Quantil und ist eine Kennzahl für die Lage. Die Quartilsdifferenz ist das empirische 75\%-QUantil minus empirisches 25\%-Quantil und ist eine Kennzahl für die Streuung.
-
-Einen ganz anderen Aspekt erfasst man, wenn man die werte gegen den Beobachtungszeitpunkt aufträgt. Damit kann man Trends und andere Arten von systematischen Veränderungen in der Zeit erkennen.
-\section{Histogramm und Boxplot}
-Wenn man $n$ Werte $x_1,\ldots,x_n$ einer Variablen hat, dann gibt es als grafische Darstellungen das \emph{Histogramm}, den \emph{Boxplot} und die empirische \emph{kumulative Verteilungsfunktion}. 
-
-Beim Histogramm bilden wir Klassen $(c_{k-1},c_k)$ und berechnen die Häufigkeiten $h_k=$\#Werte in diesem Intervall. Dann träggt man über den Klassen Balken auf, deren Höhe \emph{proportional} ist zu $h_k/(c_k-c_{k-1})$ ist.
-
-Beim Boxplot hat man ein Rechteck, das von 25\%- und vom 75\%-Quantil begrenzt ist, und Linien, die von diesem Rechteck bis zum kleinsten- bzw. grössten \glqq normalen \grqq Wert gehen (per Definition ist ein normaler wert höchstens 1.5 mal die QUartilsdifferenz von einem der beiden Quartile). Zusätzlich gibt man noch Ausreisser durch Sterne und den Median durch einen Strich an. Der Boxplot ist vor allem dann geeignet, wenn man die Verteilungen einer Variablen in verschiedenen Gruppen (die im allgemeinen verschiedenen Versuchsbedingungen entsprechen) vergleichen will.
-springt. Für eine glattere Version verbindet man die Punkte $(x_{(i)},(i-0.5)/n)$
-Die empirische Verteilungsfunktion ist eine Treppenfunktion, die an den Stellen $x_{(i)}$ von $(i-1)/n$ auf $i/n$ durch Strecken.
-\chapter{Schliessende Statistik:Konzepte und erste Anwendungen für diskrete Zufallsvariablen}
-\section{Daten als Realisierungen von Zufallsvariablen}
-\label{sec8.1}
