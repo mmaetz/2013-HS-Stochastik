@@ -1,0 +1,159 @@
+\chapter{Gemeinsame und bedingte stetige Verteilungen}
+\label{kap6}
+Bei zwei oder mehreren stetigen Zufallsvariablen kann die gemeinsame und bedingte Verteilung nicht mehr mit Bäumen oder Matrizen dargestellt werde wie in Kapitel 5.
+Bei zwei oder mehreren stetigen Zufallsvariablen kann die gemeinsame und bedingte Verteilung nicht mehr mit Bäumen oder Matrizen dargestellt werden wie in Kapitel \ref{kap5}.
+\section{Gemeinsame Dichte}
+Die gemeinsame Dichte $f_{x,Y}(\cdot,\cdot)$ von zwei stetigen Zufallsvariablen $X$ und $Y$ ist gegeben, in \glqq Ingenieurnonation\grqq, durch
+\begin{multline*}
+	\p(x\leq X\leq x+\dd{x}, y\leq Y\leq y+\dd{y})\\=f_{X,Y}(x,y)\rd x \rd y.
+\end{multline*}
+(Die Darstellugn als Ableitung einer geeigneten kumulativen Verteilungsfunktion ist nicht sehr instruktiv.) daraus kann man allgemein Wahrscheinlichkeiten durch Integration berechnen:
+\begin{gather*}
+\p\!\left( (X,Y)\in A \right)=\iint_{A}\!\dd{x}\dd{y}\, f_{X,Y}(x,y)
+\end{gather*}
+\section{Randdichte und bedingte Dichte}
+Aus der gemeinsamen Dichte erhält man insbesondere die Randdichte von $X$ bzw. $Y$
+\begin{align*}
+	f_{X}(x)&=\int_{-\infty}^{\infty}\!\dd{y}\, f_{X,Y}(x,y),\\
+	f_{Y}(y)&=\int_{-\infty}^{\infty}\! \dd{x}\, f_{X,Y}(x,y).
+	\intertext{Für die bedingte Verteilung von $Y$ gegeben $X=x$ wird die bedingte Dichte benützt, definiert durch}
+	f_{Y\mid X=x}(y)&\coloneqq f_{Y}(y\mid X=x)\\
+	&\coloneqq \frac{f_{X,Y}(x,y)}{f_{X}(x)}
+\end{align*}
+Aus den obigen Definitionen ist klar, dass all wahrscheinlichkeitstheoretischen Aspekte von 2 Zufallsvariablen $X$ und $Y$ durch deren gemeinsame Dichte $f_{X,Y}$ vollständig bestimmt sind. $X$ und $Y$ sind unabhängig genau dann wenn
+\begin{gather}
+	f_{X,Y}(x,y)=f_{X}(x)f_{Y}(y), \qquad x,y \in \mathbb{R}^2.
+	\label{eq:unabh}
+\end{gather}
+In diesem Fall genügt das Konzept von 1-dimensionalen Dichten: die gemeinsame Dichte kann dann sehr einfach mittels Multiplikation berechnet werden.
+\section{Erwartungswert bei mehreren Zufallsvariablen}
+Der Erwartungswert macht nur Sinn für eine $\mathbb{R}$-wertige Gröss (oder Teilmenge von $\mathbb{R}$). Den Erwartungswert einer transformierten Zufallsvariable $Z=g(X,Y)$ mit $g:\mathbb{R}^2\to \mathbb{R}$ können wir berechnen als
+\begin{align*}
+	\E(g(X,Y))&=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\!\rd x\rd y \, g(x,y)f_{X,Y}(x,y)
+	\intertext{Im diskreten Fall lautet die entrpechende Formel:}
+	\E(g(X,Y))&=\sum_{i,j}^{}g(x_i,y_j)\p(X=x_i,Y=y_j).
+	\intertext{Der Erwartungswert von der einen Zufallsvariablen $Y$ gegen $X=x$ ist gegeben durch}
+	\E(Y\mid X=x)&=\int_{-\infty}^{\infty}\rd y \, y f_{Y\mid X=x}(y)
+\end{align*}
+\section{Kovarianz und Korrelation}
+Da die gemeinsame Verteilung von abhängigen Zufallsvariablen i.A. kompliziert ist, begnügt man sich oft mit einer \emph{vereinfachenden} Kennzahl zur Beschreibung der Abhängigkeit. Die \emph{Kovarianz von $X$ und $Y$} sowie \emph{Korrelation von $X$ und $Y$} sind wie folgt definiert:
+\begin{align*}
+	\cov(X,Y)&\coloneqq \E\!\left( (X-\mu_{X})(Y-\mu_{Y}) \right),\\
+	\corr(X,Y)&\coloneqq \rho_{XY}\\
+	&\coloneqq \frac{\cov(X,Y)}{\sigma_{X}\sigma_{Y}}
+\end{align*}
+Unmittelbar aus der Definition folgt sofort
+\begin{align*}
+	\cov(X,Y)=\E(XY)-\E(X)\E(Y),
+	\intertext{sowie di wichtige Formel}
+	\cov(X,Y)=\E(XY)-\E(X)\E(Y),
+\end{align*}
+zur praktischen Berechnung der Kovarianz. Weiter ist die Kovarianz \emph{bilinear}, d.h. es gilt
+\begin{multline*}
+	\cov\!\left( \sum_{i=1}^{m}a_iX_i,\sum_{j=1}^{n}b_jY_j \right)\\
+	=\sum_{i=1}^{m}\sum_{j=1}^{n}a_ib_j\cov(X_i,Y_j)
+\end{multline*}
+und symmetrisch, d.h.
+\begin{gather*}
+	\cov(X,Y)=\cov(Y,X)
+\end{gather*}
+womit wir nun auch in der Lage sind die Varianz von Linearkombinationen von Zufallsvariablen elegant auszudrücken, es gilt nämlich
+\begin{align*}
+	\V\!\left( \sum_{i=1}^{m}X_i \right)
+	&=\sum_{i=1}^{m}\V(X_i)\\&\quad+2\sum_{\substack{i,j=1\\i<j}}^{m}\cov(X_i,X_j).
+\end{align*}
+falls die $X_i$ unabhängig (oder noch allgemeiner unkorreliert) sind vereinfacht sich diese Formel zu
+\begin{align*}
+	\V(X_1+\cdots+X_m)&=\V(X_1)+\cdots +\V(X_m)
+	\intertext{$X_1,\ldots,X_n$ \emph{unabhängig}.}
+	\cov(a+bX,c+dY)&=bd\cov(X,Y),\\
+	\corr(a+bX,c+dY)&=\sgn(b)\sgn(d)\\
+	&\quad\cdot\corr(X,Y);\\
+	V(X+Y)&=\V(X)+\V(Y)\\
+	&\quad+2\cov(X,Y)
+\end{align*}
+Die Korrelation misst Stärke und Richtung der \emph{linearen Abhängigkeit zwischen $X$ und $Y$}. Es gilt
+\begin{align*}
+	\corr(X,Y)&=+1 &\Leftrightarrow \quad Y&=a+bX
+	\shortintertext{$\forall a\in \mathbb{R}, b>0$}
+	\corr(X,Y)&=-1 &\Leftrightarrow \quad Y&=a+bX
+\end{align*}
+	$\forall a\in \mathbb{R}, b<0$.\\
+Überdies gilt
+\begin{gather}
+	X\text{ und }Y\text{ unabhängig} \quad\Rightarrow\quad \corr(X,Y)=0.
+	\label{eq:unabhtocorr}
+\end{gather}
+Die Umkehrung gilt i.A. nicht. Ein Spezialfall, wo auch die Umkehrung gilt, wird in Kapitel \ref{sec6.6} diskutiert.
+\section{Linear Prognose}
+Bei der linearen Prognose von $Y$ gestützt auf $X$ macht man den Ansatz
+\begin{gather*}
+	\hat{Y}=a+bX
+\end{gather*}
+und bestimmt die Koeffizienten so, dass der mittlere quadratische Prognosefehler $\E\!\left(\left( Y-\hat{Y} \right)^2  \right)$ minimal wird. Man kann zeigen dass die Lösung dieses Optimierungsproblems gegeben ist durch
+\begin{align*}
+	\hat{Y}&=\mu_{Y}+\frac{\cov(X,Y)}{\V(X)}(X-\mu_X)\\
+	\E\!\left(\left( Y-\hat{Y} \right)^2  \right)
+	&=\left( 1-\rho_{XY}^{2} \right)\V(Y).
+\end{align*}
+\section{Zwei-dimensionale Normalverteilung}
+\label{sec6.6}
+Die wichtigste zweidimensionale Verteilung ist die Normalverteilung mit Erwartungswerten $(\mu_{X},\mu_Y)$ und Kovarianzmatrix $\Sigma$, wobei
+\begin{gather*}
+	\Sigma=
+	\begin{pmatrix}
+		\V(X)&\cov(X,Y)\\
+		\cov(X,Y)&\V(Y)
+	\end{pmatrix}.
+	\end{gather*}
+Sie hat die Dichte
+\begin{multline*}
+	f_{X,Y}(x,y)=\frac{1}{2\pi\sqrt{\det(\Sigma)}}\\
+	 \cdot \exp\!\left( -\frac{1}{2}\left( x-\mu_X,y-\mu_Y \right)\Sigma^{-1}
+	\begin{pmatrix}
+		x-\mu_X\\
+		y-\mu_Y
+	\end{pmatrix}
+	\right)
+\end{multline*}
+Wir sehen von dieser Formel: Wenn 
+\begin{gather*}
+	\cov(X,Y)=0
+\end{gather*}
+wird $\Sigma$ eine Diagonalmatrix und man kann nachrechnen dass dann die Bedingung Gl. \ref{eq:unabh} gilt. Das heisst: Im Falle der zwei-dimensionalen Normalverteilung gilt auch die Umkehrung von Gl. \ref{eq:unabhtocorr}. Zudem: Die Rand- und bedingten Verteilungen sind wieder (1-dimensional) normal.
+\section{Mehr als 2 Zufallsvariablen}
+Alle diese Begriffe und Definitionen lassen sich natürlich auf mehr als zwei Zufallsvariablen verallgemeinern. Die Formeln sehen im wesentlichen gleich aus, vor allem wenn man die Sprache der Linearen Algebra verwendet.
+
+\emph{Ausblick:} Wenn man eine dynamische Grösse während eines Zeitintervalls misst, erhält man einen stochastischen Prozess $\left\{ X(t); t\in \left[ a,b \right] \right\}$. Die linearen Abhängigkeiten zwischen den Werten zu verschiedenen Zeitpunkten werden dann durch die sogenannte \emph{Autokovarianzfunktion} beschrieben.
+\chapter{Deskriptive Statistik}
+In der \emph{Statistik} will man aus beobachtetet Daten Schlüsse ziehen. Meist nimmt man an, dass die Daten Realisierungen von Zufallsvariablen sind (siehe Kapitel \ref{sec8.1}), deren Verteilung man aufgrund der Daten bestimmen möchte. Als erste Schritt geht es aber zunächst einmal darum, die vorhandenen Daten übersichtlich darzustellen und zusammenzufassen. Dies ist das Thema der \emph{beschreibenden} oder \emph{deskriptiven Statistik}.
+\section{Kennzahlen}
+Für die numerische Zusammenfassung von Daten gibt es diverse Kennzahlen. das \emph{arithmetische Mittel} ist
+\begin{align*}
+	\overline{x}&= \frac{1}{n}\left( x_1+\cdots +x_n \right)
+	\intertext{als Kennzahl für die Lage der Daten. Die \emph{empirische Standardabweichung} ist die Wurzel aus der \emph{empirischen Varianz}}
+	s^2&=\frac{1}{n-1}\sum_{i=1}^{n}\left( x_i-\overline{x} \right)^2,
+\end{align*}
+als Kennzahl für die Streuung der Daten. (Eine Begründung für den Nenner $n-1$ statt $n$ folgt später.) \\
+Um weitere Kennzahlen zu definieren, führen wir die geordneten Werte
+\begin{gather*}
+	x_{(1)}\leq x_{(2)}\leq x_{(n)}
+\end{gather*}
+ein. Das \emph{empirische $\alpha$-Quantil} ($0<\alpha<1$) ist
+\begin{gather*}
+	x_{(k)}, k\text{ die kleinste ganze Zahl}> \alpha n.
+\end{gather*}
+Wenn $\alpha n$ eine ganze Zahl ist, nimmt man $\frac{1}{2}\left( x_{(\alpha n)}+x_{\left( \alpha n +1 \right)} \right)$. Der \emph{empirische Median} ist ads 50\%-Quantil und ist eine Kennzahl für die Lage. Die Quartilsdifferenz ist das empirische 75\%-QUantil minus empirisches 25\%-Quantil und ist eine Kennzahl für die Streuung.
+
+Einen ganz anderen Aspekt erfasst man, wenn man die werte gegen den Beobachtungszeitpunkt aufträgt. Damit kann man Trends und andere Arten von systematischen Veränderungen in der Zeit erkennen.
+\section{Histogramm und Boxplot}
+Wenn man $n$ Werte $x_1,\ldots,x_n$ einer Variablen hat, dann gibt es als grafische Darstellungen das \emph{Histogramm}, den \emph{Boxplot} und die empirische \emph{kumulative Verteilungsfunktion}. 
+
+Beim Histogramm bilden wir Klassen $(c_{k-1},c_k)$ und berechnen die Häufigkeiten $h_k=$\#Werte in diesem Intervall. Dann träggt man über den Klassen Balken auf, deren Höhe \emph{proportional} ist zu $h_k/(c_k-c_{k-1})$ ist.
+
+Beim Boxplot hat man ein Rechteck, das von 25\%- und vom 75\%-Quantil begrenzt ist, und Linien, die von diesem Rechteck bis zum kleinsten- bzw. grössten \glqq normalen \grqq Wert gehen (per Definition ist ein normaler wert höchstens 1.5 mal die QUartilsdifferenz von einem der beiden Quartile). Zusätzlich gibt man noch Ausreisser durch Sterne und den Median durch einen Strich an. Der Boxplot ist vor allem dann geeignet, wenn man die Verteilungen einer Variablen in verschiedenen Gruppen (die im allgemeinen verschiedenen Versuchsbedingungen entsprechen) vergleichen will.
+springt. Für eine glattere Version verbindet man die Punkte $(x_{(i)},(i-0.5)/n)$
+Die empirische Verteilungsfunktion ist eine Treppenfunktion, die an den Stellen $x_{(i)}$ von $(i-1)/n$ auf $i/n$ durch Strecken.
+\chapter{Schliessende Statistik:Konzepte und erste Anwendungen für diskrete Zufallsvariablen}
+\section{Daten als Realisierungen von Zufallsvariablen}
+\label{sec8.1}

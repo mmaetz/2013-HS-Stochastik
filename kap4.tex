@@ -1,4 +1,5 @@
 \chapter{Mehrere Zufallsvariablen und Funktionen davon}
+\label{kap4}
 Das Ziel ist hier, Genaueres über den Unterschied von $\p(A)$ und der relative Häufigkeit $f_N[A]$ respektive von $A$, respektive von $\E(X)$ und dem arithmetischen Mittel, bei $n$ Wiederholungen zu sagen.
 \section{Die i.i.d. Annahme}
 Dabeid müssen wir präzisieren was eine \glqq Wiederholung\grqq\ ist. Die $n$-fache Wiederholung eines Zufallsexperimentes ist selber wieder ein Zufallsexperiment. Wenn $A$ ein Ereignis im urpsrünglichen Experiment ist, bezeichnen wir mit $A_i$ das Ereignis \glqq $A$ tritt bei der $i$-ten Wiederholung ein\grqq. Dann ist es sinnvoll, folgendes anzunehmen:
@@ -45,13 +46,13 @@ Von den obigen Formeln über Erwartungswert und Varianz wissen wir, dass:
 	\item $\E(\overline{X}_n)=\E(X_i)$: das heisst $\overline{X}_n$ hat denselben Erwartungswert wie die einzelnen Variablen $X_i$.
 	\item $\V(\overline{X}_n)\xrightarrow{n\to\infty} 0$: das heisst, $\overline{X}_n$ besitzt keine Variabilität mehr im Limes.
 \end{compactenum}
-Diese beiden Punktu implizieren den folgenden Satz.
+Diese beiden Punkte implizieren den folgenden Satz.
 \begin{satz}[Gesetz der Grossen Zahlen]
 	Seien $X_1,\ldots,X_n$ i.i.d. mit Erwartungswert $\mu$. Dann
 	\begin{align*}
-		\overline{X}_n\xrightarrow{n\to\infty}\mu.
+		\overline{X}_n&\xrightarrow{n\to\infty}\mu.
 		\intertext{Als Spezialfall davon gilt:}
-		f_n[A]\xrightarrow{n\to \infty}\p(A).
+		f_n[A]&\xrightarrow{n\to \infty}\p(A).
 	\end{align*}
 	(Der Begriff der Konvergenz muss für Zufallsvariablen geeignet definiert werden).
 \end{satz}

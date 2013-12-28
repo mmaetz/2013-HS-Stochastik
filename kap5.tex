@@ -1,9 +1,10 @@
 \chapter{Gemeinsame und bedingte Wahrscheinlichkeiten}
+\label{kap5}
 Oft besteht ein Zufallsexperiment aus verschiedenen Stufen, und amn erfährt das Resultat auch entsprechend diesen Stufen. Im einfachsten Fall erfährt man in der ersten Stufe, ob ein bestimmtes Ereignis $B$ eingetreten ist oder nicht, und in der zweiten Stufe erfährt man, welches Ergebnis $\omega$ eingetreten ist.
 \section{Bedingte Wahrscheinlichkeit}
 Im allgemeinen wird die information aus der ersten Stufe die Unsicherheit über die zweite Stufe verändern, Dies modifizierten Unsicherheit wird gemessen durch die \emph{bedingte Wahrscheinlichkein von $A$ gegeben $B$ bzw. $B^c$} definiert durch
 \begin{align*}
-	\p(A\mid B)&\coloneqq \frac{\p(A\cap B)}{\p(B)}
+	\p(A\mid B)&\coloneqq \frac{\p(A\cap B)}{\p(B)},
 	\shortintertext{bzw.}
 	\p(A\mid B^c)&\coloneqq \frac{\p(A\cap B^c)}{\p(B^c)}.
 \end{align*}
@@ -42,17 +43,25 @@ In manchen Situationen erhält man die Information über die verschiedenen Stufe
 Oft ist das numerische Resultat einer solchen Berechnung stark verschieden von dem, was man naiverweise erwartet. Der Satz von Bayes ist vor allem in der subjektiven Wahrscheinlichkeitstheorie sehr wichtig: Wenn man für die verschiedenen Möglichkeiten $B_1,\cdots,B_k$ subjektive Wahrscheinlichkeiten festlegt und danach erfährt, dass $A$ eingetreten ist, dann muss man die subjektiven Wahrscheinlichkeiten gemäss diesem Satz modifizieren.
 \section{Gemeinsame und bedingte diskrete Verteilungen}
 Die beiden, obig beschriebenen Stufen können auch ducrh Zufallsvariablen $X$ und $Y$ gegeben sein. Die gemeinsame Verteilung zweier diskreter Zufallsvariablen $X$ und $Y$ ist eindeutig charakterisiert durch ihre \emph{gemeinsame Wahrscheinlichkeitsfunktion von $X$ und $Y$}, d.h. die Werte
-\begin{align*}
+\begin{gather*}
 	\p(X=x,Y=y), \qquad x\in W_{X}, y\in W_{Y}
-	\intertext{weshalb diese dann auch (eigentlich fälschlicherweise) die gemeinsame Verteilung von $X$ und $Y$ genannt wird. In diesem \glqq gemeinsamen\grqq\ Zusammenhang nennt man die einzelnen Verteilungen $\p(X=x), x\in W_X$ von $X$ und $\p(Y=y), y\in W_y$ von $Y$ die \emph{Randverteilungen (der gemeinsamen Zufallsvariable $(X,Y)$)}, sie lassen sich aus der gemeinsamen Verteilung berechnen durch}
+\end{gather*}
+	weshalb diese dann auch (eigentlich fälschlicherweise) die gemeinsame Verteilung von $X$ und $Y$ genannt wird. In diesem \glqq gemeinsamen\grqq\ Zusammenhang nennt man die einzelnen Verteilungen $\p(X=x), x\in W_X$ von $X$ und $\p(Y=y), y\in W_y$ von $Y$ die \emph{Randverteilungen (der gemeinsamen Zufallsvariable $(X,Y)$)}, sie lassen sich aus der gemeinsamen Verteilung berechnen durch
+\begin{gather*}
 	\p(X=x)=\sum_{y\in W_y}^{}\p(X=x,Y=y)
-	\intertext{und analog für $Y$. Aus den randverteilungen auf die gemeinsame Verteilung zu schliessen geht \emph{nur} im Falle der Unabhängigkeit von $X$ und $Y$, denn es gilt: Zwei diskrete Zufallsvariablen $X$ und $Y$ sind unabhängig genau dann wenn}
-	\p(X=x,Y=y)&=\p(X=x)\p(Y=y),\qquad x\in W_X,y\in W_y.
-	\intertext{In diesem Fall ist die gemeinsame Verteilung durch die Randverteilungen vollständig bestimmt und man erhält sie einfach durch Multiplikation. Schlussendlich defiiniert man noch die \emph{bedingte Verteilung von $X$ gegeben $Y=y$} durch die Werte}
-	& \p(X=x\mid X=y),\qquad x\in W_{y}.
-	\intertext{Der Satz von der totalen Wahrscheinlichkeit lässt sich dann schreiben als}
+\end{gather*}
+und analog für $Y$. Aus den randverteilungen auf die gemeinsame Verteilung zu schliessen geht \emph{nur} im Falle der Unabhängigkeit von $X$ und $Y$, denn es gilt: Zwei diskrete Zufallsvariablen $X$ und $Y$ sind unabhängig genau dann wenn
+\begin{gather*}
+	\p(X=x,Y=y)=\p(X=x)\p(Y=y),\\\qquad x\in W_X,y\in W_y.
+\end{gather*}
+In diesem Fall ist die gemeinsame Verteilung durch die Randverteilungen vollständig bestimmt und man erhält sie einfach durch Multiplikation. Schlussendlich defiiniert man noch die \emph{bedingte Verteilung von $X$ gegeben $Y=y$} durch die Werte
+\begin{gather*}
+	\p(X=x\mid X=y),\qquad x\in W_{y}.
+\end{gather*}
+Der Satz von der totalen Wahrscheinlichkeit lässt sich dann schreiben als
+\begin{gather*}
 	\p(X=x)=\sum_{y\in W_{Y}}^{}\p(X=x\mid Y=y)\p(Y=y)
-\end{align*}
+\end{gather*}
 und kommt immer dann zum Einsatz wenn man die Verteilung von $X$ berechnen will, aber nur dessen bedingte Verteilung gegeben $Y$ und die Verteilung von $Y$ kennt.
 
 Bei mehr als zwei STufen bzw. Zufallsvariablen geht alles analog. Die Bäume werden einfach länger und die Matrizen werden zu Feldern in höheren Dimensionen. Das Ganze wird aber sehr rasch unübersichtlich, und es gibt sehr viele Wahrscheinlichkeiten, die man zu Beginn festlegen muss. Eine wesentliche Vereinfachung erhält man, wenn man annimmt, dass jede STu zwar von der unmittelbar vorangehenden, aber nicht von den weiter zurückliegenden Stufen abhängt. Das fühlt auf die sogenannten \emph{Markovketten}, deren Verhalten durch eine Startverteilung und eine Übergangsmatrix gegeben ist.
