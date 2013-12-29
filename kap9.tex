@@ -18,6 +18,7 @@ Der Erwartungswert der Schätzer ist
 \end{align*}
 (Dies ist der Grund für den Nenner $n-1$).
 \section{Testen}
+\label{sec9.2}
 Wir haben $n$ voneinander unabhängige Beobachtungen $x_1,\ldots,x_n$ einer Zufallsvariable $X\sim \mathcal{N}(\mu,\sigma^))$, interpretiert als eine Beobachtung der i.i.d. Zufallsvariablen $X_1,\ldots,X_n$ mit der selben Verteilung wie $X$. Wir fixieren je nach Problemstellung ein $\mu_0\in\mathbb{R}$ und wollen die Nullhypothese $H_0:\mu=\mu_0$ gegen eine der möglichen Alternativen $H_A:\mu\neq \mu_0$, $H_A:\mu<\mu_0$ bzw. $H_A:\mu>\mu_0$ testen. Dabei unterscheiden wir zwei Fälle: Die Streuung $\sigma$ ist bekannt, dann verwenden wir den sogenannten $z$-Test, oder die Streuung $\sigma$ ist unbekannt. (dann muss sie aus den beobachtetetn Daten geschätzt werden) , in diesem fall ergibt sich der sogenannte $t$-test.
 \subsection{z-Test ($\sigma$ bekannt)}
 Wir nehmen an, dass $\sigma$ bekannt ist. Die Teststatastik ist definiert als die Zufallsvariable
@@ -26,6 +27,7 @@ Wir nehmen an, dass $\sigma$ bekannt ist. Die Teststatastik ist definiert als di
 \end{gather*}
 wobei $\overline{X}_n$ den Schätzer für den Mittelwert aus Gl. \ref{eq:schaetzer} darstellt. Wir lehnen für eine gegebene Realisierung $t=\sqrt{n}(\overline{x}_n-\mu_0)/\sigma$ von $T$ je nach Alternative $H_A$ die Nullhypothese $H_0:\mu=\mu_0$ ab, 
 \begin{align}
+	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztest1}
 		\abs{t}&\geq z_{1-\alpha/2},\\
 		\Leftrightarrow t &\in VB_{\alpha}=(-\infty,z_{\alpha/2}]\cup [z_{1-\alpha/2},\infty),\\
@@ -43,6 +45,7 @@ wobei $\overline{X}_n$ den Schätzer für den Mittelwert aus Gl. \ref{eq:schaetz
 		\Leftrightarrow t \in (-\infty,z_{\alpha}],\\
 		H_A&:\mu<\mu_0.
 	\end{split}
+	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}\nonumber
 \end{align}
 Die Begründung für \ref{eq:ztest1} ist wie folgt, die Teststatistik $T$ ist unter der Nullhypothese $\mathcal{N}(0,1)$-verteilt, woraus sich der Fehler 1. Art, sofort zu
 \begin{gather*}
@@ -77,6 +80,7 @@ Kenntnis von $\sigma$, welche für den z-Test benötigt wird, ist in der Praxis 
 \end{align*}
 von $T$ je nach Alternative $H_A$ die Nullhypothese $H_0:\mu=\mu_0$ ab, falls
 \begin{align}
+	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztest1}
 		\abs{t}&\geq t_{n-1,1-\alpha/2},\\
 	\Leftrightarrow t &\in VB_{\alpha}=(-\infty,t_{n-1,\alpha/2}]\cup [t_{n-1,1-\alpha/2},\infty),\\
@@ -94,6 +98,7 @@ von $T$ je nach Alternative $H_A$ die Nullhypothese $H_0:\mu=\mu_0$ ab, falls
 	\Leftrightarrow t \in (-\infty,t_{n-1,\alpha}],\\
 		H_A&:\mu<\mu_0.
 	\end{split}
+	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}\nonumber
 \end{align}
 Das $\left( -\alpha \right))$-Vertrauensintervall ist gegeben durch
 \begin{align*}

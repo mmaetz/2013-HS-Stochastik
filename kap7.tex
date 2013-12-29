@@ -28,6 +28,7 @@ Beim Boxplot hat man ein Rechteck, das von 25\%- und vom 75\%-Quantil begrenzt i
 springt. Für eine glattere Version verbindet man die Punkte $(x_{(i)},(i-0.5)/n)$
 Die empirische Verteilungsfunktion ist eine Treppenfunktion, die an den Stellen $x_{(i)}$ von $(i-1)/n$ auf $i/n$ durch Strecken.
 \section{Normal- und QQ-Plot}
+\label{sec7.3}
 Der Normal- und QQ-Plot (\glqq Quantil-Quantil-Plot\grqq) sind of viel geeignetere grafische Mittel als die empirische kumulative Verteilungsfunktion.
 
 Die empirische Quantile für $\alpha_k=(k-0.5)/n$ sind gerade die geordneten Beobachtungen $x_{(k)}$ $(x_{(1)}\leq x_{(2)}\leq \cdots \leq x_{(n)})$. Der QQ-Plot trägt die Punkte $F^{-1}(\alpha_k)$ (die theoretischen Quantile einer kumulativen Verteilung $F$) gegen $x_{(k)}$ (die empirischen Quantile) auf. Wir interpretieren die Daten $x_1,\ldots,x_n$ als Realisierungen von $X_1,\ldots,X_n$ i.i.d. $\sim \tilde{F}$, siehe \ref{sec8.1}. Falls nun die wahre Verteilung $\tilde{F}$ mit der gewählten Verteilung $F$ in QQ-Plot übereinstimmt, so liefert der QQ-Plot approximativ eine Gerade durch Null mit Steigung 45 Grad. Man kann also Abweichungen der Daten von einer gewählten Modell-Verteilung so grafisch überprüfen.

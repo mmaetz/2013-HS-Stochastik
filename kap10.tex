@@ -68,10 +68,12 @@ Da der Logarithmus monoton wachsend ist, kann man äquivalent zu obiger Maximier
 Die Maximierungsaufgabe lößt man wie aus der Analysis bekannt durch Ableiten (nach dem Parameter $\theta$) und Nullsetzen. Um die Abhängigkeit von der Stichprobe $x_1,\ldots,x_n$ zu betonen schreibt man auch
 \begin{align*}
 	l(\theta;x_(,\ldots,x_n)&\coloneqq \log p_{\theta} (x_1)+\cdots +\log p_{\theta}(x_n),
-	\intertext{man muss dann die Gleichung}
+\end{align*}
+man muss dann die Gleichung
+\begin{align*}
 	\pdv{}{\theta}l (\theta;x_1,\ldots,x_n)&=0
 	\intertext{nach $\theta$ auflösen und erhält das Ergebnis}
-	\hat{\theta}=\hat{\theta}(x_1,\ldots,x_n)
+	\hat{\theta}&=\hat{\theta}(x_1,\ldots,x_n)
 	\shortintertext{bzw. als Zufallsvariable ausgedrückt}
 	\hat{\theta}&=\hat{\theta}(X_1,\ldots,X_n)
 \end{align*}
@@ -83,8 +85,20 @@ Im stetigen Fall geht im Wesentlichen alles analog und man braucht nur den Buchs
 	\begin{align*}
 		p_{\lambda}(x)&=\frac{\lambda^x}{x!}e^{-\lambda},&&x\in\mathbb{N},
 		\intertext{die log-Likelihoodfunktion ist somit}
-		l(\lambda)=\sum_{i=1}^{n}(x_i\log (\lambda)-\log(x_i!)-\lambda)\\
+		l(\lambda)&=\sum_{i=1}^{n}(x_i\log (\lambda)-\log(x_i!)-\lambda)\\
 		&=\sum_{i=1}^{n}(x_i\log (\lambda)-\lambda)-C,\\
 		C&=\sum_{i=1}^{n}\log(x_i!)
 	\end{align*}
 \end{bspl}
+Beacht, das die Konstante $C$ keinen Einfluss auf die Maximierung von $\ell(\lambda)$ hat. Leitet man $\ell(\lambda)$ ab und setzt $\ell'(\lambda)=0$, so erhält man den Maximum-Likelihood Schätzer
+\begin{align*}
+	\hat{\lambda}&=\overline{X}_n\\
+	&=\frac{1}{n}\sum_{i=1}^{n}X_i.
+\end{align*}
+Dies ist derselbe Schätzer wie bei der Momentenmethode wo $g_1$ die Identität ist.
+\section{Eigenschaften von Schätzern}
+Wir haben gesehen, dass ein Schätzer für den Parameter $\theta$ als eine aus den Zufallsvariablen $X_1,\ldots,X_n$ zusammengesetzte Zufallsvariable interpretiert werden kann, also $\hat{\theta}=\hat{\theta}(X_1,\ldots,X_n)$ wobei der zu schätzende Parameter $\wedge$ meist eine Kenngrößse der Verteilung der $X_i$ ist. Man kann sich nun fragen wie eigentlich der Erwartungsswert dieser Zufallsvariable (also des Schätzers) aussieht, intuitiv wünschenswert wäre es wann dieser am besten gleich dem zu schätzenden Parameter entspricht, woraus sich folgende Eigenschaft ergibt: Ein Schätzer $\hat{\theta}$ für den Parameter $\theta$ heisst \emph{erwartungstreu} wenn
+\begin{gather*}
+	\E(\hat{\theta})=\E\left( \hat{\theta}(X_1,\ldots,X_n) \right)=\theta.
+\end{gather*}
+Im Allgemeinen kann der Erwartungswert aber auch von der Stichprobengrösse $n$ abhängen, woraus sich noch weiter Eigenschaft ergeben: z.B. heisst ein Schätzer \emph{asymptotisch erwartungstreu}, wenn sein Erwartungswert für wachsende Stichprobengrösse $n$ gegen den zu schätzenden Paremeter konvergiert.
