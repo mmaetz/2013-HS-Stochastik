@@ -1,5 +1,112 @@
 \chapter{Schliessende Statistik:Konzepte und erste Anwendungen für diskrete Zufallsvariablen}
 \section{Daten als Realisierungen von Zufallsvariablen}
 \label{sec8.1}
+In der schliessenden Statistik wollen wir anhand von Daten (Beobachtungen) Aussagen über ein Wahrscheinlichkeitsmodell machen. Dass man dies tun kann ist zunächst erstaunlich: Man benützt die induktive Logik um probilistische Aussagen (d.h. Aussagen, welche mit typischerweise hoher Wahrscheinlichkeit gelten)  zu machen.
+
+Grundlegend für die schliessende statistik ist die Annahme, dass Daten Realisierungen von Zufallsvariablen sind. Das heisst: eine Beobachtung (oder \glqq Messung\grqq) $x$ ist entstanden in dem ein $\omega\in\Omega$ zufällig gezogen wurde, so dass die Zufallsvariable $X$ den Wert $X(\omega)=x$ annimmt. Bei mehreren Daten geht alles analog: $n$ Beobachtungen $x_1,\ldots,x_n$ werden aufgefasst als Realisierungen von Zufallsvariablen $X_1,\ldots,X_n$, welche die Werte $X_i=x_i$ mit $i=1,\ldots,n$  angenammon haben.
 \section{Erste Konzpete}
+Wir betrachten folgende Situation. Gegeben ist eine Beobachtung $x$ (eine Realisierung) einer $\bin(n,p)-$ oder einer  $\poi(\lambda)$-verteilten Zufallsvariablen $X$: z.B. Anzahl Ausfälle bei $n$ Wiederholungen oder während eine Beobachtungsdauer $t$, wobei dann $\lambda=\mu t$ und $\mu$ die erwartete Anzahl Ausfälle pro Zeiteinheit ist. Wir möchten daraus Rückschlüsse auf den unbekannten Parameter $p$ bzw. $\lambda$ ziehen. Genauer geht es um folgende drei Fragestellungen:
+\begin{compactenum}[1.]
+	\item Welchen ist der plausibelste Wert des unbekannten Parameters (\emph{Punktschätzung})?
+	\item Ist ein bestimmter vorgegebener Parameterwert $p_0$, bzw. $\lambda_0$ (z.B. ein Sollwert) mit der Beobachtung vertäglich (\emph{Test})?
+	\item was ist der Bereich von plausiblen parameterwerten (\emph{Vertrauensintervall})?
+\end{compactenum}
 \section{Das Testproblem}
+Beim Testproblem beschränken wir uns hier zur Vereinfachung der Notation auf die Binomialverteilung. Wir nehmen an wir haben eine beobachtung $x\in \left\{ 0,\ldots,n \right\}$, die wir als Realisierung einer $\bin(n,p)$-verteilten Zufallsvariable $X$ interpretieren, wobei $n$ fix und bekannt ist, und $p$ der unbekannte Parameter, den wir mit einem (von der Problemstellung abhängigen) Wert $p_0$ vergleichen (testen) wollen, genauer gesagt wollen wir überprüfen ob die Beobachtung $x$ damit verträglich ist. Die Annahme $p=p_0$ wird \emph{Nullhypothese} genannt, notiert durch
+\begin{align*}
+	H_0:  p&=p_0,
+	\intertext{die entsprechende Vermutung wird dann \emph{Alternativhypothese} genannt, notiert durch}
+	H_A: p&\neq p_0,&&\text{zweiseitig;}\\
+	p&> p_0,&&\text{einseitig nach oben, rechtseitig;}\\
+	p&<p_0, &&\text{einseitig nach unten, linksseitig.}
+\end{align*}
+Wir beschränken uns im Weiteren auf den Fall $H_A:p>p_0$. Dann lehnen wir die Nullhypothese $H_0: p=p_0$ ab, falls $x\geq c$. Das ist qualitativ betrachtet plausibel:Die quantitative Wahl von $c$ wird wie folgt gemacht. Wir nehem einmal an, dass die Nullhypothese stimmt. Dann ist die Wahrscheinlichkeit die Nullhypothees fälschlicherweise abzulehnen (d.h. ein \emph{Fehler 1. Art})
+\begin{align*}
+	\p_{p_0}(X\geq c)&=\sum_{k=c}^{n}{n \choose k}p_{0}^{k}(1-p_0)^{n-k}.
+	\intertext{Wir sollten also $c$ nicht zu klein wählen. Umgekehrt möchten wir aber auch $c$ nicht zu gross wählen, weil wir sonst zu häufig einen \emph{Fehler 2. Art} begehen: Kein Verwerfen der Nullhypothese $H_0$, obwohl sie falsch ist. Man schliesst einen Kompromiss, indem man das kleinste $c=c(\alpha)$ nimmt, so dass}
+	\p_{p_0}(X\geq c)\leq \alpha
+\end{align*}
+dabei ist $\alpha$ eine im voraus festgelegte (kleine) Zahl, das sogenannte \emph{Signifikanzniveau}. Obige (Un-)Gleichung besagt, dass die Wahrscheinlichkeit eines Fehlers 1.Art mit dem Signifikanzniveau $\alpha$ kontrolliert ist. Die Wahrscheinlichkeit für einen Fehler 2. Art ist nicht explizit kontrolliert, deswegen, weil man nur einen - und hier wählt man den schlimmeren Fehler 1. Art - direkt kontrollieren kann. Nach all diesen Überlegungen kommt man zum Rezept, dass $H_0$ verworfen wird, falls $x\geq c_{\alpha}$.
+
+Im Fall, wo man nach Abweichungen nach unten interessiert ist, d.h. $H_A: p<p_0$, geht alles analog, Bei zwei-seitiger Alternative $H_A:p\neq p_0$, verwerfen wir die Nullhypothese $H_0:p=p_0$, wenn $x\leq c_1$ oder $x\geq c_2$. Hier wählt man $c_1$ möglichst gross und $c_2$ möglichst klein unter den Einschränkungen dass
+\begin{align*}
+	\sum_{k=0}^{c_1}{n\choose k}p_{0}^{k}(1-p_0)^{n-k}&\leq \frac{\alpha}{2}\\
+	\sum_{k=c_2}^{n}{n\choose k}p_{0}^{k}(1-p_0)^{n-k}&\leq \frac{\alpha}{2}
+\end{align*}
+\subsection{Zusammenfassung eines statistischen Tests}
+Die Durchführung eines statistischen Tests kann, zumindest teilweise, \glqq rezeptartig\grqq erfolgen.
+\begin{enumerate}[1.]
+	\item Lege Nullhypothese $H_0: \theta=\theta_0$ fest. ($\theta$ bezeichnet hier allgemein einen Parameter in einem wahrscheinlichkeitstheoretischen Modell).
+	\item Anhand der Problemstellung, spezifiziere vernünftige Alternative $H_A:\theta\neq \theta_0$ (zweiseitig) oder $H_A:\theta> \theta_0$ (einseitig nach unten).
+	\item Wähle Signifikanzniveau $\alpha$, z.B. $\alpha=0.05$ oder $0.01$.
+	\item Konstruiere Verwerfungsbereich für $H_0$, so dass 
+		\begin{gather*}
+			\p_{\theta_0}(\text{Fehler 1. Art})\leq \alpha.
+		\end{gather*}
+	\item Erst jetzt: Betrachte ob die Beobachtung $x$ (oder eine Funktion von mehreren Beobachtungen) in den Verwerfungsbereich fällt: Falls ja, so verwerfe $H_0$ (die Alternative ist dann \glqq signifikant\grqq). Falls $x$ nicht in den Verwerfungsbereich fällt, so belassen wir $H_0$ (was noch lange nicht heisst, dass deswegen $H_0$ statistisch bewiesen ist).
+\end{enumerate}
+\section{P-Wert}
+Viele Computer-Pakete liefern obigen Punkt 4 insofern, dass der sogennante P-Wert gegeben wird.
+
+Falls das Signifikanzniveau $\alpha$ kleiner gewählt wird, so wird der Verwerfungsbereich kleiner. Eine intuititive Begründung dafür ist: kleines
+\begin{align*}
+	\alpha&\gtrapprox \p(\text{Fehler 1. Art})\\
+	&=\p(\text{fälschliches Verwerfen} \\
+	&\hphantom{=\p()} \text{von $H_0$ obschon $H_0$ stimmt})
+\end{align*}
+bedeutet, dass es (generell) schwieriger wird $H_0$ zu verwerfen, oder anders ausgedrückt: Der Verwerdungsbereich (für Verwerfen von $H_0$) wird kleiner. Dies illustriert auch die Tatsache, dass amn bei extrem klein gewähltem $\alpha$ die Null-Hypothese (fast) nie verwerfen kann.
+
+Es gibt also ein Niveau, wo $H_0$ \glqq gerade noch\grqq \ verworfen wird. Der \emph{P-Wert ist das kleinste Signifikanzniveau wo $H_0$ verworfen wird}. Die Beobachtung $X$ liegt dann gerade auf der Grenze des Verwerfungsbereichs. Man entscheidet dann in obigem Punkt 5 so, adss $H_0$ verworfen wird, falls der P-Wert kleiner als $\alpha$ ist.
+\section{Vertrauensintervalle}
+Ein Vertrauensintervall $I$ zum Niveau $1-\alpha$ (oft auch \emph{Konfidenzintervall genannt}) besteht aus allen Parameterwerten, die im Sinne eines statistischen Tests zum Signifikanzniveau $\alpha$ mit der Beobachtung verträglich sind (üblicherweise nimmt man den zweiseitigen Test). Mathematisch heisst das:
+\begin{align*}
+	I&=\{ \theta_0;\\
+		&\hphantom{=\{}\text{ Nullhypothese }H_0:\, \theta=\theta_0\text{ wird belassen} \}
+\end{align*}
+Diese Beziehung stellt eine Dualität zwischen Tests und Vertrauensintervall dar. 
+
+Die Berechnung kann grafisch, oder mit einer Tabelle, oder basierend auf der Normalapproximation erfolgen. Letztere ergibt
+\begin{gather*}
+	\frac{x}{n}\pm z_{1-\alpha/2}\sqrt{\frac{x}{n}\left( 1-\frac{x}{n} \right)\frac{1}{n}}
+\end{gather*}
+ist Vertrauensintervall für $p$, falls $X\sim \bin(n,p)$,
+\begin{gather*}
+	x\pm z_{1-\alpha/2}\sqrt{x}
+\end{gather*}
+ist Vertrauensintervall für $\lambda$, falls $X\sim \poi(\lambda)$.
+Das Vertrauensintervall ist zufällig: Es fängt den unbekannten wahren Parameter mit Wahrscheinlichkeit $1-\alpha$ ein.
+\subsection{Begründung von Formel für Vertrauensintervall bei Binomial-Verteilung}
+\label{subsec8.5.1}
+Betrachte $X\sim \bin(n,p)$, das heisst
+\begin{align*}
+	X&=\sum_{i=1}^{n}Y_i,\qquad Y_1,\ldots,Y_n\text{ i.i.d.}\sim \text{Bernoulli}(p)
+	\intertext{Der Zentrale Grenzwertsatz liefert dann}
+	\hat{p}&=\frac{X}{n}\\
+	&=\overline{Y}_n\approx \mathcal{N}\!\left( \E(Y_1),\frac{1}{n}\V(Y_1) \right)\\
+	&=\mathcal{N}\!\left( p,\frac{p\left( 1-p \right)}{n} \right)
+\end{align*}
+Ansatz: konfidenzintervall
+\begin{gather*}
+	I=\left[ ``^p \right]-c_{u},\hat{p}+c_o
+\end{gather*},
+so dass $\p_p(p\in I)\geq 1-\alpha$. Man rechnet jetzt
+\begin{align*}
+	\p_p(p\in I)&=\p(\hat{p}-c_u\leq p\leq \hat{p}+c_o)\\
+	&=\p(p-c_o\leq \hat{p}\leq p+c_u)\\
+	&=\p(-c_o\leq \hat{p}-p\leq c_u)\\
+	&\stackrel{\spadesuit}{=}\p\!\bigg( -\frac{c_o\sqrt{n}}{\sqrt{p(1-p)}}\leq \underbrace{\frac{(\hat{p}-p)\sqrt{n}}{\sqrt{p(1-p)}}}_{\approx \mathcal{N}(0,1)} \bigg)
+\end{align*}
+$\spadesuit$: standardisieren. Da $\mathcal{N}(0,1)$ eine symmetrische Verteilung ist, wähle 
+\begin{align*}
+	\text{oberes Quantil}&=\frac{c_u\sqrt{n}}{\sqrt{p(1-p)}}\\
+	&\approx z_{1-\alpha/2}\\
+	\text{unteres Quantil}&=-\frac{c_o\sqrt{n}}{\sqrt{p(1-p)}}\\
+	&=z_{\alpha/2}
+	\intertext{daraus folgt}
+	c_u\approx z_{1-\alpha/2}\frac{\sqrt{p(1-p)}}{\sqrt{n}},
+	\intertext{da $p$ unbekannt ist, ersetzen wir es durch den Schätzer $\hat{p}=X/n$}
+	c_u\approx z_{1-\alpha/2}\sqrt{\frac{X}{n}\left( 1-\frac{X}{n} \right)\frac{1}{n}}
+\end{align*}
+und wegen Symmetrie $c_o=c_u$ (oder analoge Heirleitung für $c_o$). Damit folgt die approximative Formel.
+\section{Mehrere Beobachtungen}
+Wenn man $n$ Beobachtungen hat, geht man oft zu den Summen über: $x_1+\cdots+x_n$. Für die zugehörigen Summen von Zufallsvariablen, welche als i.i.d. angenommen werden, kennen wir dann die Verteilung der Summen approximativ (ZGS) oder auch in einigen Fällen exakt. Damit lassen sich Verwerfungsbereiche und konfidenzintervalle konstruieren, analog zu Kapitel \ref{subsec8.5.1}.
