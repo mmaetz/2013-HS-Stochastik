@@ -1,7 +1,7 @@
 %%%\documentclass[paper,notoc,12pt]{JHEP3}
 %%%mmaetz: put a4paper
 %\documentclass[a5paper]{book}
-\documentclass[9pt,oneside,article]{memoir}
+\documentclass[9pt,twoside,article]{memoir}
 %%%mmaetz: reduce margins
 %%%mmaetz: omitted temporarily to have the margins for the change remarks.
 %\usepackage[a5paper,left=2cm, right=1cm,top=1.5cm, bottom=1.5cm]{geometry}
@@ -89,15 +89,9 @@
 	\input{kap9.tex}
 	\input{kap10.tex}
 	\input{kap11.tex}
-\end{multicols*}
-\begin{multicols*}{2}
-	\begin{tabular}[]{lcccc}
-		\toprule
-		Verteilung&$p(x)$ bzw. $f(x)$&$W_{X}$&$\E(X)$&$\V(X)$\\
-		\midrule
-		$\bin(n,p)$&$\ds{n\choose x}p^{x}(1-p)^{n-x}$&$\left\{ 0,\ldots,n \right\}$&$np$&$np\left( 1-p \right)$\\
-		\bottomrule
-	\end{tabular}
+	\columnbreak
+
+	\input{appendix.tex}
 \end{multicols*}
 \end{document}
 

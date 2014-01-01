@@ -13,15 +13,20 @@ Ergebnisse von Zufallsexperimenten werden in \emph{Ereignisse} zusammengefasst.
 	\item \emph{Ereignisraum} (Grundraum) $\Omega$: Menge aller möglichen Ergebnisse des Zufallsexperiments
 	\item \emph{Elementarereignisse $\omega$}: Elemente von $\Omega$, also die möglichen Ergebnisse des Zufallsexperiments
 	\item \emph{Ereignis}: Teilmenge von $\Omega$
-	\item Operationen der Mengenlehre haben natürliche Interpretation in der Sprache der Ereignisse:
-	\begin{tabular}{|l|c|l|}
-		\hline
-		Durchschnitt	& $A\cap B$			& $A$ \textbf{und} $B$	\\
-		Vereinigung		& $A\cup B$			& $A$ \textbf{oder} $B$	\\
-		Komplement		& $A^c$				& \textbf{Nicht} $A$	\\
-		Differenz		& $A\setminus B$	& $A$ \textbf{ohne} $B$ \\
-		\hline
-	\end{tabular}
+	\item Operationen der Mengenlehre haben natürliche Interpretation in der Sprache der Ereignisse:\\[-1em]
+%		\begin{table}
+		\begin{center}
+				\begin{tabular}{lcl}
+					\toprule
+					Durchschnitt	& $A\cap B$			& $A$ \emph{und} $B$	\\
+					Vereinigung		& $A\cup B$			& $A$ \emph{oder} $B$	\\
+					Komplement		& $A^c$				& \emph{Nicht} $A$	\\
+					Differenz		& $A\setminus B$	& $A$ \emph{ohne} $B$ \\
+					\bottomrule
+				\end{tabular}
+		\end{center}
+%			\label{tab:main}
+%		\end{table}
 \end{compactitem}
 
 Das Vorgehen der Stochastik zur Lösung eines Problems kann in drei Schritte unterteilt werden:
@@ -34,7 +39,7 @@ Das \emph{Bestimmen von Wahrscheinlichkeiten} (siehe Schritt 1) wird oft konkret
 \begin{bspl}[Laplace-Modell]
 	Die Wahrscheinlichkeit von einem Ereignis $A$ ist gegeben durch
 	\begin{align*}
-		\p(A)&=\frac{\abs{A}}{\abs{\Omega}}\quad \left( =\frac{\text{\# günstige Fälle}}{\text{\#mögliche Fälle}} \right).
+		\p(A)&=\frac{\abs{A}}{\abs{\Omega}}\quad \left( =\frac{\text{\#günstige Fälle}}{\text{\#mögliche Fälle}} \right).
 		\intertext{Dem Laplace-Modell liegt die \emph{uniforme Verteilung} von  Elemntarereignissen $\omega$ zugrunde:}
 		\p(\{\omega\})&=\frac{1}{\abs{\Omega}}
 		\label{}
