@@ -25,6 +25,14 @@ Ergebnisse von Zufallsexperimenten werden in \emph{Ereignisse} zusammengefasst.
 					\bottomrule
 				\end{tabular}
 		\end{center}
+		$A,B$ heissen
+		\begin{center}
+				\begin{tabular}{lr}
+					\toprule
+					disjunkt	& $A\cap B=\varnothing$			\\
+					\bottomrule
+				\end{tabular}
+		\end{center}
 %			\label{tab:main}
 %		\end{table}
 \end{compactitem}
@@ -52,7 +60,7 @@ Die drei Axiome sind:
 \begin{compactenum}[({A}1)]
 	\item $\p(A)\geq 0$: Wahrscheinlichkeiten sind immer nicht-negativ.
 	\item $\p(\Omega)=1$: sicheres Ereignis $\Omega$ hat Wahrscheinlichkeit eins.
-	\item $\p(A\cup B)=\p(A)+\p(B)$ $\forall$ Ereignisse $A, B$, die sich gegenseitig ausschliessen (d.h. $A\cup B=\varnothing$).
+	\item $\p(A\cup B)=\p(A)+\p(B)$ $\forall$ Ereignisse $A, B$, die sich gegenseitig ausschliessen (d.h. $A\cap B=\varnothing$).
 \end{compactenum}
 Weitere (abgeleitete) Regeln:
 \begin{align*}
@@ -69,7 +77,7 @@ Weitere (abgeleitete) Regeln:
 \section{Unabhängigkeit von Ereignissen}
 Wenn zwischen zwei Ereignissen $A$ und $B$ kein kausaler Zusammenhang besteht (d.h. es gibt keine gemeinsamen Ursachen oder Ausschliessungen), dann werden sie \emph{unabhängig} genannt, genauer: Zwei Ereignisse $A$ und $B$ heissen (\emph{stochastisch}) \emph{unabhängig} wenn für jedes $k\leq n$ und all $1\leq i_1< \cdots < i_k \leq n$ gilt
 \begin{gather*}
-	\p(A_{i_1}\cap \cdots \cup A_{i_{k}})=\p(A_{i_1})\cdots \p(A_{i_k}).
+	\p(A_{i_1}\cap \cdots \cap A_{i_{k}})=\p(A_{i_1})\cdot\cdots\cdot \p(A_{i_k}).
 \end{gather*}
 Achtung: Zwei \emph{unabhängige} Ereignisse $A$ und $B$ sind \emph{nicht disjunkt} (und umgekehrt), vorausgesetzt die W'keiten $\p(A), \p(B) \neq 0$.
 

@@ -42,7 +42,7 @@ Sie enthält dieselbe Information wie die Verteilung $Q(\cdot)$, ist aber einfac
 \end{align*}
 Es gilt 
 \begin{align*}
-	F(q_{\alpha}) = \alpha
+	F(q_{\alpha}) = \alpha,
 	\intertext{bzw. äquivalent dazu}
 	q_{\alpha}=F^{-1}(\alpha).
 \end{align*}
@@ -81,24 +81,25 @@ In der frequentistischen Interpretation ist der Erwartungswert eine Idealisierun
 \subsection{Binomialverteilung}
 Die \emph{Binomialverteilung} $\mathrm{Bin}(n,p)$ ist die Verteilung der Anzahl Erfolge bei $n$ unabhängigen Wiederholungen eines Experiments mit Erfolgswahrscheinlichkeit $p$.
 \begin{align*}
+	{n\choose k}&=\frac{n!}{k!(n-k)!},\\
 	W &= {0,1,\cdots,n}\\
-	p(x) &= {a\choose b} p^x(1-p)^{n-x}\\
+	p(x) &= {n\choose x} p^x(1-p)^{n-x}\\
 	E(X) &= np\\
 	\sigma_X &= \sqrt{np(1-p)}
 \end{align*}
 \subsection{Poissonverteilung}
 Die \emph{Poissonverteilung} $\mathrm{Poi}(\lambda)$ ist eine Approximation der Binomialverteilung für grosses $n$ und kleines $p$, mit $np = \lambda$. Die Anzahl Ausfälle einer Komponente oder eines Systems in einem interval der Länge $t$ ist oft in erster Näherung Poisson-verteilt mit Parameter $\lambda t$.
 \begin{align*}
-	W &= {0,1,\cdots}\\
-	p(x) &= e^{-\lambda} \frac{\lambda^x}{x!}\\
-	E(X) &= \lambda\\
-	\sigma_X &= \sqrt{\lambda}
+	W &= {0,1,\cdots},\\
+	p(x) &= e^{-\lambda} \frac{\lambda^x}{x!},\\
+	E(X) &= \lambda,\\
+	\sigma_X &= \sqrt{\lambda}.
 \end{align*}
 \subsection{Geometrische Verteilung}
 Die \emph{geometrische Verteilung} $\mathrm{Geo}(p)$ ist die Verteilung der Anzahl Wiederholungen bis ein Ereignis mit Wahrscheinlichkeit $p$ eintritt.
 \begin{align*}
-	W &= {1,2,\cdots}\\
-	p(x) &= p(1-p)^{x-1}\\
-	E(X) &= \frac{1}{p}\\
-	\sigma_X &= \frac{\sqrt{1-p}}{p}
+	W &= {1,2,\cdots},\\
+	p(x) &= p(1-p)^{x-1},\\
+	E(X) &= \frac{1}{p},\\
+	\sigma_X &= \frac{\sqrt{1-p}}{p}.
 \end{align*}

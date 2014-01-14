@@ -1,6 +1,6 @@
 \chapter{Punktschätzungen}
 \label{kap10}
-Wir betrachten folgendes Problem: Gegeben sei wieder eine Zufallsvariable $X$ von der wir zwar die Art der Vertilung kennen, aber nicht den dazugehörigen Parameter (Vektor) $\theta$. basierend auf $n$ unabhängigen Beobachtungen $x_1,\ldots,x_n$ von $X$, die wir wie immer als eine realisierung der i.i.d. Zufallsvariablen $X_1,\ldots,X_n$ (mit derselben Verteilung wie $X$) interpretieren soll nun der unbekannte Parameter $\theta$ geschätzt werden. Sei $\theta$ ein reeller Parameter einer Wahrscheinlichkeitsverteilung auf $\mathbb{R}$, ein \emph{Schätzer für} $\theta$ (zur Stichprobengrösse $n$) ist eine Funktion $\hat{\theta}: \mathbb{R}^n\to \mathbb{R}$ von den $\mathbb{R}^n$ 
+Wir betrachten folgendes Problem: Gegeben sei wieder eine Zufallsvariable $X$ von der wir zwar die Art der Verteilung kennen, aber nicht den dazugehörigen Parameter (Vektor) $\theta$. basierend auf $n$ unabhängigen Beobachtungen $x_1,\ldots,x_n$ von $X$, die wir wie immer als eine realisierung der i.i.d. Zufallsvariablen $X_1,\ldots,X_n$ (mit derselben Verteilung wie $X$) interpretieren soll nun der unbekannte Parameter $\theta$ geschätzt werden. Sei $\theta$ ein reeller Parameter einer Wahrscheinlichkeitsverteilung auf $\mathbb{R}$, ein \emph{Schätzer für} $\theta$ (zur Stichprobengrösse $n$) ist eine Funktion $\hat{\theta}: \mathbb{R}^n\to \mathbb{R}$ von den $\mathbb{R}^n$ 
 \begin{align*}
 	\hat{\theta}&=\hat{\theta}(x_1,\ldots,x_n)
 	\intertext{oder als Zufallsvariable interpretiert}
@@ -11,7 +11,7 @@ Man beachte dass bei der Verwendung von griechischen buchstaben keine Unterschei
 Das $k$\emph{-te Moment von} $X$ ist definiert durch 
 \begin{align}
 	\mu_k&\coloneqq \E(X^k),\nonumber
-	\intertext{das erste Moment entspricht also dem Erwartungswert. Die Momentenmethode nimmt an, dass wir den unbekannten Parametervetor $(\theta_1,\ldots,\theta_r)$ durch die ersten $p$ Momente von $X$ ausdrücken können, d.h. allgemein}
+	\intertext{das erste Moment entspricht also dem Erwartungswert. Die Momentenmethode nimmt an, dass wir den unbekannten Parametervektor $(\theta_1,\ldots,\theta_r)$ durch die ersten $p$ Momente von $X$ ausdrücken können, d.h. allgemein}
 	\theta_j&=g_j(\mu_1,\ldots,\mu_p), \qquad j=1,\ldots,r,
 	\label{eq:above}
 \end{align}
@@ -24,7 +24,7 @@ Ausgehend von Gleichung \ref{eq:above} werden nun die wahren $\mu_k$ ersetzt dur
 	\hat{\theta}_j&=g_j(\hat{\mu}_(,\ldots,\hat{\mu}_p),& j&=1,\ldots,r;\\
 	\hat{\mu}_k&=\frac{1}{n}\sum_{i=1}^{n}X_{i}^{k},& k&=1,\ldots,p.
 \end{align*}
-\emph{Rezeptatrige Vorgagnsweise:} Gegeben ist eine Zufallsvariable $X$ deren Verteilung von einem unbekannten (zu schätzenden) Parameter $\theta$ abhängt. Man berechnet zunächst das erste Moment von $X$, wenn dieses von $\theta$ abhängt, dann löst man die Gleichung nach $\theta$ auf, d.h. man schreibt $\theta$ als Funktion des ersten Momentes, dann wird das erste Moment durch dessen Schätzer ersetzt und man erhält einen Momentenschätzer für $\theta$. Falls das erste Moment nicht von $\theta$ abhängt berechnet man das zweite Moment usw. Es ist aber auch möglich, dass sämtliche Momente von $\theta$ abhängen, man erhält dann mehrere (unterschiedliche) Momentenschätzer für $\theta$.
+\emph{Rezeptatrige Vorgangsweise:} Gegeben ist eine Zufallsvariable $X$ deren Verteilung von einem unbekannten (zu schätzenden) Parameter $\theta$ abhängt. Man berechnet zunächst das erste Moment von $X$, wenn dieses von $\theta$ abhängt, dann löst man die Gleichung nach $\theta$ auf, d.h. man schreibt $\theta$ als Funktion des ersten Momentes, dann wird das erste Moment durch dessen Schätzer ersetzt und man erhält einen Momentenschätzer für $\theta$. Falls das erste Moment nicht von $\theta$ abhängt berechnet man das zweite Moment usw. Es ist aber auch möglich, dass sämtliche Momente von $\theta$ abhängen, man erhält dann mehrere (unterschiedliche) Momentenschätzer für $\theta$.
 \begin{bspl}
 	Sei $X\sim\poi(\lambda)$ mit unbekanntem Parameter $\lambda$. Das erste Moment von $X$ ist
 	\begin{align*}
@@ -61,13 +61,13 @@ dies ist die sogenannte \emph{Likelihoodfunktion (zur gegebenen Stichprobe $x_1,
 
 Da der Logarithmus monoton wachsend ist, kann man äquivalent zu obiger Maximierungsaufgabe auch den Logarithmus maximieren, was meist (aber nicht unbedintg immer!) einfacher ist. Die log-Likelihoodfunktion ist definiert durch
 \begin{align*}
-	l(\theta)&\coloneqq \log L(\theta)\\
+	\ell(\theta)&\coloneqq \log L(\theta)\\
 	&=\sum_{i=1}^{n}\log p_{\theta}(x_i)\\
-	&=\log p_{\theta}(x_1),\ldots,\log p_{\theta}(x_n).
+	&=\log p_{\theta}(x_1)+\cdots+\log p_{\theta}(x_n).
 \end{align*}
 Die Maximierungsaufgabe lößt man wie aus der Analysis bekannt durch Ableiten (nach dem Parameter $\theta$) und Nullsetzen. Um die Abhängigkeit von der Stichprobe $x_1,\ldots,x_n$ zu betonen schreibt man auch
 \begin{align*}
-	l(\theta;x_(,\ldots,x_n)&\coloneqq \log p_{\theta} (x_1)+\cdots +\log p_{\theta}(x_n),
+	\ell(\theta;x_1,\ldots,x_n)&\coloneqq \log p_{\theta} (x_1)+\cdots +\log p_{\theta}(x_n),
 \end{align*}
 man muss dann die Gleichung
 \begin{align*}
@@ -85,7 +85,7 @@ Im stetigen Fall geht im Wesentlichen alles analog und man braucht nur den Buchs
 	\begin{align*}
 		p_{\lambda}(x)&=\frac{\lambda^x}{x!}e^{-\lambda},&&x\in\mathbb{N},
 		\intertext{die log-Likelihoodfunktion ist somit}
-		l(\lambda)&=\sum_{i=1}^{n}(x_i\log (\lambda)-\log(x_i!)-\lambda)\\
+		\ell(\lambda)&=\sum_{i=1}^{n}(x_i\log (\lambda)-\log(x_i!)-\lambda)\\
 		&=\sum_{i=1}^{n}(x_i\log (\lambda)-\lambda)-C,\\
 		C&=\sum_{i=1}^{n}\log(x_i!)
 	\end{align*}

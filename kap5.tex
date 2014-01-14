@@ -1,6 +1,6 @@
 \chapter{Gemeinsame und bedingte Wahrscheinlichkeiten}
 \label{kap5}
-Oft besteht ein Zufallsexperiment aus verschiedenen Stufen, und amn erfährt das Resultat auch entsprechend diesen Stufen. Im einfachsten Fall erfährt man in der ersten Stufe, ob ein bestimmtes Ereignis $B$ eingetreten ist oder nicht, und in der zweiten Stufe erfährt man, welches Ergebnis $\omega$ eingetreten ist.
+Oft besteht ein Zufallsexperiment aus verschiedenen Stufen, und man erfährt das Resultat auch entsprechend diesen Stufen. Im einfachsten Fall erfährt man in der ersten Stufe, ob ein bestimmtes Ereignis $B$ eingetreten ist oder nicht, und in der zweiten Stufe erfährt man, welches Ergebnis $\omega$ eingetreten ist.
 \section{Bedingte Wahrscheinlichkeit}
 Im allgemeinen wird die information aus der ersten Stufe die Unsicherheit über die zweite Stufe verändern, Dies modifizierten Unsicherheit wird gemessen durch die \emph{bedingte Wahrscheinlichkein von $A$ gegeben $B$ bzw. $B^c$} definiert durch
 \begin{align*}
@@ -17,7 +17,7 @@ Dass diese Definition sinnvoll ist, kann man anhand der Entsprechung von Wahrsch
 \section{Satz der totalen Wahrscheinlichkeit und Satz von Bayes}
 Die obige Definition kann man aber auch als 
 \begin{gather*}
-	\p(A\cup B)=\p(A\mid B)P(B)
+	\p(A\cup B)=\p(A\mid B)\p(B)
 \end{gather*}
 lesen, d.h. $\p(A\cup B)$ ist bestimmt durch $\p(A\mid B)$ und $\p(B)$. In vielen Anwendungen wird dieser Weg beschritten. Man legt die Wahrscheinlichkeiten für die erste Stufe $\p(B)$ und die bedingten Wahrscheinlichkeiten $\p(A\mid B)$ und $\p(A\mid B^{c})$ für die zweite Stufe gegeben die erste fest (aufgrund von Daten, Plausibilität und subjektiven Einschätzungen). Dann lassen sich die übrigen Wahrscheinlichkeiten berechnen. Es gilt zum beispiel der folgende Satz:
 \begin{satz}[Satz der tot. Wahrsch.keit I]
@@ -28,14 +28,14 @@ lesen, d.h. $\p(A\cup B)$ ist bestimmt durch $\p(A\mid B)$ und $\p(B)$. In viele
 \end{satz}
 Dieses Vorgehen wird besonders anschaulich, wenn man das Experiment als Baum darstellt. Wenn man dagegen von den Wahrscheinlichkeiten der Durchschnitte ausgeht, wählt man besser eine Matrixdarstellung.
 
-Wenn die einzelnen Stufen komplizierter sisdn, geht alles analog. Betrachte den Fall mit $k$ Ereignissen auf der ersten Stufe $B_1,\ldots,B_k$, wobei $B_i\cup B_j=\varnothing$ falls $i\neq j$ und $B_1\cup \cdots \cup B_k=\Omega$.
+Wenn die einzelnen Stufen komplizierter sind, geht alles analog. Betrachte den Fall mit $k$ Ereignissen auf der ersten Stufe $B_1,\ldots,B_k$, wobei $B_i\cup B_j=\varnothing$ falls $i\neq j$ und $B_1\cup \cdots \cup B_k=\Omega$.
 \begin{satz}[Satz der tot. Wahrsch.keit II]
 	\begin{gather*}
 		\p(A)=\sum_{i=1}^{k}\p(A\mid B_i)\p(B_i).
 	\end{gather*}
 \end{satz}
 In manchen Situationen erhält man die Information über die verschiedenen Stufen aber nicht in der ursprünglichen Reihenfolge, d.h. man kennt zuerst das Ergebnis der zweiten Stufe, weiss also z.B. dass $A$ eingetreten ist. in einem solchen Fall will man die bedingten Wahrscheinlichkieten der ersten Stufe gegeben die zweite Stufe $\p(B_i\mid A)$ berechnen. Das Ergebnis liefert der folgende Satz:
-\begin{satz}[Satz von Byes]
+\begin{satz}[Satz von Bayes]
 	\begin{multline*}
 		\p(B_i\mid A)\\=\frac{\p(A\mid B_i)\p(B_i)}{\p(A\mid B_1)\p(B_1)+ \cdots+ \p(A\mid B_k)\p(B_k)}.
 	\end{multline*}
@@ -64,4 +64,4 @@ Der Satz von der totalen Wahrscheinlichkeit lässt sich dann schreiben als
 \end{gather*}
 und kommt immer dann zum Einsatz wenn man die Verteilung von $X$ berechnen will, aber nur dessen bedingte Verteilung gegeben $Y$ und die Verteilung von $Y$ kennt.
 
-Bei mehr als zwei STufen bzw. Zufallsvariablen geht alles analog. Die Bäume werden einfach länger und die Matrizen werden zu Feldern in höheren Dimensionen. Das Ganze wird aber sehr rasch unübersichtlich, und es gibt sehr viele Wahrscheinlichkeiten, die man zu Beginn festlegen muss. Eine wesentliche Vereinfachung erhält man, wenn man annimmt, dass jede STu zwar von der unmittelbar vorangehenden, aber nicht von den weiter zurückliegenden Stufen abhängt. Das fühlt auf die sogenannten \emph{Markovketten}, deren Verhalten durch eine Startverteilung und eine Übergangsmatrix gegeben ist.
+Bei mehr als zwei Stufen bzw. Zufallsvariablen geht alles analog. Die Bäume werden einfach länger und die Matrizen werden zu Feldern in höheren Dimensionen. Das Ganze wird aber sehr rasch unübersichtlich, und es gibt sehr viele Wahrscheinlichkeiten, die man zu Beginn festlegen muss. Eine wesentliche Vereinfachung erhält man, wenn man annimmt, dass jede STu zwar von der unmittelbar vorangehenden, aber nicht von den weiter zurückliegenden Stufen abhängt. Das fühlt auf die sogenannten \emph{Markovketten}, deren Verhalten durch eine Startverteilung und eine Übergangsmatrix gegeben ist.

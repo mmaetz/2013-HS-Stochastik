@@ -3,17 +3,17 @@
 \label{sec8.1}
 In der schliessenden Statistik wollen wir anhand von Daten (Beobachtungen) Aussagen über ein Wahrscheinlichkeitsmodell machen. Dass man dies tun kann ist zunächst erstaunlich: Man benützt die induktive Logik um probilistische Aussagen (d.h. Aussagen, welche mit typischerweise hoher Wahrscheinlichkeit gelten)  zu machen.
 
-Grundlegend für die schliessende statistik ist die Annahme, dass Daten Realisierungen von Zufallsvariablen sind. Das heisst: eine Beobachtung (oder \glqq Messung\grqq) $x$ ist entstanden in dem ein $\omega\in\Omega$ zufällig gezogen wurde, so dass die Zufallsvariable $X$ den Wert $X(\omega)=x$ annimmt. Bei mehreren Daten geht alles analog: $n$ Beobachtungen $x_1,\ldots,x_n$ werden aufgefasst als Realisierungen von Zufallsvariablen $X_1,\ldots,X_n$, welche die Werte $X_i=x_i$ mit $i=1,\ldots,n$  angenammon haben.
+Grundlegend für die schliessende Statistik ist die Annahme, dass Daten Realisierungen von Zufallsvariablen sind. Das heisst: eine Beobachtung (oder \glqq Messung\grqq) $x$ ist entstanden in dem ein $\omega\in\Omega$ zufällig gezogen wurde, so dass die Zufallsvariable $X$ den Wert $X(\omega)=x$ annimmt. Bei mehreren Daten geht alles analog: $n$ Beobachtungen $x_1,\ldots,x_n$ werden aufgefasst als Realisierungen von Zufallsvariablen $X_1,\ldots,X_n$, welche die Werte $X_i=x_i$ mit $i=1,\ldots,n$  angenommen haben.
 \section{Erste Konzpete}
 Wir betrachten folgende Situation. Gegeben ist eine Beobachtung $x$ (eine Realisierung) einer $\bin(n,p)-$ oder einer  $\poi(\lambda)$-verteilten Zufallsvariablen $X$: z.B. Anzahl Ausfälle bei $n$ Wiederholungen oder während eine Beobachtungsdauer $t$, wobei dann $\lambda=\mu t$ und $\mu$ die erwartete Anzahl Ausfälle pro Zeiteinheit ist. Wir möchten daraus Rückschlüsse auf den unbekannten Parameter $p$ bzw. $\lambda$ ziehen. Genauer geht es um folgende drei Fragestellungen:
 \begin{compactenum}[1.]
 	\item Welchen ist der plausibelste Wert des unbekannten Parameters (\emph{Punktschätzung})?
-	\item Ist ein bestimmter vorgegebener Parameterwert $p_0$, bzw. $\lambda_0$ (z.B. ein Sollwert) mit der Beobachtung vertäglich (\emph{Test})?
-	\item was ist der Bereich von plausiblen parameterwerten (\emph{Vertrauensintervall})?
+	\item Ist ein bestimmter vorgegebener Parameterwert $p_0$, bzw. $\lambda_0$ (z.B. ein Sollwert) mit der Beobachtung verträglich (\emph{Test})?
+	\item Was ist der Bereich von plausiblen parameterwerten (\emph{Vertrauensintervall})?
 \end{compactenum}
 \section{Das Testproblem}
 \label{sec8.3}
-Beim Testproblem beschränken wir uns hier zur Vereinfachung der Notation auf die Binomialverteilung. Wir nehmen an wir haben eine beobachtung $x\in \left\{ 0,\ldots,n \right\}$, die wir als Realisierung einer $\bin(n,p)$-verteilten Zufallsvariable $X$ interpretieren, wobei $n$ fix und bekannt ist, und $p$ der unbekannte Parameter, den wir mit einem (von der Problemstellung abhängigen) Wert $p_0$ vergleichen (testen) wollen, genauer gesagt wollen wir überprüfen ob die Beobachtung $x$ damit verträglich ist. Die Annahme $p=p_0$ wird \emph{Nullhypothese} genannt, notiert durch
+Beim Testproblem beschränken wir uns hier zur Vereinfachung der Notation auf die Binomialverteilung. Wir nehmen an wir haben eine Beobachtung $x\in \left\{ 0,\ldots,n \right\}$, die wir als Realisierung einer $\bin(n,p)$-verteilten Zufallsvariable $X$ interpretieren, wobei $n$ fix und bekannt ist, und $p$ der unbekannte Parameter, den wir mit einem (von der Problemstellung abhängigen) Wert $p_0$ vergleichen (testen) wollen, genauer gesagt wollen wir überprüfen, ob die Beobachtung $x$ damit verträglich ist. Die Annahme $p=p_0$ wird \emph{Nullhypothese} genannt, notiert durch
 \begin{align*}
 	H_0:  p&=p_0,
 	\intertext{die entsprechende Vermutung wird dann \emph{Alternativhypothese} genannt, notiert durch}
@@ -21,13 +21,13 @@ Beim Testproblem beschränken wir uns hier zur Vereinfachung der Notation auf di
 	p&> p_0,&&\text{einseitig nach oben, rechtseitig;}\\
 	p&<p_0, &&\text{einseitig nach unten, linksseitig.}
 \end{align*}
-Wir beschränken uns im Weiteren auf den Fall $H_A:p>p_0$. Dann lehnen wir die Nullhypothese $H_0: p=p_0$ ab, falls $x\geq c$. Das ist qualitativ betrachtet plausibel:Die quantitative Wahl von $c$ wird wie folgt gemacht. Wir nehem einmal an, dass die Nullhypothese stimmt. Dann ist die Wahrscheinlichkeit die Nullhypothees fälschlicherweise abzulehnen (d.h. ein \emph{Fehler 1. Art})
+Wir beschränken uns im Weiteren auf den Fall $H_A:p>p_0$. Dann lehnen wir die Nullhypothese $H_0: p=p_0$ ab, falls $x\geq c$. Das ist qualitativ betrachtet plausibel:Die quantitative Wahl von $c$ wird wie folgt gemacht. Wir nehmen einmal an, dass die Nullhypothese stimmt. Dann ist die Wahrscheinlichkeit die Nullhypothese fälschlicherweise abzulehnen (d.h. ein \emph{Fehler 1. Art})
 \begin{align*}
 	\p_{p_0}(X\geq c)&=\sum_{k=c}^{n}{n \choose k}p_{0}^{k}(1-p_0)^{n-k}.
 	\intertext{Wir sollten also $c$ nicht zu klein wählen. Umgekehrt möchten wir aber auch $c$ nicht zu gross wählen, weil wir sonst zu häufig einen \emph{Fehler 2. Art} begehen: Kein Verwerfen der Nullhypothese $H_0$, obwohl sie falsch ist. Man schliesst einen Kompromiss, indem man das kleinste $c=c(\alpha)$ nimmt, so dass}
 	\p_{p_0}(X\geq c)\leq \alpha
 \end{align*}
-dabei ist $\alpha$ eine im voraus festgelegte (kleine) Zahl, das sogenannte \emph{Signifikanzniveau}. Obige (Un-)Gleichung besagt, dass die Wahrscheinlichkeit eines Fehlers 1.Art mit dem Signifikanzniveau $\alpha$ kontrolliert ist. Die Wahrscheinlichkeit für einen Fehler 2. Art ist nicht explizit kontrolliert, deswegen, weil man nur einen - und hier wählt man den schlimmeren Fehler 1. Art - direkt kontrollieren kann. Nach all diesen Überlegungen kommt man zum Rezept, dass $H_0$ verworfen wird, falls $x\geq c_{\alpha}$.
+dabei ist $\alpha$ eine im voraus festgelegte (kleine) Zahl, das sogenannte \emph{Signifikanzniveau}. Obige (Un-)Gleichung besagt, dass die Wahrscheinlichkeit eines Fehlers 1. Art mit dem Signifikanzniveau $\alpha$ kontrolliert ist. Die Wahrscheinlichkeit für einen Fehler 2. Art ist nicht explizit kontrolliert, deswegen, weil man nur einen - und hier wählt man den schlimmeren Fehler 1. Art - direkt kontrollieren kann. Nach all diesen Überlegungen kommt man zum Rezept, dass $H_0$ verworfen wird, falls $x\geq c_{\alpha}$.
 
 Im Fall, wo man nach Abweichungen nach unten interessiert ist, d.h. $H_A: p<p_0$, geht alles analog, Bei zwei-seitiger Alternative $H_A:p\neq p_0$, verwerfen wir die Nullhypothese $H_0:p=p_0$, wenn $x\leq c_1$ oder $x\geq c_2$. Hier wählt man $c_1$ möglichst gross und $c_2$ möglichst klein unter den Einschränkungen dass
 \begin{align*}
@@ -55,9 +55,9 @@ Falls das Signifikanzniveau $\alpha$ kleiner gewählt wird, so wird der Verwerfu
 	&=\p(\text{fälschliches Verwerfen} \\
 	&\hphantom{=\p()} \text{von $H_0$ obschon $H_0$ stimmt})
 \end{align*}
-bedeutet, dass es (generell) schwieriger wird $H_0$ zu verwerfen, oder anders ausgedrückt: Der Verwerdungsbereich (für Verwerfen von $H_0$) wird kleiner. Dies illustriert auch die Tatsache, dass amn bei extrem klein gewähltem $\alpha$ die Null-Hypothese (fast) nie verwerfen kann.
+bedeutet, dass es (generell) schwieriger wird $H_0$ zu verwerfen, oder anders ausgedrückt: Der Verwerdungsbereich (für Verwerfen von $H_0$) wird kleiner. Dies illustriert auch die Tatsache, dass man bei extrem klein gewähltem $\alpha$ die Null-Hypothese (fast) nie verwerfen kann.
 
-Es gibt also ein Niveau, wo $H_0$ \glqq gerade noch\grqq \ verworfen wird. Der \emph{P-Wert ist das kleinste Signifikanzniveau wo $H_0$ verworfen wird}. Die Beobachtung $X$ liegt dann gerade auf der Grenze des Verwerfungsbereichs. Man entscheidet dann in obigem Punkt 5 so, adss $H_0$ verworfen wird, falls der P-Wert kleiner als $\alpha$ ist.
+Es gibt also ein Niveau, wo $H_0$ \glqq gerade noch\grqq \ verworfen wird. \emph{Der P-Wert ist das kleinste Signifikanzniveau wo $H_0$ verworfen wird}. Die Beobachtung $X$ liegt dann gerade auf der Grenze des Verwerfungsbereichs. Man entscheidet dann in obigem Punkt 5 so, dass $H_0$ verworfen wird, falls der P-Wert kleiner als $\alpha$ ist.
 \section{Vertrauensintervalle}
 Ein Vertrauensintervall $I$ zum Niveau $1-\alpha$ (oft auch \emph{Konfidenzintervall genannt}) besteht aus allen Parameterwerten, die im Sinne eines statistischen Tests zum Signifikanzniveau $\alpha$ mit der Beobachtung verträglich sind (üblicherweise nimmt man den zweiseitigen Test). Mathematisch heisst das:
 \begin{align*}
@@ -84,12 +84,12 @@ Betrachte $X\sim \bin(n,p)$, das heisst
 	\intertext{Der Zentrale Grenzwertsatz liefert dann}
 	\hat{p}&=\frac{X}{n}\\
 	&=\overline{Y}_n\approx \mathcal{N}\!\left( \E(Y_1),\frac{1}{n}\V(Y_1) \right)\\
-	&=\mathcal{N}\!\left( p,\frac{p\left( 1-p \right)}{n} \right)
+	&=\mathcal{N}\!\left( p,\frac{p\left( 1-p \right)}{n} \right).
 \end{align*}
-Ansatz: konfidenzintervall
+Ansatz: Konfidenzintervall
 \begin{gather*}
-	I=\left[ ``^p \right]-c_{u},\hat{p}+c_o
-\end{gather*},
+	I=\left[ \hat{p}-c_u,\hat{p}+c_0 \right],
+\end{gather*}
 so dass $\p_p(p\in I)\geq 1-\alpha$. Man rechnet jetzt
 \begin{align*}
 	\p_p(p\in I)&=\p(\hat{p}-c_u\leq p\leq \hat{p}+c_o)\\

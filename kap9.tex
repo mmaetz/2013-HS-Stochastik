@@ -1,7 +1,7 @@
 \chapter{Statistik bei normalverteilten Daten}
-Wir betrachten folgende Situation. Gegeben sind $n$ Beobachtungen (Realisierungen) $x_1,\ldots,x_n$ von Zufallsvariablen $X_1,\ldots,X_n$ i.i.d. $\sim \mathcal{N}(\mu,\sigma^2)$. Typischerweise sind dies $n$ Messungen einer unbekannten Grösse $\mu$, und $\sigma$ gibt an, wie genau die Messungen sind. Die Annahme der Normalverteilung wird meist mit dem Zentralen Grenzwertsatz begründet. Ausserdem nehmen wir noch an, dass es keine Beeinflussungen zwischen den einzelnen beobachtungen gibt, so dass die Unabhängigkeit der Zufallsvariablen gerechtfertigt erscheint.
+Wir betrachten folgende Situation. Gegeben sind $n$ Beobachtungen (Realisierungen) $x_1,\ldots,x_n$ von Zufallsvariablen $X_1,\ldots,X_n$ i.i.d. $\sim \mathcal{N}(\mu,\sigma^2)$. Typischerweise sind dies $n$ Messungen einer unbekannten Grösse $\mu$, und $\sigma$ gibt an, wie genau die Messungen sind. Die Annahme der Normalverteilung wird meist mit dem Zentralen Grenzwertsatz begründet. Ausserdem nehmen wir noch an, dass es keine Beeinflussungen zwischen den einzelnen Beobachtungen gibt, so dass die Unabhängigkeit der Zufallsvariablen gerechtfertigt erscheint.
 
-Wir möchten aus $x_1,\ldots,x_n$ Rückschlüsse auf die unbekannten Parameter $\mu$ und $\sigma$ ziehen. Wie zuvor geht es um die drei Fragestellungen Punktschätzung, Test für einen vorgegebenen Wert (Sollwert) und Vertrauensintervall (Bereich von plausiblen Werten). Weil $\mu$ meist von grösserem Interesse ist als $\sigma$, behandeln wir die letzten beiden fragestellungen nur für $\mu$.
+Wir möchten aus $x_1,\ldots,x_n$ Rückschlüsse auf die unbekannten Parameter $\mu$ und $\sigma$ ziehen. Wie zuvor geht es um die drei Fragestellungen Punktschätzung, Test für einen vorgegebenen Wert (Sollwert) und Vertrauensintervall (Bereich von plausiblen Werten). Weil $\mu$ meist von grösserem Interesse ist als $\sigma$, behandeln wir die letzten beiden Fragestellungen nur für $\mu$.
 \section{Schätzungen}
 Die Punktschätzungen sind:
 \begin{align}
@@ -19,9 +19,9 @@ Der Erwartungswert der Schätzer ist
 (Dies ist der Grund für den Nenner $n-1$).
 \section{Testen}
 \label{sec9.2}
-Wir haben $n$ voneinander unabhängige Beobachtungen $x_1,\ldots,x_n$ einer Zufallsvariable $X\sim \mathcal{N}(\mu,\sigma^))$, interpretiert als eine Beobachtung der i.i.d. Zufallsvariablen $X_1,\ldots,X_n$ mit der selben Verteilung wie $X$. Wir fixieren je nach Problemstellung ein $\mu_0\in\mathbb{R}$ und wollen die Nullhypothese $H_0:\mu=\mu_0$ gegen eine der möglichen Alternativen $H_A:\mu\neq \mu_0$, $H_A:\mu<\mu_0$ bzw. $H_A:\mu>\mu_0$ testen. Dabei unterscheiden wir zwei Fälle: Die Streuung $\sigma$ ist bekannt, dann verwenden wir den sogenannten $z$-Test, oder die Streuung $\sigma$ ist unbekannt. (dann muss sie aus den beobachtetetn Daten geschätzt werden) , in diesem fall ergibt sich der sogenannte $t$-test.
+Wir haben $n$ voneinander unabhängige Beobachtungen $x_1,\ldots,x_n$ einer Zufallsvariable $X\sim \mathcal{N}(\mu,\sigma^2)$, interpretiert als eine Beobachtung der i.i.d. Zufallsvariablen $X_1,\ldots,X_n$ mit der selben Verteilung wie $X$. Wir fixieren je nach Problemstellung ein $\mu_0\in\mathbb{R}$ und wollen die Nullhypothese $H_0:\mu=\mu_0$ gegen eine der möglichen Alternativen $H_A:\mu\neq \mu_0$, $H_A:\mu<\mu_0$ bzw. $H_A:\mu>\mu_0$ testen. Dabei unterscheiden wir zwei Fälle: Die Streuung $\sigma$ ist bekannt, dann verwenden wir den sogenannten $z$-Test, oder die Streuung $\sigma$ ist unbekannt. (Dann muss sie aus den beobachteten Daten geschätzt werden) , in diesem Fall ergibt sich der sogenannte $t$-Test.
 \subsection{z-Test ($\sigma$ bekannt)}
-Wir nehmen an, dass $\sigma$ bekannt ist. Die Teststatastik ist definiert als die Zufallsvariable
+Wir nehmen an, dass $\sigma$ bekannt ist. Die Teststatistik ist definiert als die Zufallsvariable
 \begin{gather*}
 	T\coloneqq \sqrt{n}\frac{\overline{X}_n-\mu_0}{\sigma}
 \end{gather*}
@@ -47,15 +47,15 @@ wobei $\overline{X}_n$ den Schätzer für den Mittelwert aus Gl. \ref{eq:schaetz
 	\end{split}
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}\nonumber
 \end{align}
-Die Begründung für \ref{eq:ztest1} ist wie folgt, die Teststatistik $T$ ist unter der Nullhypothese $\mathcal{N}(0,1)$-verteilt, woraus sich der Fehler 1. Art, sofort zu
+Die Begründung für Eq. \ref{eq:ztestdinimuetter} ist wie folgt, die Teststatistik $T$ ist unter der Nullhypothese $\mathcal{N}(0,1)$-verteilt, woraus sich der Fehler 1. Art, sofort zu
 \begin{gather*}
 	\p_{\mu=\mu_0}(\abs{T}\geq z_{1-\alpha/2})
 \end{gather*}
-ergibt, also genau wie es sein sollte. Das $(1-?o)$-Vertrauensintervall für den Parameter $\mu$ ist gegeben durch
+ergibt, also genau wie es sein sollte. Das $(1-\alpha)$-Vertrauensintervall für den Parameter $\mu$ ist gegeben durch
 \begin{gather*}
 	I_{1-\alpha}=\left[ \overline{X}_n-\frac{\sigma}{\sqrt{n}}z_{1-\alpha/2},\overline{X}_n+\frac{\sigma}{\sqrt{n}}z_{1-\alpha/2} \right],
 \end{gather*}
-da es von den $X_1,\ldots,X_n$ abhängt ist es zufällig, für eine gegebene Beobachtung $\overline{x}_n$ wird dann $\overline{X}_n$ einfach durch $\overline{x}_n$ ersetzt um die Realisierung des Vertrauensintervalls zur Stichprobe $x_1,\ldots,x_n$ zu erhalten. Dass Vertrauensintervall ist so definiert, dass es den wahren Wert von $\mu$ mit Wahrscheinlichkeit $1-\alpha$ \glqq einfängt\grqq: Eine kurze Umformung ergibt, dass das Ereignis 
+da es von den $X_1,\ldots,X_n$ abhängt ist es zufällig, für eine gegebene Beobachtung $\overline{x}_n$ wird dann $\overline{X}_n$ einfach durch $\overline{x}_n$ ersetzt um die Realisierung des Vertrauensintervalls zur Stichprobe $x_1,\ldots,x_n$ zu erhalten. Das Vertrauensintervall ist so definiert, dass es den wahren Wert von $\mu$ mit Wahrscheinlichkeit $1-\alpha$ \glqq einfängt\grqq: Eine kurze Umformung ergibt, dass das Ereignis 
 \begin{align*}
 	\left\{ \mu\in I \right\}&=\left\{ \omega\in\Omega\mid \mu\in I(\omega) \right\}\\
 	\intertext{gegeben ist durch}
@@ -81,7 +81,7 @@ Kenntnis von $\sigma$, welche für den z-Test benötigt wird, ist in der Praxis 
 von $T$ je nach Alternative $H_A$ die Nullhypothese $H_0:\mu=\mu_0$ ab, falls
 \begin{align}
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
-	\begin{split}\label{eq:ztest1}
+	\begin{split}\label{eq:ztestdinimuetter}
 		\abs{t}&\geq t_{n-1,1-\alpha/2},\\
 	\Leftrightarrow t &\in VB_{\alpha}=(-\infty,t_{n-1,\alpha/2}]\cup [t_{n-1,1-\alpha/2},\infty),\\
 			H_A&:\mu\neq\mu_0.
@@ -100,12 +100,12 @@ von $T$ je nach Alternative $H_A$ die Nullhypothese $H_0:\mu=\mu_0$ ab, falls
 	\end{split}
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}\nonumber
 \end{align}
-Das $\left( -\alpha \right))$-Vertrauensintervall ist gegeben durch
+Das $\left(1 -\alpha \right)$-Vertrauensintervall ist gegeben durch
 \begin{align*}
 	&I_{1-\alpha}=\\&\left[ \overline{X}_n-\frac{S_n}{\sqrt{n}}t_{n-1,1-\alpha/2},\overline{X}_n+\frac{S_n}{\sqrt{n}}t_{n-1,1-\alpha/2} \right].
 \end{align*}
 Ausblick auf eine verwandte Methode in der Praxis: In der \emph{statistischen Qualitätskontrolle} wird in regelmässigen Abständen eine kleine Stichprobe vom Umfang $n$ aus dem Produktionsprozess gezogen, die Zielgrösse gemessen, gemittelt und gegen die Zeit aufgetragen. Fällt ein Mittelwert ausserhalb der Kontrollgrenzen \glqq Sollwert $\pm 3\sigma/\sqrt{n}$\grqq\ oder sind 9 aufeinandererfolgende Mittelwerte alle grösser oder alle kleiner als der Sollwert, dann ist der Produktionsprozess ausser Kontrolle.
-\subsection{Macht eines Tetst}
+\subsection{Macht eines Tests}
 Ein statistischer Test kontrolliert direkt die Wahrscheinlichkeit eines Fehlers 1. Art via dem Signifikanzniveau $\alpha$:
 \begin{align*}
 	\p(\text{Fehler 1. Art})&=\p(\text{Test verwirft }H_0\text{ obschon }\\&\hphantom{=\p()}H_0\text{ stimmt })\\

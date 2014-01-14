@@ -5,12 +5,12 @@ Bei einer stetigen Zufallsvariablen $X$ ist $\p(X=x)=0$ für jedes feste $x$. Wi
 \section{Wahrscheinlichkeitsdichte}
 Die Dichte von einer stetigen Verteilung $P$ ist definiert als
 \begin{align*}
-	f(x)&=\lim_{h\downarrow 0}\frac{\p(x\leq X\leq x+h)}{h}
+	f(x)&=\lim_{h\downarrow 0}\frac{\p(x\leq X\leq x+h)}{h}.
 	\intertext{Zwischen der Dichte $f$ und der kumulativen Verteilungsfunktion $F$ bestehen die folgenden Beziehungen:}
-	f(x) &= F'(x), \ \ F(x) = \int_{-\infty}^x\!\dd{x}\, f(x)
+	f(x) &= F'(x), \ \ F(x) = \int_{-\infty}^x\!\dd{x}\, f(x),
 	\intertext{Erwartungswert und Varianz berechnen sich gemäss}
-	\E(X) &= \mu_X = \int_{-\infty}^\infty\!\dd{x}\, xf(x) \\
-	\V(X) &= \sigma^2_X = \int_{-\infty}^\infty\!\dd{x}\, (x-\mu_X)^2f(x)
+	\E(X) &= \mu_X = \int_{-\infty}^\infty\!\dd{x}\, xf(x), \\
+	\V(X) &= \sigma^2_X = \int_{-\infty}^\infty\!\dd{x}\, (x-\mu_X)^2f(x),
 	\intertext{und es gelten die gleichen Rechenregeln wie im diskreten Fall (TODO: Referenz hier?).}
 \end{align*}
 %
@@ -18,14 +18,14 @@ Die Dichte von einer stetigen Verteilung $P$ ist definiert als
 \subsection{Uniforme Verteilung}
 Die \emph{uniforme Verteilung} $\uni[a,b]$ tritt auf bei Rundungsfehlern und als Formalisierung der völligen "Ignoranz".
 \begin{align*}
-	W&=[a,b]\\
+	W&=[a,b],\\
 	f(x)&=\frac{1}{b-a}1_{[a,b]}(x)=
 	\begin{cases}
 		\frac{1}{b-a} & a\leq x \leq b \\
 		0 & \text{sonst}
 	\end{cases}\\
 	\E(X)&=\frac{a+b}{2}\\
-	\sigma_X&=\frac{b-a}{\sqrt{12}}
+	\sigma_X&=\frac{b-a}{\sqrt{12}}.
 \end{align*}
 %
 \subsection{Exponentialverteilung}
