@@ -45,12 +45,14 @@ Die \emph{Normal- oder Gaussverteilung} $\mathcal{N}(\mu,\sigma^2)$ ist die häu
 	f(x)&=\frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right)\\
 	\E(X)&=\mu\\
 	\sigma_X&=\sigma
+	\shortintertext{Die $\mathcal{N}(0,1)$Verteilung, auch \emph{Standardverteilung} bezeichnet, ist ein wichtiger Sonderfall, weshalb es für dessen Verteilungsfunktion sogar ein eigenes Symbol gibt:}
+\Phi(x) &\coloneqq F_{\mathcal{N}(0,1)}, \ x\in\mathbb{R}
+\shortintertext{und deren Umkehrfunktionen (d.h. die Quantile) kürzen wir ab mit}
+z_\alpha &\coloneqq \Phi^{-1}(\alpha), \qquad \alpha \in [0,1].
+\shortintertext{Die Verteilungsfunktion $F$ einer $\mathcal{N}(\mu,\sigma^2)$-verteilten Zufallsvariable ist nicht geschlossen darstellbar, sie wird aus der Verteilungsfunktion $\Phi$ der Standardnormalverteilung (welche tabelliert ist) berechnet mittels der Formel:}
+F(x)&=\int_{-\infty}^{x}\dd{x}\, f(x)
+	=\Phi\!\left(\frac{x-\mu}{\sigma}\right),\qquad x \in \mathbb{R}.
 \end{align*}
-Die $\mathcal{N}(0,1)$Verteilung, auch \emph{Standardverteilung} bezeichnet, ist ein wichtiger Sonderfall, weshalb es für dessen Verteilungsfunktion sogar ein eigenes Symbol gibt: $\Phi(x) := F_{\mathcal{N}(0,1)}, \ x\in\mathbb{R}$ und deren Umkehrfunktionen (d.h. die Quantile) kürzen wir ab mit $z_\alpha := \Phi^{-1}(\alpha), \ \alpha \in [0,1]$. Die Verteilungsfunktion $F$ einer $\mathcal{N}(\mu,\sigma^2)$-verteilten Zufallsvariable ist nicht geschlossen darstellbar, sie wird aus der Verteilungsfunktion $\Phi$ der Standardnormalverteilung (welche tabelliert ist) berechnet mittels der Formel:
-\begin{equation}
-	F(x)=\Phi\left(\frac{x-\mu}{\sigma}\right), \ \ x \in \mathbb{R}
-\end{equation}
-%
 \section{Transformationen}
 Bei stetigen Verteilungen spielen Transformationen $Y=g(X)$ eine wichtige Rolle. Falls $g$ \emph{linear} ist: $g(x)=a+bx$ mit $b>0$, dann gilt $\E(Y)=a+b\E(X)$, $\sigma_Y=b\sigma_X$, $F_Y(x)=F_X((x-a)/b)$ und $f_Y(x)=f_X((x-a)/b)/b$. Durch Skalenänderungen kann man also alle Exponentialverteilungen ineinander überführen, und ebenso durch lineare Transformationen alle Normalverteilungen ineinander. Für beliebiges $g$ gilt
 \begin{equation}

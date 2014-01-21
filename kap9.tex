@@ -16,16 +16,20 @@ Der Erwartungswert der Schätzer ist
 	\E(\hat{\mu})&=\mu,\\
 	\E(\hat{\sigma}^2)&=\sigma^2.
 \end{align*}
-(Dies ist der Grund für den Nenner $n-1$).
+(Dies ist der Grund für den Nenner $n-1$.)
 \section{Testen}
 \label{sec9.2}
 Wir haben $n$ voneinander unabhängige Beobachtungen $x_1,\ldots,x_n$ einer Zufallsvariable $X\sim \mathcal{N}(\mu,\sigma^2)$, interpretiert als eine Beobachtung der i.i.d. Zufallsvariablen $X_1,\ldots,X_n$ mit der selben Verteilung wie $X$. Wir fixieren je nach Problemstellung ein $\mu_0\in\mathbb{R}$ und wollen die Nullhypothese $H_0:\mu=\mu_0$ gegen eine der möglichen Alternativen $H_A:\mu\neq \mu_0$, $H_A:\mu<\mu_0$ bzw. $H_A:\mu>\mu_0$ testen. Dabei unterscheiden wir zwei Fälle: Die Streuung $\sigma$ ist bekannt, dann verwenden wir den sogenannten $z$-Test, oder die Streuung $\sigma$ ist unbekannt. (Dann muss sie aus den beobachteten Daten geschätzt werden) , in diesem Fall ergibt sich der sogenannte $t$-Test.
 \subsection{z-Test ($\sigma$ bekannt)}
 Wir nehmen an, dass $\sigma$ bekannt ist. Die Teststatistik ist definiert als die Zufallsvariable
-\begin{gather*}
-	T\coloneqq \sqrt{n}\frac{\overline{X}_n-\mu_0}{\sigma}
-\end{gather*}
-wobei $\overline{X}_n$ den Schätzer für den Mittelwert aus Gl. \ref{eq:schaetzer} darstellt. Wir lehnen für eine gegebene Realisierung $t=\sqrt{n}(\overline{x}_n-\mu_0)/\sigma$ von $T$ je nach Alternative $H_A$ die Nullhypothese $H_0:\mu=\mu_0$ ab, 
+\begin{align*}
+	T\coloneqq \sqrt{n}\frac{\overline{X}_n-\mu_0}{\sigma},
+	\shortintertext{wobei $\overline{X}_n$ den Schätzer für den Mittelwert aus Gl. \ref{eq:schaetzer} darstellt. Wir lehnen für eine gegebene Realisierung}
+	t=\sqrt{n}(\overline{x}_n-\mu_0)/\sigma,
+	\shortintertext{von $T$ je nach Alternative $H_A$ die Nullhypothese}
+	 H_0&:\mu=\mu_0
+	\shortintertext{ab.}
+\end{align*}
 \begin{align}
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztest1}
@@ -72,13 +76,15 @@ Der P-Wert zu einer gegebenen Realisierung $t$ der Teststatistik $T$ errechnet s
 	&=2\left( 1-\Phi(\abs{t}) \right)
 \end{align*}
 \subsection{t-Test ($\sigma$ unbekannt)}
-Kenntnis von $\sigma$, welche für den z-Test benötigt wird, ist in der Praxis meist unrealistisch. Wenn wir $\sigma$ nicht kennen, ersetzen wir es durch den Schätzer $S_n$ aus Gleichung \ref{eq:schaetzer}. Die Teststatistik ist dass
+Kenntnis von $\sigma$, welche für den z-Test benötigt wird, ist in der Praxis meist unrealistisch. Wenn wir $\sigma$ nicht kennen, ersetzen wir es durch den Schätzer $S_n$ aus Gleichung \ref{eq:schaetzer}. Die Teststatistik ist dann
 \begin{align*}
-	T&\coloneqq\sqrt{n}\, \frac{\overline{X}_n-\mu_0}{S_n}
-	\intertext{im Gegensatz zur Teststatistik beim z-Test ist sie hier $t$-verteilt mit Freiheitsgrad $n-1$, das $\alpha$-Quantil der $t$-Verteilung mit Freiheitsgrad $n$ wird mit $t_{n,\alpha}$ bezeichnet. Wir lehnen für eine gegebene Realisierung}
-	t&=\sqrt{n}\, \frac{\overline{x}_n-\mu}{s_n}
+	T&\coloneqq\sqrt{n}\, \frac{\overline{X}_n-\mu_0}{S_n}.
+	\intertext{Im Gegensatz zur Teststatistik beim z-Test ist sie hier $t$-verteilt mit Freiheitsgrad $n-1$, das $\alpha$-Quantil der $t$-Verteilung mit Freiheitsgrad $n$ wird mit $t_{n,\alpha}$ bezeichnet. Wir lehnen für eine gegebene Realisierung}
+	t&=\sqrt{n}\, \frac{\overline{x}_n-\mu}{s_n},
+	\shortintertext{von $T$ je nach Alternative $H_A$ die Nullhypothese}
+H_0&:\mu=\mu_0
 \end{align*}
-von $T$ je nach Alternative $H_A$ die Nullhypothese $H_0:\mu=\mu_0$ ab, falls
+ab, falls
 \begin{align}
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztestdinimuetter}

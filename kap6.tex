@@ -38,15 +38,12 @@ Der Erwartungswert macht nur Sinn für eine $\mathbb{R}$-wertige Gröss (oder Te
 \section{Kovarianz und Korrelation}
 Da die gemeinsame Verteilung von abhängigen Zufallsvariablen i.A. kompliziert ist, begnügt man sich oft mit einer \emph{vereinfachenden} Kennzahl zur Beschreibung der Abhängigkeit. Die \emph{Kovarianz von $X$ und $Y$} sowie \emph{Korrelation von $X$ und $Y$} sind wie folgt definiert:
 \begin{align*}
-	V(x)=\cov(X,X),
-	\corr(X,Y)&\coloneqq \rho_{XY},\\
-	&\coloneqq \frac{\cov(X,Y)}{\sigma_{X}\sigma_{Y}}
-\end{align*}
-Unmittelbar aus der Definition folgt sofort
-\begin{align*}
-	\cov(X,Y)=\E(XY)-\E(X)\E(Y),
-	\intertext{sowie di wichtige Formel}
-	\cov(X,Y)=\E(XY)-\E(X)\E(Y),
+	\cov(X,Y)&\coloneqq \E\!\left( \left( X-\mu_X \right)\left( Y-\mu_Y \right) \right),\\
+	\corr(X,Y)&\coloneqq\rho_{XY}\coloneqq\frac{\cov(X,Y)}{\sigma_X\sigma_Y}.
+	\shortintertext{Unmittelbar aus der Definition folgt sofort}
+	\V(X)&=\cov(X,X),
+	\shortintertext{sowie die wichtige Formel}
+	\cov(X,Y)&=\E(XY)-\E(X)\E(Y).
 \end{align*}
 zur praktischen Berechnung der Kovarianz. Weiter ist die Kovarianz \emph{bilinear}, d.h. es gilt
 \begin{multline*}
@@ -64,8 +61,8 @@ womit wir nun auch in der Lage sind die Varianz von Linearkombinationen von Zufa
 \end{align*}
 falls die $X_i$ unabhängig (oder noch allgemeiner unkorreliert) sind vereinfacht sich diese Formel zu
 \begin{align*}
-	\V(X_1+\cdots+X_m)&=\V(X_1)+\cdots +\V(X_m)
-	\intertext{$X_1,\ldots,X_n$ \emph{unabhängig}.}
+	\V(X_1+\cdots+X_m)&=\V(X_1)+\cdots +\V(X_m),
+	\intertext{mit $X_1,\ldots,X_n$ \emph{unabhängig}.}
 	\cov(a+bX,c+dY)&=bd\cov(X,Y),\\
 	\corr(a+bX,c+dY)&=\sgn(b)\sgn(d)\\
 	&\quad\cdot\corr(X,Y);\\

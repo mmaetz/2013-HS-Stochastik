@@ -24,7 +24,13 @@ Ausgehend von Gleichung \ref{eq:above} werden nun die wahren $\mu_k$ ersetzt dur
 	\hat{\theta}_j&=g_j(\hat{\mu}_(,\ldots,\hat{\mu}_p),& j&=1,\ldots,r;\\
 	\hat{\mu}_k&=\frac{1}{n}\sum_{i=1}^{n}X_{i}^{k},& k&=1,\ldots,p.
 \end{align*}
-\emph{Rezeptatrige Vorgangsweise:} Gegeben ist eine Zufallsvariable $X$ deren Verteilung von einem unbekannten (zu schätzenden) Parameter $\theta$ abhängt. Man berechnet zunächst das erste Moment von $X$, wenn dieses von $\theta$ abhängt, dann löst man die Gleichung nach $\theta$ auf, d.h. man schreibt $\theta$ als Funktion des ersten Momentes, dann wird das erste Moment durch dessen Schätzer ersetzt und man erhält einen Momentenschätzer für $\theta$. Falls das erste Moment nicht von $\theta$ abhängt berechnet man das zweite Moment usw. Es ist aber auch möglich, dass sämtliche Momente von $\theta$ abhängen, man erhält dann mehrere (unterschiedliche) Momentenschätzer für $\theta$.
+\emph{Rezeptatrige Vorgangsweise:} 
+\begin{compactenum}[1.]
+	\item Gegeben ist eine Zufallsvariable $X$ deren Verteilung von einem unbekannten (zu schätzenden) Parameter $\theta$ abhängt. 
+	\item Man berechnet zunächst das erste Moment von $X$, wenn dieses von $\theta$ abhängt, dann löst man die Gleichung nach $\theta$ auf, d.h. man schreibt $\theta$ als Funktion des ersten Momentes.
+	\item Dann wird das erste Moment durch dessen Schätzer ersetzt und man erhält einen Momentenschätzer für $\theta$. 
+	\item Falls das erste Moment nicht von $\theta$ abhängt berechnet man das zweite Moment usw. Es ist aber auch möglich, dass sämtliche Momente von $\theta$ abhängen, man erhält dann mehrere (unterschiedliche) Momentenschätzer für $\theta$.
+\end{compactenum}
 \begin{bspl}
 	Sei $X\sim\poi(\lambda)$ mit unbekanntem Parameter $\lambda$. Das erste Moment von $X$ ist
 	\begin{align*}
@@ -90,14 +96,14 @@ Im stetigen Fall geht im Wesentlichen alles analog und man braucht nur den Buchs
 		C&=\sum_{i=1}^{n}\log(x_i!)
 	\end{align*}
 \end{bspl}
-Beacht, das die Konstante $C$ keinen Einfluss auf die Maximierung von $\ell(\lambda)$ hat. Leitet man $\ell(\lambda)$ ab und setzt $\ell'(\lambda)=0$, so erhält man den Maximum-Likelihood Schätzer
+Beachte, dass die Konstante $C$ keinen Einfluss auf die Maximierung von $\ell(\lambda)$ hat. Leitet man $\ell(\lambda)$ ab und setzt $\ell'(\lambda)=0$, so erhält man den Maximum-Likelihood Schätzer
 \begin{align*}
 	\hat{\lambda}&=\overline{X}_n\\
 	&=\frac{1}{n}\sum_{i=1}^{n}X_i.
 \end{align*}
 Dies ist derselbe Schätzer wie bei der Momentenmethode wo $g_1$ die Identität ist.
 \section{Eigenschaften von Schätzern}
-Wir haben gesehen, dass ein Schätzer für den Parameter $\theta$ als eine aus den Zufallsvariablen $X_1,\ldots,X_n$ zusammengesetzte Zufallsvariable interpretiert werden kann, also $\hat{\theta}=\hat{\theta}(X_1,\ldots,X_n)$ wobei der zu schätzende Parameter $\wedge$ meist eine Kenngrößse der Verteilung der $X_i$ ist. Man kann sich nun fragen wie eigentlich der Erwartungsswert dieser Zufallsvariable (also des Schätzers) aussieht, intuitiv wünschenswert wäre es wann dieser am besten gleich dem zu schätzenden Parameter entspricht, woraus sich folgende Eigenschaft ergibt: Ein Schätzer $\hat{\theta}$ für den Parameter $\theta$ heisst \emph{erwartungstreu} wenn
+Wir haben gesehen, dass ein Schätzer für den Parameter $\theta$ als eine aus den Zufallsvariablen $X_1,\ldots,X_n$ zusammengesetzte Zufallsvariable interpretiert werden kann, also $\hat{\theta}=\hat{\theta}(X_1,\ldots,X_n)$ wobei der zu schätzende Parameter $\theta$ meist eine Kenngrößse der Verteilung der $X_i$ ist. Man kann sich nun fragen wie eigentlich der Erwartungsswert dieser Zufallsvariable (also des Schätzers) aussieht, intuitiv wünschenswert wäre es wann dieser am besten gleich dem zu schätzenden Parameter entspricht, woraus sich folgende Eigenschaft ergibt: Ein Schätzer $\hat{\theta}$ für den Parameter $\theta$ heisst \emph{erwartungstreu} wenn
 \begin{gather*}
 	\E(\hat{\theta})=\E\left( \hat{\theta}(X_1,\ldots,X_n) \right)=\theta.
 \end{gather*}

@@ -17,18 +17,18 @@ Dass diese Definition sinnvoll ist, kann man anhand der Entsprechung von Wahrsch
 \section{Satz der totalen Wahrscheinlichkeit und Satz von Bayes}
 Die obige Definition kann man aber auch als 
 \begin{gather*}
-	\p(A\cup B)=\p(A\mid B)\p(B)
+	\p(A\cap B)=\p(A\mid B)\p(B)
 \end{gather*}
-lesen, d.h. $\p(A\cup B)$ ist bestimmt durch $\p(A\mid B)$ und $\p(B)$. In vielen Anwendungen wird dieser Weg beschritten. Man legt die Wahrscheinlichkeiten für die erste Stufe $\p(B)$ und die bedingten Wahrscheinlichkeiten $\p(A\mid B)$ und $\p(A\mid B^{c})$ für die zweite Stufe gegeben die erste fest (aufgrund von Daten, Plausibilität und subjektiven Einschätzungen). Dann lassen sich die übrigen Wahrscheinlichkeiten berechnen. Es gilt zum beispiel der folgende Satz:
+lesen, d.h. $\p(A\cap B)$ ist bestimmt durch $\p(A\mid B)$ und $\p(B)$. In vielen Anwendungen wird dieser Weg beschritten. Man legt die Wahrscheinlichkeiten für die erste Stufe $\p(B)$ und die bedingten Wahrscheinlichkeiten $\p(A\mid B)$ und $\p(A\mid B^{c})$ für die zweite Stufe gegeben die erste fest (aufgrund von Daten, Plausibilität und subjektiven Einschätzungen). Dann lassen sich die übrigen Wahrscheinlichkeiten berechnen. Es gilt zum beispiel der folgende Satz:
 \begin{satz}[Satz der tot. Wahrsch.keit I]
 	\begin{align*}
-		\p(A)&=\p(A\cup B)+ \p(A\cup B^c)\\
+		\p(A)&=\p(A\cap B)+ \p(A\cap B^c)\\
 		&= \p(A\mid B)\p(B)+\p(A\mid B^{c})\p(B^c)
 	\end{align*}
 \end{satz}
 Dieses Vorgehen wird besonders anschaulich, wenn man das Experiment als Baum darstellt. Wenn man dagegen von den Wahrscheinlichkeiten der Durchschnitte ausgeht, wählt man besser eine Matrixdarstellung.
 
-Wenn die einzelnen Stufen komplizierter sind, geht alles analog. Betrachte den Fall mit $k$ Ereignissen auf der ersten Stufe $B_1,\ldots,B_k$, wobei $B_i\cup B_j=\varnothing$ falls $i\neq j$ und $B_1\cup \cdots \cup B_k=\Omega$.
+Wenn die einzelnen Stufen komplizierter sind, geht alles analog. Betrachte den Fall mit $k$ Ereignissen auf der ersten Stufe $B_1,\ldots,B_k$, wobei $B_i\cap B_j=\varnothing$ falls $i\neq j$ ($B_i,B_j$ paarweise disjunkt) und $B_1\cup \cdots \cup B_k=\Omega$.
 \begin{satz}[Satz der tot. Wahrsch.keit II]
 	\begin{gather*}
 		\p(A)=\sum_{i=1}^{k}\p(A\mid B_i)\p(B_i).
@@ -37,7 +37,7 @@ Wenn die einzelnen Stufen komplizierter sind, geht alles analog. Betrachte den F
 In manchen Situationen erhält man die Information über die verschiedenen Stufen aber nicht in der ursprünglichen Reihenfolge, d.h. man kennt zuerst das Ergebnis der zweiten Stufe, weiss also z.B. dass $A$ eingetreten ist. in einem solchen Fall will man die bedingten Wahrscheinlichkieten der ersten Stufe gegeben die zweite Stufe $\p(B_i\mid A)$ berechnen. Das Ergebnis liefert der folgende Satz:
 \begin{satz}[Satz von Bayes]
 	\begin{multline*}
-		\p(B_i\mid A)\\=\frac{\p(A\mid B_i)\p(B_i)}{\p(A\mid B_1)\p(B_1)+ \cdots+ \p(A\mid B_k)\p(B_k)}.
+		\p(B_i\mid A)=\frac{P(A|B_i)P(B_i)}{P(A)}\\=\frac{\p(A\mid B_i)\p(B_i)}{\p(A\mid B_1)\p(B_1)+ \cdots+ \p(A\mid B_k)\p(B_k)}.
 	\end{multline*}
 \end{satz}
 Oft ist das numerische Resultat einer solchen Berechnung stark verschieden von dem, was man naiverweise erwartet. Der Satz von Bayes ist vor allem in der subjektiven Wahrscheinlichkeitstheorie sehr wichtig: Wenn man für die verschiedenen Möglichkeiten $B_1,\cdots,B_k$ subjektive Wahrscheinlichkeiten festlegt und danach erfährt, dass $A$ eingetreten ist, dann muss man die subjektiven Wahrscheinlichkeiten gemäss diesem Satz modifizieren.
