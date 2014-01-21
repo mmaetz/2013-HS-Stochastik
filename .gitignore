@@ -1,3 +1,8 @@
+*.orig
+*.fdb_latexmk
+*.fls
+*.toc
+*.sty
 *.aux
 *.log
 *.out
