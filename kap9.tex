@@ -125,4 +125,16 @@ Die Wahrscheinlichkeit eines Fehlers 2. Art ist eine Funktion des Parameterwerts
 \end{align*}
 Die Macht (englisch power) eines Tests beschreibt die Kapazität wie gut ein Test einen Parameter im bereich der Alternative richtigerweise entdecken kann. Die Macht kann deshalb als Gütemass gebraucht werden, um optimale Tests zu charakterisieren.
 
-Man kann zeigen, dass der t-Test der optimale Test (bzgl. der Macht) unter allen möglichen Tests ist, \emph{falls} die Beobachtungen normalverteilt sind. Bei nicht-normalverteilten Beobachtungen können andere Tests (siehe Kaptiel \ref{sec11.2}) sehr viel besser sein als der t-Test.
+Man kann zeigen, dass der t-Test der optimale Test (bzgl. der Macht) unter allen möglichen Tests ist, \emph{falls} die Beobachtungen normalverteilt sind. Bei nicht-normalverteilten Beobachtungen können andere Tests (siehe Kaptiel \ref{sec11.2}) sehr viel besser sein als der t-Test.\\[1em]
+\begin{tabular}[]{cc|c|c|}
+	\multicolumn{2}{c}{}&\multicolumn{2}{c}{Entscheidung}\\
+	&\multicolumn{1}{c}{}&\multicolumn{1}{c}{$H_0$}&\multicolumn{1}{c}{$H_A$}\\
+	\cline{3-4}
+	\multirow{4}{*}{\rotatebox[]{90}{Wahrheit\quad}}\!\!\!&\multirow{2}{*}{$H_0$}\!\!&kein Fehler&Fehler 1. Art\\
+	&&$\!\begin{aligned}p&=1-\alpha\\&=P_{H_0}(X\not\in V) \end{aligned}\!$&$\!\begin{aligned}p&=\alpha\\&=P_{H_0}(X\in V) \end{aligned}\!$\\
+	\cline{3-4}
+	&\multirow{2}{*}{$H_A$}\!\!&Fehler 2. Art&kein Fehler\\
+	&&$\!\begin{aligned}p&=\beta\\&=P_{H_A}(X\not\in V) \end{aligned}\!$&$\!\begin{aligned}p&=1-\beta\\&=P_{H_A}(X\in V) \end{aligned}\!$\\
+	\cline{3-4}
+\end{tabular}
+

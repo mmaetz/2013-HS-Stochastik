@@ -54,7 +54,19 @@ F(x)&=\int_{-\infty}^{x}\dd{x}\, f(x)
 	=\Phi\!\left(\frac{x-\mu}{\sigma}\right),\qquad x \in \mathbb{R}.
 \end{align*}
 \section{Transformationen}
-Bei stetigen Verteilungen spielen Transformationen $Y=g(X)$ eine wichtige Rolle. Falls $g$ \emph{linear} ist: $g(x)=a+bx$ mit $b>0$, dann gilt $\E(Y)=a+b\E(X)$, $\sigma_Y=b\sigma_X$, $F_Y(x)=F_X((x-a)/b)$ und $f_Y(x)=f_X((x-a)/b)/b$. Durch Skalenänderungen kann man also alle Exponentialverteilungen ineinander überführen, und ebenso durch lineare Transformationen alle Normalverteilungen ineinander. Für beliebiges $g$ gilt
+Bei stetigen Verteilungen spielen Transformationen 
+\begin{align*}
+	Y&=g(X)
+	\shortintertext{eine wichtige Rolle. Falls $g$ \emph{linear} ist: }
+	g(x)&=a+bx,\qquad \text{mit $b>0$},\\
+	\shortintertext{dann gilt }
+	\E(Y)&=a+b\E(X),\\
+	\sigma_Y&=b\sigma_X,\\
+	F_Y(x)&=F_X\!\left( \frac{x-a}{b} \right),
+	\shortintertext{und}
+	f_Y(x) &=f_X\!\left( \frac{x-a}{b} \right).
+\end{align*}
+Durch Skalenänderungen kann man also alle Exponentialverteilungen ineinander überführen, und ebenso durch lineare Transformationen alle Normalverteilungen ineinander. Für beliebiges $g$ gilt
 \begin{equation}
 	\E(Y)=\E(g(X))=\int_{-\infty}^\infty\!\rd x\, g(x)f(x)
 \end{equation}
