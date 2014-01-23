@@ -34,19 +34,19 @@ Wir nehmen an, dass $\sigma$ bekannt ist. Die Teststatistik ist definiert als di
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztest1}
 		\abs{t}&\geq z_{1-\alpha/2},\\
-		\Leftrightarrow t &\in VB_{\alpha}=(-\infty,z_{\alpha/2}]\cup [z_{1-\alpha/2},\infty),\\
+		\Leftrightarrow t &\in VB_{\alpha}=(-\infty,-z_{1-\alpha/2}]\cup [z_{1-\alpha/2},\infty),\\
 			H_A&:\mu\neq\mu_0.
 	\end{split}\\
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztest2}
-		t&\geq z_{1-\alpha},
-		\Leftrightarrow t \in [z_{1-\alpha},\infty),\\
+		t&\geq z_{1-\alpha},\\
+		\Leftrightarrow t &\in [z_{1-\alpha},\infty),\\
 			H_A&:\mu>\mu_0.
 	\end{split}\\
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztest3}
-		t&\leq z_{\alpha},
-		\Leftrightarrow t \in (-\infty,z_{\alpha}],\\
+		t&\leq z_{\alpha}=-z_{1-\alpha},\\
+	\Leftrightarrow t &\in (-\infty,z_{\alpha}]=(-\infty,-z_{1-\alpha}],\\
 		H_A&:\mu<\mu_0.
 	\end{split}
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}\nonumber
@@ -76,11 +76,14 @@ Der P-Wert zu einer gegebenen Realisierung $t$ der Teststatistik $T$ errechnet s
 	&=2\left( 1-\Phi(\abs{t}) \right)
 \end{align*}
 \subsection{t-Test ($\sigma$ unbekannt)}
-Kenntnis von $\sigma$, welche für den z-Test benötigt wird, ist in der Praxis meist unrealistisch. Wenn wir $\sigma$ nicht kennen, ersetzen wir es durch den Schätzer $S_n$ aus Gleichung \ref{eq:schaetzer}. Die Teststatistik ist dann
+Kenntnis von $\sigma$, welche für den z-Test benötigt wird, ist in der Praxis meist unrealistisch. Wenn wir $\sigma$ nicht kennen, ersetzen wir es durch den Schätzer 
 \begin{align*}
+S_n&=\hat{\sigma}
+\shortintertext{aus Gleichung \ref{eq:schaetzer}. Die Teststatistik ist dann}
 	T&\coloneqq\sqrt{n}\, \frac{\overline{X}_n-\mu_0}{S_n}.
 	\intertext{Im Gegensatz zur Teststatistik beim z-Test ist sie hier $t$-verteilt mit Freiheitsgrad $n-1$, das $\alpha$-Quantil der $t$-Verteilung mit Freiheitsgrad $n$ wird mit $t_{n,\alpha}$ bezeichnet. Wir lehnen für eine gegebene Realisierung}
-	t&=\sqrt{n}\, \frac{\overline{x}_n-\mu}{s_n},
+	t&=\sqrt{n}\, \frac{\overline{x}_n-\mu}{s_n},\\
+	\leadsto \overline{x}_n&=\frac{ts_n}{\sqrt{n}}+\mu
 	\shortintertext{von $T$ je nach Alternative $H_A$ die Nullhypothese}
 H_0&:\mu=\mu_0
 \end{align*}
@@ -89,19 +92,20 @@ ab, falls
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztestdinimuetter}
 		\abs{t}&\geq t_{n-1,1-\alpha/2},\\
-	\Leftrightarrow t &\in VB_{\alpha}=(-\infty,t_{n-1,\alpha/2}]\cup [t_{n-1,1-\alpha/2},\infty),\\
+	\Leftrightarrow t &\in VB_{\alpha}=(-\infty,-t_{n-1,1-\alpha/2}]\\
+	&\hphantom{\in VB_{\alpha}=\cup}\cup [t_{n-1,1-\alpha/2},\infty),\\
 			H_A&:\mu\neq\mu_0.
 	\end{split}\\
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztest2}
-		t&\geq t_{n-1,1-\alpha},
-		\Leftrightarrow t \in [t_{n-1,1-\alpha},\infty),\\
+		t&\geq t_{n-1,1-\alpha},\\
+		\Leftrightarrow t &\in [t_{n-1,1-\alpha},\infty),\\
 			H_A&:\mu>\mu_0.
 	\end{split}\\
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztest3}
-		t&\leq t_{n-1,\alpha},
-	\Leftrightarrow t \in (-\infty,t_{n-1,\alpha}],\\
+		t&\leq t_{n-1,\alpha}=-t_{n-1,1-\alpha},\\
+	\Leftrightarrow t &\in (-\infty,t_{n-1,\alpha}]=(-\infty,-t_{n-1,1-\alpha}],\\
 		H_A&:\mu<\mu_0.
 	\end{split}
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}\nonumber
