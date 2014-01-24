@@ -82,8 +82,8 @@ S_n&=\hat{\sigma}
 \shortintertext{aus Gleichung \ref{eq:schaetzer}. Die Teststatistik ist dann}
 	T&\coloneqq\sqrt{n}\, \frac{\overline{X}_n-\mu_0}{S_n}.
 	\intertext{Im Gegensatz zur Teststatistik beim z-Test ist sie hier $t$-verteilt mit Freiheitsgrad $n-1$, das $\alpha$-Quantil der $t$-Verteilung mit Freiheitsgrad $n$ wird mit $t_{n,\alpha}$ bezeichnet. Wir lehnen für eine gegebene Realisierung}
-	t&=\sqrt{n}\, \frac{\overline{x}_n-\mu}{s_n},\\
-	\leadsto \overline{x}_n&=\frac{ts_n}{\sqrt{n}}+\mu
+	t&=\sqrt{n}\, \frac{\overline{x}_n-\mu}{s_n}%,\\
+%	\leadsto \overline{x}_n&=\frac{ts_n}{\sqrt{n}}+\mu
 	\shortintertext{von $T$ je nach Alternative $H_A$ die Nullhypothese}
 H_0&:\mu=\mu_0
 \end{align*}
@@ -134,11 +134,14 @@ Man kann zeigen, dass der t-Test der optimale Test (bzgl. der Macht) unter allen
 	\multicolumn{2}{c}{}&\multicolumn{2}{c}{Entscheidung}\\
 	&\multicolumn{1}{c}{}&\multicolumn{1}{c}{$H_0$}&\multicolumn{1}{c}{$H_A$}\\
 	\cline{3-4}
-	\multirow{4}{*}{\rotatebox[]{90}{Wahrheit\quad}}\!\!\!&&kein Fehler&Fehler 1. Art\\
-	&$H_0$\!\!&$\!\begin{aligned}p&=1-\alpha\\&=P_{H_0}(X\not\in V) \end{aligned}\!$&$\!\begin{aligned}p&=\alpha\\&=P_{H_0}(X\in V) \end{aligned}\!$\\
+	\multirow{6}{*}{\rotatebox[]{90}{Wahrheit\quad}}\!\!\!&\multirow{3}{*}{$H_0$}\!\!&kein Fehler&Fehler 1. Art\\
+	&&\multirow{2}{*}{$\!\begin{aligned}p&=1-\alpha\\&=P_{H_0}(X\not\in V) \end{aligned}\!$}&\multirow{2}{*}{$\!\begin{aligned}p&=\alpha\\&=P_{H_0}(X\in V) \end{aligned}\!$}\\[1ex]
+	&&&\\
 	\cline{3-4}
-	&&Fehler 2. Art&kein Fehler\\
-	&$H_A$\!\!&$\!\begin{aligned}p&=\beta\\&=P_{H_A}(X\not\in V) \end{aligned}\!$&$\!\begin{aligned}p&=1-\beta\\&=P_{H_A}(X\in V) \end{aligned}\!$\\
+	&\multirow{3}{*}{$H_A$}\!\!&Fehler 2. Art&kein Fehler, Macht\\
+	&&\multirow{2}{*}{$\!\begin{aligned}p&=\beta\\&=P_{H_A}(X\not\in V) \end{aligned}\!$}&\multirow{2}{*}{$\!\begin{aligned}p&=1-\beta\\&=P_{H_A}(X\in V) \end{aligned}\!$}\\[1ex]
+	&&&\\
+%	&$H_A$\!\!&$\!\begin{aligned}p&=\beta\\&=P_{H_A}(X\not\in V) \end{aligned}\!$&$\!\begin{aligned}p&=1-\beta\\&=P_{H_A}(X\in V) \end{aligned}\!$\\
 	\cline{3-4}
 \end{tabular}
 
