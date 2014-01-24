@@ -21,7 +21,7 @@ Ausgehend von Gleichung \ref{eq:above} werden nun die wahren $\mu_k$ ersetzt dur
 \begin{align*}
 	\hat{\mu}_k&\coloneqq\frac{1}{n}\sum_{i=1}^{n}x_{i}^{k},
 	\intertext{wenn man diese noch als Zufallsvariable schreibt, dann erhält man einen Momentenschätzer für die einzelnen Komponenten von $\theta$ durch}
-	\hat{\theta}_j&=g_j(\hat{\mu}_1,\ldots,\hat{\mu}_p),& j&=1,\ldots,r;\\
+	\hat{\theta}_j&=g_j(\hat{\mu}_(,\ldots,\hat{\mu}_p),& j&=1,\ldots,r;\\
 	\hat{\mu}_k&=\frac{1}{n}\sum_{i=1}^{n}X_{i}^{k},& k&=1,\ldots,p.
 \end{align*}
 \emph{Rezeptatrige Vorgangsweise:} 
@@ -53,60 +53,7 @@ Einen weiteren Momentenschätzer fur $\lambda$ erhalten wir durch Berechnung des
 	&=\frac{1}{n}\sum_{i=1}^{n}X_{i}^{2}\\
 	&=\frac{n-1}{n}S_{n}^{2}.
 \end{align*}
-<<<<<<< HEAD
-Man zieht aber $\hat{\lambda}=\overline{X}_n$ vor, denn dies ist auch der sogenannte Maximum-Likelihood Schätzer, welcher im Allgemeinen genauer ist.
-
-Der Momentenschätzer ist einfach, aber nicht immer die optimale (im Sinne einer zu definierenden besten Genauigkeit für den unbekannten Parameter) Methode. Überdies ist der Momentenschätzer nicht eindeutig, wie wir am obigen Beispiel gesehen haben.
-\section{Maximum-Likelihood Schätzer}
-Sei zunächst $X$ diskret. Um die Abhängigkeit vom unbekannten Parameter $\theta$ zu betonen bezeichnen wir die Wahrscheinlichkeitsfunktion $p_{X}$ von $X$ mit $p_{\theta}$. Die Wahrscheinlichkeit, dass tatsächlich das Ereignis $\left\{ X_1=x_1,\ldots,X_n=x_n \right\}$ eintritt ist wegen der Unabhängigkeit und Gleichverteilung gegeben durch
-\begin{align*}
-	L(\theta)&\coloneqq p_{X_1,\ldots,X_n}(x_1,\ldots,x_n)\\
-	&=\prod_{i=1}^{n}p_{\theta}(x_i)\\
-	&=p_{\theta}(x_1)\cdot \cdots \cdot p_{\theta}(x_n),
-\end{align*}
-dies ist die sogenannte \emph{Likelihoodfunktion (zur gegebenen Stichprobe $x_1,\ldots,x_n$)}. Die \emph{Maximum-Likelihood Methode} basiert nun darauf diese Wahrscheinlichkeit zu maximieren, also jenen Parameter $\theta$ zu finden für den die Wahrscheinlichkeit dass die gegebene Stichprobe $x_1,\ldots,x_n$ eintritt am grössten (maximal) ist, daher der Name Maximum-Likelihood.
-
-Da der Logarithmus monoton wachsend ist, kann man äquivalent zu obiger Maximierungsaufgabe auch den Logarithmus maximieren, was meist (aber nicht unbedingt immer!) einfacher ist. Die log-Likelihoodfunktion ist definiert durch
-\begin{align*}
-	\ell(\theta)&\coloneqq \log L(\theta)\\
-	&=\sum_{i=1}^{n}\log p_{\theta}(x_i)\\
-	&=\log p_{\theta}(x_1)+\cdots+\log p_{\theta}(x_n).
-\end{align*}
-Die Maximierungsaufgabe löst man wie aus der Analysis bekannt durch Ableiten (nach dem Parameter $\theta$) und Nullsetzen. Um die Abhängigkeit von der Stichprobe $x_1,\ldots,x_n$ zu betonen schreibt man auch
-\begin{align*}
-	\ell(\theta;x_1,\ldots,x_n)&\coloneqq \log p_{\theta} (x_1)+\cdots +\log p_{\theta}(x_n),
-\end{align*}
-man muss dann die Gleichung
-\begin{align*}
-	\pdv{}{\theta}l (\theta;x_1,\ldots,x_n)&=0
-	\intertext{nach $\theta$ auflösen und erhält das Ergebnis}
-	\hat{\theta}&=\hat{\theta}(x_1,\ldots,x_n)
-	\shortintertext{bzw. als Zufallsvariable ausgedrückt}
-	\hat{\theta}&=\hat{\theta}(X_1,\ldots,X_n)
-\end{align*}
-als allgemeinen Maximum-Likelihood Schätzer von $\theta$ (zum Stichprobenumfang $n$).
-
-Im stetigen Fall geht im Wesentlichen alles analog und man braucht nur den Buchstaben $p$ durch $f$ und \glqq Wahrscheinlichkeit\grqq \ durch \glqq Wahrscheinlichkeitsdichte\grqq \ zu ersetzen, d.h. statt Wahrscheinlichkeiten hat man dann Dichten, und es wird jener Parameter $\theta$ gesucht für den die gemeinsame Dichte der $X_1,\ldots,X_n$ an der Stelle $x_1,\ldots,x_n$ am grössten ist.
-\begin{bspl}[Fortsetzung]
-	$X\sim \poi(\lambda)$. Die Wahrscheinlichkeitsfunktion ist
-	\begin{align*}
-		p_{\lambda}(x)&=\frac{\lambda^x}{x!}e^{-\lambda},&&x\in\mathbb{N},
-		\intertext{die log-Likelihoodfunktion ist somit}
-		\ell(\lambda)&=\sum_{i=1}^{n}(x_i\log (\lambda)-\log(x_i!)-\lambda)\\
-		&=\sum_{i=1}^{n}(x_i\log (\lambda)-\lambda)-C,\\
-		C&=\sum_{i=1}^{n}\log(x_i!).
-	\end{align*}
-\end{bspl}
-Beachte, dass die Konstante $C$ keinen Einfluss auf die Maximierung von $\ell(\lambda)$ hat. Leitet man $\ell(\lambda)$ ab und setzt $\ell'(\lambda)=0$, so erhält man den Maximum-Likelihood Schätzer
-\begin{align*}
-	\hat{\lambda}&=\overline{X}_n\\
-	&=\frac{1}{n}\sum_{i=1}^{n}X_i.
-\end{align*}
-Dies ist derselbe Schätzer wie bei der Momentenmethode wo $g_1$ die Identität ist.
-\section{Eigenschaften von Schätzern}
-=======
 ???LINES MISSING
->>>>>>> 6a1761b84f81a9eb17f8d9b76c59c330f51bfe21
 Wir haben gesehen, dass ein Schätzer für den Parameter $\theta$ als eine aus den Zufallsvariablen $X_1,\ldots,X_n$ zusammengesetzte Zufallsvariable interpretiert werden kann, also $\hat{\theta}=\hat{\theta}(X_1,\ldots,X_n)$ wobei der zu schätzende Parameter $\theta$ meist eine Kenngrösse der Verteilung der $X_i$ ist. Man kann sich nun fragen wie eigentlich der Erwartungsswert dieser Zufallsvariable (also des Schätzers) aussieht, intuitiv wünschenswert wäre es wann dieser am besten gleich dem zu schätzenden Parameter entspricht, woraus sich folgende Eigenschaft ergibt: Ein Schätzer $\hat{\theta}$ für den Parameter $\theta$ heisst \emph{erwartungstreu} wenn
 \begin{gather*}
 	\E(\hat{\theta})=\E\left( \hat{\theta}(X_1,\ldots,X_n) \right)=\theta.
