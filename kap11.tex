@@ -8,7 +8,7 @@ In allen Anwendungen ist neben der Auswertung auch die korrekte Planung des Vers
 Randomisierung bedeutet hier, dass man die Reihenfolge der Versuche und die Zuordnung von Versuchseinheit zu Versuchsbedingung zufällig wählt: Man hat den Beobachtungen (realisierte Zufallsvariablen)
 \begin{gather*}
 	x_1,x_2,\ldots,x_n\text{ unter Versuchsbedingung 1},\\
-	y_1,y_2,\ldots,y_n\text{ unter Versuchsbedingung 2}.
+	y_1,y_2,\ldots,y_m\text{ unter Versuchsbedingung 2}.
 \end{gather*}
 Im Allgemeinen ist $m\neq n$, aber nicht notwendigerweise. Bei solch zufälliger Zuordnung von verschiedenen Versuchseinheiten zu zwei verschiedenen Versuschsbedingungen spricht man von einer \emph{ungepaarten Stichprobe}.
 \begin{bspl}
@@ -19,7 +19,6 @@ Andererseits liegt eine \emph{gepaarte Stichprobe} vor, wenn beide Versuchsbedin
 	x_1,\ldots,x_n\text{ unter Versuchsbedingung 1},\\
 	y_1,\ldots,y_n\text{ unter Versuchsbedingung 2}.
 \end{gather*}
-// (Nochmals die gleichen Paare? Kann irgendwie nicht sein\ldots) \\
 Notwendigerweise ist dann: Die Stichprobengrösse $n$ ist für beide Versuchsebedingungen dieselbe.
 \begin{bspl}
 	Vergleich zweier Reifentypen, wobei jedem Testfahrzeug und jedem Fahrer beide Reifentypen verwendet werden.
@@ -32,22 +31,28 @@ Bei der Analyse von gepaarten Vergleichen arbeitet man stets mit den Differenzen
 \end{gather*}
 welche wir als Realisierungen von i.i.d. Zufallsvariablen $U_1,\ldots,U_n$ auffassen. Kein Unterschied zwischen den beiden Versuchsbedingungen heisst dann einfach $\E(U_i)=0$. Dies kann man formal testen mit der Nullhypothese $H_0:\E(U_i)=0$ und mit der zwei-eitigen (oder auch einseitigen) Alternative $H_A:\E(U_i)\neq 0$ Die folgenden Tests bieten sich dazu an:
 \begin{compactenum}[1.]
-	\item der t-Test, siehe Kapitel \ref{sec9.2};
-	\item der sogenannte \emph{Vorzeichen-Test}, falls die Normalverteilung nicht gerechtfertigt scheint: betrachte Anzahl positiver $U_i$ und benütze die Methoden für die Binomialverteilung um die Nullhypothese $H_0:p=p_0=0.5$ zu testen, siehe Kapitel \ref{sec8.3};
-	\item der sogenannte \emph{Wilcoxon-Test}, siehe unten.
+	\item Der t-Test, siehe Kapitel \ref{sec9.2};
+	\item Der sogenannte \emph{Vorzeichen-Test}, falls die Normalverteilung nicht gerechtfertigt scheint: betrachte Anzahl positiver $U_i$ und benütze die Methoden für die Binomialverteilung um die Nullhypothese $H_0:p=p_0=0.5$ zu testen, siehe Kapitel \ref{sec8.3};
+	\item Der sogenannte \emph{Wilcoxon-Test}, siehe unten.
 \end{compactenum}
-Der Wilcoxon-Test ist ein Kompromiss, der weniger veraussetzt als der t-Test und die Information der Daten besser ausnützt als der Vorzeichen-Test. Dazu bildet man die Ränge der Differenzen bezüglich des Absolutwertes: $\rang(\abs{U_i})=k$ heisst, dass $\abs{U_i}$ den $k$-ten kleinsten Wert hat unter $\abs{U_1},\ldots,\abs{U_n}$. Wenn einzelne $\abs{U_i}$ zusammenfallen, teilt man die Ränge auf durch Mittelung. Ausserdem sei noch $V_i$ der indikator dafür, ob $U_i$ positiv ist, d.h. $V_i=1$ falls $U_i>0$ ist und $V_i=0$ sonst. Dann verwirft man die Nullhypothese, falls
+\subsection{Wilcoxon-Test}
+Der Wilcoxon-Test ist ein Kompromiss, der weniger veraussetzt als der t-Test und die Information der Daten besser ausnützt als der Vorzeichen-Test. Dazu bildet man die Ränge der Differenzen bezüglich des Absolutwertes: $\rang(\abs{U_i})=k$ heisst, dass $\abs{U_i}$ den $k$-ten kleinsten Wert hat unter $\abs{U_1},\ldots,\abs{U_n}$. Die Annahme für den Wilcoxon-Test ist, dass die $U_i$ unabhängig, i.i.d. und symmetrisch zum Median verteilt sind. \emph{Man kann auch}
+\begin{gather*}
+	U_i=x_i-\mu_0
+\end{gather*}
+\emph{für ungepaarte Stichproben wählen.}
+Wenn einzelne $\abs{U_i}$ zusammenfallen, teilt man die Ränge auf durch Mittelung. Ausserdem sei noch $V_i$ der Indikator dafür, ob $U_i$ positiv ist, d.h. $V_i=1$ falls $U_i>0$ ist und $V_i=0$ sonst. Dann verwirft man die Nullhypothese, falls
 \begin{gather*}
 	W=\sum_{i=1}^{n}\rang\!\left( \abs{U_i} \right)V_i
 \end{gather*}
 zu gross oder zu klein oder beides ist (je nach Spezifikation der Alternative). Die Schranken für zu gross oder zu klein entnimmt man aus Tabellen oder Statistikpaketen für den Computer.
 
 
-Man kann zeigen, adss dieser Test das Niveau exakt einhält (d.h. Wahrscheinlichkeit für einen Fehler 1.Art ist gleihc $\alpha$), wenn die $U_i$ i.i.d. sind und eine 0 symmetrische Dichte haben. Beim t-Test wird das Niveau zwar auch ungefähr eingehalten bei vielen nichtnormalen Verteilungen (wegen dem ZGS), aber unter Umständen ist die Wahrscheinlichkeit eines Fehlers 2. ARt beim t-Test \emph{viel grösser} als beim Wilcoxon-Test.
+Man kann zeigen, dass dieser Test das Niveau exakt einhält (d.h. Wahrscheinlichkeit für einen Fehler 1.Art ist gleich $\alpha$), wenn die $U_i$ i.i.d. sind und eine 0 symmetrische Dichte haben. Beim t-Test wird das Niveau zwar auch ungefähr eingehalten bei vielen nichtnormalen Verteilungen (wegen dem ZGS), aber unter Umständen ist die Wahrscheinlichkeit eines Fehlers 2. Art beim t-Test \emph{viel grösser} als beim Wilcoxon-Test.
 
-In der Praxis ist der Wilcoxon-Test allermeist dem t- oder Vorzeicehn-Test vorzuzuiehen. Nur falls die Daten sehr gut mit einer Normalverteilung beschrieben werden ist der t-Test für gute Datenanalyse \glqq vollumfänglich tauglich\grqq: diese Annahme oder Bedingung kann man z.B. mit dem Normal-Plot (siehe Kapitel \ref{sec7.3}) grafisch überprüfen.
+In der Praxis ist der Wilcoxon-Test allermeist dem t- oder Vorzeichen-Test vorzuzuiehen. Nur falls die Daten sehr gut mit einer Normalverteilung beschrieben werden ist der t-Test für gute Datenanalyse \glqq vollumfänglich tauglich\grqq: Diese Annahme oder Bedingung kann man z.B. mit dem Normal-Plot (siehe Kapitel \ref{sec7.3}) grafisch überprüfen.
 \section{Zwei-Stichproben Tests}
-Wie bereits beschrieben gibt es Fälle (ungepaarte Stichproben), wo man keine Paare bilden kann. Dann hat man i.i.d. Zufallsvariablen $X_1,\ldots,X_n$ für die eine Versuchsbedingung und $Y_1,\ldots,1_m$ für die andere, und man nimmt an, dass alle Zufallsvariablen unabhängig sind. Die effektiv gemachten Beobachtungen sind wie üblich als realisierungen von diesen Zufallsvariablen zu interpretieren. das einfachste Problem lässt sich unter folgender Annahme lösen:
+Wie bereits beschrieben gibt es Fälle (ungepaarte Stichproben), wo man keine Paare bilden kann. Dann hat man i.i.d. Zufallsvariablen $X_1,\ldots,X_n$ für die eine Versuchsbedingung und $Y_1,\ldots,Y_m$ für die andere, und man nimmt an, dass alle Zufallsvariablen unabhängig sind. Die effektiv gemachten Beobachtungen sind wie üblich als realisierungen von diesen Zufallsvariablen zu interpretieren. das einfachste Problem lässt sich unter folgender Annahme lösen:
 \begin{align*}
 	X_1,\ldots,X_n&\sim \mathcal{N}(\mu_{X},\sigma^2),\\
 	Y_1,\ldots,Y_m&\sim\mathcal{N}(\mu_{Y},\sigma^2).
@@ -68,7 +73,7 @@ die gepoolte Schätzung für die gemeinsame Varianz $\sigma^2$ ist. Die Wahl des
 	\intertext{ Die Teststatistik ist unter der Nullhypothese $t_{n+m-2}$-verteilt. Wir lehnen daher für eine gegebene Realisierung}
 	t&=\frac{\overline{x}_n-\overline{y}_n}{s_{\text{pool}}\sqrt{\frac{1}{n}+\frac{1}{m}}}
 \end{align*}
-von $T$ je nach Alternative $H_A$ die Nullhypothese $H_0:\mu_{X}=\mu_y$ ab, falls
+von $T$ je nach Alternative $H_A$ die Nullhypothese $H_0:\mu_{X}=\mu_Y$ ab, falls
 \begin{align}
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}
 	\begin{split}\label{eq:ztest12s}
