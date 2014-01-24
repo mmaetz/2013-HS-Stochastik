@@ -11,7 +11,7 @@ Die Dichte von einer stetigen Verteilung $P$ ist definiert als
 	\intertext{Erwartungswert und Varianz berechnen sich gemäss}
 	\E(X) &= \mu_X = \int_{-\infty}^\infty\!\dd{x}\, xf(x), \\
 	\V(X) &= \sigma^2_X = \int_{-\infty}^\infty\!\dd{x}\, (x-\mu_X)^2f(x),
-	\intertext{und es gelten die gleichen Rechenregeln wie im diskreten Fall (TODO: Referenz hier?).}
+	\intertext{und es gelten die gleichen Rechenregeln wie im diskreten Fall.}
 \end{align*}
 %
 \section{Die wichtigsten stetigen Verteilungen}
@@ -23,18 +23,18 @@ Die \emph{uniforme Verteilung} $\uni[a,b]$ tritt auf bei Rundungsfehlern und als
 	\begin{cases}
 		\frac{1}{b-a} & a\leq x \leq b \\
 		0 & \text{sonst}
-	\end{cases}\\
-	\E(X)&=\frac{a+b}{2}\\
+	\end{cases},\\
+	\E(X)&=\frac{a+b}{2},\\
 	\sigma_X&=\frac{b-a}{\sqrt{12}}.
 \end{align*}
 %
 \subsection{Exponentialverteilung}
 Die \emph{Exponentialverteilung} $\exp(\lambda)$ ist das einfachste Modell für Wartezeiten auf Ausfälle und eine stetige Version der geometrischen Verteilung.
 \begin{align*}
-	W&=[0,\infty)\\
-	f(x)&=\lambda e^{-\lambda x}, \qquad \text{für}\ x>0\\
-	F(x)&=1-e^{-\lambda x}\\
-	\E(X)&=\sigma_X=\frac{1}{\lambda}
+	W&=[0,\infty),\\
+	f(x)&=\lambda e^{-\lambda x}, \qquad \text{für}\ x>0,\\
+	F(x)&=1-e^{-\lambda x},\\
+	\E(X)&=\sigma_X=\frac{1}{\lambda}.
 \end{align*}
 Wenn die Zeiten zwischen den Ausfällen eines Systems Exponential$(\lambda)$-verteilt sind, dann ist die Anzahl Ausfälle in einem Intervall der Länge $t$ $\text{Poi}(\lambda t)$-verteilt.
 %
@@ -42,11 +42,11 @@ Wenn die Zeiten zwischen den Ausfällen eines Systems Exponential$(\lambda)$-ver
 Die \emph{Normal- oder Gaussverteilung} $\mathcal{N}(\mu,\sigma^2)$ ist die häufigste Verteilung für Messwerte.
 \begin{align*}
 	W&=\mathbb{R}\\
-	f(x)&=\frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right)\\
-	\E(X)&=\mu\\
-	\sigma_X&=\sigma
+	f(x)&=\frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right),\\
+	\E(X)&=\mu,\\
+	\sigma_X&=\sigma.
 	\shortintertext{Die $\mathcal{N}(0,1)$Verteilung, auch \emph{Standardverteilung} bezeichnet, ist ein wichtiger Sonderfall, weshalb es für dessen Verteilungsfunktion sogar ein eigenes Symbol gibt:}
-\Phi(x) &\coloneqq F_{\mathcal{N}(0,1)}, \ x\in\mathbb{R}
+\Phi(x) &\coloneqq F_{\mathcal{N}(0,1)}, \ x\in\mathbb{R},
 \shortintertext{und deren Umkehrfunktionen (d.h. die Quantile) kürzen wir ab mit}
 z_\alpha &\coloneqq \Phi^{-1}(\alpha), \qquad \alpha \in [0,1].
 \shortintertext{Die Verteilungsfunktion $F$ einer $\mathcal{N}(\mu,\sigma^2)$-verteilten Zufallsvariable ist nicht geschlossen darstellbar, sie wird aus der Verteilungsfunktion $\Phi$ der Standardnormalverteilung (welche tabelliert ist) berechnet mittels der Formel:}
@@ -62,8 +62,7 @@ Bei stetigen Verteilungen spielen Transformationen
 	\shortintertext{dann gilt }
 	\E(Y)&=a+b\E(X),\\
 	\sigma_Y&=b\sigma_X,\\
-	F_Y(x)&=F_X\!\left( \frac{x-a}{b} \right),
-	\shortintertext{und}
+	F_Y(x)&=F_X\!\left( \frac{x-a}{b} \right),\\
 	f_Y(x) &=f_X\!\left( \frac{x-a}{b} \right).
 \end{align*}
 Durch Skalenänderungen kann man also alle Exponentialverteilungen ineinander überführen, und ebenso durch lineare Transformationen alle Normalverteilungen ineinander. Für beliebiges $g$ gilt
@@ -75,7 +74,7 @@ Wenn $X\sim \mathcal{N}(\mu,\sigma^2)$ normalverteilt ist, dann heisst $Y=e^X$ \
 \section{Simulation von Zufallsvariablen}
 Wenn $U$ uniform auf $[0,1]$ verteilt ist und $F$ eine beliebige kumulative Verteilungsfunktion, dann ist die Verteilungsfunktion von $X=F^{-1}(U)$ gleich $F$. Dies ist ein wichtiges Faktum um Verteilungen, respektive Realisierungen von Zufallsvariabeln, zu \emph{simulieren}:
 \begin{compactenum}[1.]
-	\item Erzeuge Realisation $u$ von uniform verteilter Zufallsvariable $U\sim\uni[0,1]$. Dies wird mittels einem "Standard-Paket" gemacht.
+	\item Erzeuge Realisation $u$ von uniform verteilter Zufallsvariable $U\sim\uni[0,1]$. Dies wird mittels einem \glqq Standard-Paket\grqq\ gemacht.
 	\item Berechne $x=F^{-1}(u)$. Gemäss obigem Faktum ist dann $x$ eine Realisation einer Zufallsvariablen $X$ mit kumulativer Verteilungsfunktion $F$.
 \end{compactenum}
 Diese Methode ist nicht immer rechentechnisch effizient.

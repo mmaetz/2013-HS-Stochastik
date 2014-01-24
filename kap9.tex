@@ -5,11 +5,11 @@ Wir möchten aus $x_1,\ldots,x_n$ Rückschlüsse auf die unbekannten Parameter $
 \section{Schätzungen}
 Die Punktschätzungen sind:
 \begin{align}
-	\hat{\mu}&=\overline{X}_n=\frac{1}{n}\sum_{i=1}^{n}\\
-	\hat{\sigma}^2&=S_{n}^{2}=\frac{1}{n-1}\sum_{i=1}^{n}\left( X_i-\hat{\mu} \right)^2
+	\hat{\mu}&=\overline{X}_n=\frac{1}{n}\sum_{i=1}^{n},\\
+	\hat{\sigma}^2&=S_{n}^{2}=\frac{1}{n-1}\sum_{i=1}^{n}\left( X_i-\hat{\mu} \right)^2.
 	\label{eq:schaetzer}
 \end{align}
-Diese Schätzungen sind Funktionen von Zufallsvariablen, also wieder zufällig und im allgemeinen verschieden vom unbekannten wahren Wert. Die realisierten Werte dieser Schätzung (den Wert den man berechnen kann) erhält man indem die Zufallsvariable $X_i$ mit deren realisiertem Wert $x_i$ ersetzt wird.
+Diese Schätzungen sind Funktionen von Zufallsvariablen, also wieder zufällig und im Allgemeinen verschieden vom unbekannten wahren Wert. Die realisierten Werte dieser Schätzung (den Wert den man berechnen kann) erhält man indem die Zufallsvariable $X_i$ mit deren realisiertem Wert $x_i$ ersetzt wird.
 
 Der Erwartungswert der Schätzer ist
 \begin{align*}
@@ -51,7 +51,7 @@ Wir nehmen an, dass $\sigma$ bekannt ist. Die Teststatistik ist definiert als di
 	\end{split}
 	\intertext{\colorlet{rulecolor}{black}\rule{\columnwidth}{0.1ex}}\nonumber
 \end{align}
-Die Begründung für Eq. \ref{eq:ztestdinimuetter} ist wie folgt, die Teststatistik $T$ ist unter der Nullhypothese $\mathcal{N}(0,1)$-verteilt, woraus sich der Fehler 1. Art, sofort zu
+Die Begründung für Eq. \ref{eq:ztest1} ist wie folgt, die Teststatistik $T$ ist unter der Nullhypothese $\mathcal{N}(0,1)$-verteilt, woraus sich der Fehler 1. Art, sofort zu
 \begin{gather*}
 	\p_{\mu=\mu_0}(\abs{T}\geq z_{1-\alpha/2})
 \end{gather*}
@@ -68,7 +68,7 @@ da es von den $X_1,\ldots,X_n$ abhängt ist es zufällig, für eine gegebene Beo
 	\sqrt{n}\, \frac{\overline{X}_n-\mu}{\sigma}&\sim \mathcal{N}(0,1)
 	\intertext{ergibt sich sofort}%ergibt sich aus dem ausgelassenen Bild sofort
 	\p(\mu\in I)&=\p\!\left(\abs{\sqrt{n}\, \frac{\overline{X}_n-\mu}{\sigma}}\leq z_{1-\alpha/2}  \right)\\
-	&=1-\alpha
+	&=1-\alpha.
 \end{align*}
 Der P-Wert zu einer gegebenen Realisierung $t$ der Teststatistik $T$ errechnet sich im zweiseitigen Fall zu
 \begin{align*}

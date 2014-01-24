@@ -18,15 +18,15 @@ ein. Das \emph{empirische $\alpha$-Quantil} ($0<\alpha<1$) ist
 \end{gather*}
 Wenn $\alpha n$ eine ganze Zahl ist, nimmt man $\frac{1}{2}\left( x_{(\alpha n)}+x_{\left( \alpha n +1 \right)} \right)$. Der \emph{empirische Median} ist das 50\%-Quantil und ist eine Kennzahl für die Lage. Die Quartilsdifferenz ist das empirische 75\%-Quantil minus empirisches 25\%-Quantil und ist eine Kennzahl für die Streuung.
 
-Einen ganz anderen Aspekt erfasst man, wenn man die werte gegen den Beobachtungszeitpunkt aufträgt. Damit kann man Trends und andere Arten von systematischen Veränderungen in der Zeit erkennen.
+Einen ganz anderen Aspekt erfasst man, wenn man die Werte gegen den Beobachtungszeitpunkt aufträgt. Damit kann man Trends und andere Arten von systematischen Veränderungen in der Zeit erkennen.
 \section{Histogramm und Boxplot}
 Wenn man $n$ Werte $x_1,\ldots,x_n$ einer Variablen hat, dann gibt es als grafische Darstellungen das \emph{Histogramm}, den \emph{Boxplot} und die empirische \emph{kumulative Verteilungsfunktion}. 
 
 Beim Histogramm bilden wir Klassen $(c_{k-1},c_k)$ und berechnen die Häufigkeiten $h_k=$\#Werte in diesem Intervall. Dann träggt man über den Klassen Balken auf, deren Höhe \emph{proportional} ist zu $h_k/(c_k-c_{k-1})$ ist.
 
-Beim Boxplot hat man ein Rechteck, das von 25\%- und vom 75\%-Quantil begrenzt ist, und Linien, die von diesem Rechteck bis zum kleinsten- bzw. grössten \glqq normalen \grqq Wert gehen (per Definition ist ein normaler wert höchstens 1.5 mal die Quartilsdifferenz von einem der beiden Quartile). Zusätzlich gibt man noch Ausreisser durch Sterne und den Median durch einen Strich an. Der Boxplot ist vor allem dann geeignet, wenn man die Verteilungen einer Variablen in verschiedenen Gruppen (die im allgemeinen verschiedenen Versuchsbedingungen entsprechen) vergleichen will.
-springt. Für eine glattere Version verbindet man die Punkte $(x_{(i)},(i-0.5)/n)$
-Die empirische Verteilungsfunktion ist eine Treppenfunktion, die an den Stellen $x_{(i)}$ von $(i-1)/n$ auf $i/n$ durch Strecken.
+Beim Boxplot hat man ein Rechteck, das von 25\%- und vom 75\%-Quantil begrenzt ist, und Linien, die von diesem Rechteck bis zum kleinsten- bzw. grössten \glqq normalen\grqq\ Wert gehen (per Definition ist ein normaler wert höchstens 1.5 mal die Quartilsdifferenz von einem der beiden Quartile). Zusätzlich gibt man noch Ausreisser durch Sterne und den Median durch einen Strich an. Der Boxplot ist vor allem dann geeignet, wenn man die Verteilungen einer Variablen in verschiedenen Gruppen (die im Allgemeinen verschiedenen Versuchsbedingungen entsprechen) vergleichen will.
+
+Die empirische Verteilungsfunktion ist eine Treppenfunktion, die an den Stellen $x_{(i)}$ von $(i-n)/n$ auf $i/n$ springt. Für eine glattere Version verbindet man die Punkte $(x_{(i)},(i-0.5)/n)$ durch Strecken.
 \section{Normal- und QQ-Plot}
 \label{sec7.3}
 Der Normal- und QQ-Plot (\glqq Quantil-Quantil-Plot\grqq) sind oft viel geeignetere grafische Mittel als die empirische kumulative Verteilungsfunktion.

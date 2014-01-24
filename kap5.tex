@@ -4,8 +4,8 @@ Oft besteht ein Zufallsexperiment aus verschiedenen Stufen, und man erfährt das
 \section{Bedingte Wahrscheinlichkeit}
 Im allgemeinen wird die information aus der ersten Stufe die Unsicherheit über die zweite Stufe verändern, Dies modifizierten Unsicherheit wird gemessen durch die \emph{bedingte Wahrscheinlichkein von $A$ gegeben $B$ bzw. $B^c$} definiert durch
 \begin{align*}
-	\p(A\mid B)&\coloneqq \frac{\p(A\cap B)}{\p(B)},
-	\shortintertext{bzw.}
+	&&\p(A\mid B)&\coloneqq \frac{\p(A\cap B)}{\p(B)},\\
+	\text{bzw.}&&
 	\p(A\mid B^c)&\coloneqq \frac{\p(A\cap B^c)}{\p(B^c)}.
 \end{align*}
 Dass diese Definition sinnvoll ist, kann man anhand der Entsprechung von Wahrscheinlichkeiten und relativen Häufigkeiten sehen. Insbesondere gilt für 2 Ereignisse $A,B$ mit $\p(A)\neq 0$ und $\p(B)\neq 0$:
@@ -19,7 +19,7 @@ Die obige Definition kann man aber auch als
 \begin{gather*}
 	\p(A\cap B)=\p(A\mid B)\p(B)
 \end{gather*}
-lesen, d.h. $\p(A\cap B)$ ist bestimmt durch $\p(A\mid B)$ und $\p(B)$. In vielen Anwendungen wird dieser Weg beschritten. Man legt die Wahrscheinlichkeiten für die erste Stufe $\p(B)$ und die bedingten Wahrscheinlichkeiten $\p(A\mid B)$ und $\p(A\mid B^{c})$ für die zweite Stufe gegeben die erste fest (aufgrund von Daten, Plausibilität und subjektiven Einschätzungen). Dann lassen sich die übrigen Wahrscheinlichkeiten berechnen. Es gilt zum beispiel der folgende Satz:
+lesen, d.h. \mbox{$\p(A\cap B)$} ist bestimmt durch \mbox{$\p(A\mid B)$} und $\p(B)$. In vielen Anwendungen wird dieser Weg beschritten. Man legt die Wahrscheinlichkeiten für die erste Stufe $\p(B)$ und die bedingten Wahrscheinlichkeiten \mbox{$\p(A\mid B)$} und \mbox{$\p(A\mid B^{c})$} für die zweite Stufe gegeben die erste fest (aufgrund von Daten, Plausibilität und subjektiven Einschätzungen). Dann lassen sich die übrigen Wahrscheinlichkeiten berechnen. Es gilt zum Beispiel der folgende Satz:
 \begin{satz}[Satz der tot. Wahrsch.keit I]
 	\begin{align*}
 		\p(A)&=\p(A\cap B)+ \p(A\cap B^c)\\
@@ -36,9 +36,11 @@ Wenn die einzelnen Stufen komplizierter sind, geht alles analog. Betrachte den F
 \end{satz}
 In manchen Situationen erhält man die Information über die verschiedenen Stufen aber nicht in der ursprünglichen Reihenfolge, d.h. man kennt zuerst das Ergebnis der zweiten Stufe, weiss also z.B. dass $A$ eingetreten ist. in einem solchen Fall will man die bedingten Wahrscheinlichkieten der ersten Stufe gegeben die zweite Stufe $\p(B_i\mid A)$ berechnen. Das Ergebnis liefert der folgende Satz:
 \begin{satz}[Satz von Bayes]
-	\begin{multline*}
-		\p(B_i\mid A)=\frac{P(A|B_i)P(B_i)}{P(A)}\\=\frac{\p(A\mid B_i)\p(B_i)}{\p(A\mid B_1)\p(B_1)+ \cdots+ \p(A\mid B_k)\p(B_k)}.
-	\end{multline*}
+	\begin{align*}
+		&\p(B_i\mid A)=\frac{\p(A|B_i)\p(B_i)}{\p(A)}\\
+		&\quad=\frac{\p(A\mid B_i)\p(B_i)}{\p(A\mid B_1)\p(B_1)+ \cdots+ \p(A\mid B_k)\p(B_k)}\\
+		&\quad=\frac{\p(A\mid B_i)\p(B_i)}{\p(A\mid B_i)\p(B_i)+\p(A\mid B_i^c) \p(B_i^c)}.
+	\end{align*}
 \end{satz}
 Oft ist das numerische Resultat einer solchen Berechnung stark verschieden von dem, was man naiverweise erwartet. Der Satz von Bayes ist vor allem in der subjektiven Wahrscheinlichkeitstheorie sehr wichtig: Wenn man für die verschiedenen Möglichkeiten $B_1,\cdots,B_k$ subjektive Wahrscheinlichkeiten festlegt und danach erfährt, dass $A$ eingetreten ist, dann muss man die subjektiven Wahrscheinlichkeiten gemäss diesem Satz modifizieren.
 \section{Gemeinsame und bedingte diskrete Verteilungen}
@@ -50,7 +52,8 @@ Die beiden, obig beschriebenen Stufen können auch ducrh Zufallsvariablen $X$ un
 \begin{gather*}
 	\p(X=x)=\sum_{y\in W_y}^{}\p(X=x,Y=y)
 \end{gather*}
-und analog für $Y$. Aus den randverteilungen auf die gemeinsame Verteilung zu schliessen geht \emph{nur} im Falle der Unabhängigkeit von $X$ und $Y$, denn es gilt: Zwei diskrete Zufallsvariablen $X$ und $Y$ sind unabhängig genau dann wenn
+und analog für $Y$. Aus den Randverteilungen auf die gemeinsame Verteilung zu schliessen geht \emph{nur} im Falle der Unabhängigkeit von $X$ und $Y$, denn es gilt: \\
+Zwei diskrete Zufallsvariablen $X$ und $Y$ sind \emph{unabhängig} genau dann wenn
 \begin{gather*}
 	\p(X=x,Y=y)=\p(X=x)\p(Y=y),\\\qquad x\in W_X,y\in W_y.
 \end{gather*}
@@ -64,4 +67,4 @@ Der Satz von der totalen Wahrscheinlichkeit lässt sich dann schreiben als
 \end{gather*}
 und kommt immer dann zum Einsatz wenn man die Verteilung von $X$ berechnen will, aber nur dessen bedingte Verteilung gegeben $Y$ und die Verteilung von $Y$ kennt.
 
-Bei mehr als zwei Stufen bzw. Zufallsvariablen geht alles analog. Die Bäume werden einfach länger und die Matrizen werden zu Feldern in höheren Dimensionen. Das Ganze wird aber sehr rasch unübersichtlich, und es gibt sehr viele Wahrscheinlichkeiten, die man zu Beginn festlegen muss. Eine wesentliche Vereinfachung erhält man, wenn man annimmt, dass jede STu zwar von der unmittelbar vorangehenden, aber nicht von den weiter zurückliegenden Stufen abhängt. Das fühlt auf die sogenannten \emph{Markovketten}, deren Verhalten durch eine Startverteilung und eine Übergangsmatrix gegeben ist.
+Bei mehr als zwei Stufen bzw. Zufallsvariablen geht alles analog. Die Bäume werden einfach länger und die Matrizen werden zu Feldern in höheren Dimensionen. Das Ganze wird aber sehr rasch unübersichtlich, und es gibt sehr viele Wahrscheinlichkeiten, die man zu Beginn festlegen muss. Eine wesentliche Vereinfachung erhält man, wenn man annimmt, dass jede Stufe zwar von der unmittelbar vorangehenden, aber nicht von den weiter zurückliegenden Stufen abhängt. Das fühlt auf die sogenannten \emph{Markovketten}, deren Verhalten durch eine Startverteilung und eine Übergangsmatrix gegeben ist.

@@ -1,6 +1,6 @@
 \chapter{Zufallsvariable und Wahrscheinlichkeitsverteilung}
 \label{kap2}
-Ergebnisse eines physikalischen Versuchs (Zufallsexperiment) sind oft Zahlen (Messungen). Diese werden als Beobachtung von so genannten Zufallsvariablen interpertiert, d.h. beobachtet wird nicht das $\omega$ welches bei einem Zufallsexperiment herauskommnt, sondern die Werte aller beobachtetetn Zufallsvariablen.
+Ergebnisse eines physikalischen Versuchs (Zufallsexperiment) sind oft Zahlen (Messungen). Diese werden als Beobachtung von sogenannten \emph{Zufallsvariablen} interpertiert, d.h. beobachtet wird nicht das $\omega$ welches bei einem Zufallsexperiment herauskommnt, sondern die Werte aller beobachtetetn Zufallsvariablen.
 \section{Definition einer Zufallsvariablen}
 Eine Zufallsvariable $X$ ist ein Zuffalsexperiment mit möglichen Werten in $\mathbb{R}$, bzw. in einer Teilmenge von $\mathbb{R}$, z.B. $\mathbb{N}_0=\{0,1,\ldots\}$. Deren Wert ist im Voraus nicht bekannt, sondern hängt vom Ergebnis eines Zufallsexperiments ab. Mathematisch ist eine Zufallsvariable einfach nur eine Abbildung von $\Omega$ nach $\mathbb{R}$:
 \begin{align*}
@@ -17,7 +17,7 @@ Das heisst wenn das Ergebnis $\omega$ herauskommt, nimmt die Zufallsvariable den
 	\end{align*}
 \end{bspl}
 \section{Wahrscheinlichkeitsverteilung auf $\mathbb{R}$}
-Eine Zufallsvariable $X$ legt eine Wahrscheinlichkeit $Q$ auf $\mathbb{R}$ fest, die segenannte \emph{Verteilung} von $X$:
+Eine Zufallsvariable $X$ legt eine Wahrscheinlichkeit $Q$ auf $\mathbb{R}$ fest, die sogenannte \emph{Verteilung} von $X$:
 \begin{align*}
 \gdls
 	Q(B)&=\p \!\left(\left\{  \omega; X(\omega)\in B  \right\}\right)\\
@@ -35,7 +35,7 @@ Die \emph{kumulative Verteilungsfunktion} ist definiert als
 	F(b)&=\p (X\leq b)\\
 	&=Q\!\left( ( -\infty,b ]  \right).
 \end{align*}
-Sie enthält dieselbe Information wie die Verteilung $Q(\cdot)$, ist aber einfacher darzustellen. Die Umkehrung der Verteilungsfunktion stellen di esogenannten Quantile dar, für $\alpha\in (0,1)$ ist das $\alpha$\emph{-Quantil von} $X$ definiert als das kleinste $x\in \mathbb{R}$ für welches $F(x)\geq \alpha$ gilt, also
+Sie enthält dieselbe Information wie die Verteilung $Q(\cdot)$, ist aber einfacher darzustellen. Die Umkehrung der Verteilungsfunktion stellen die sogenannten Quantile dar, für $\alpha\in (0,1)$ ist das $\alpha$\emph{-Quantil von} $X$ definiert als das kleinste $x\in \mathbb{R}$ für welches $F(x)\geq \alpha$ gilt, also
 \begin{align*}
 	q_{\alpha}&\coloneqq q(\alpha)\\
 	&\coloneqq \min\{x\in \mathbb{R} \mid  F(x)\geq \alpha\}
@@ -56,24 +56,24 @@ Eine Zufallsvariable $X$ heisst \emph{diskret}, falls die Menge $W$ der möglich
 \end{align*}
 Eine Zufallsvariable $X$ heisst \emph{stetig} falls die Menge der möglichen Werte $W$ ein Intervall enthält. Zum Beispiel $W=[0,1]$ oder $W=\mathbb{R}$.
 \section{Erwartungswert und Varianz}
-Eine Verteilung einer Zufallsvariablen $X$ kann durch mindestens zwei Kennzahlen zusammengefasst werden, eine für die Lage (der Erwartungswert $E(X)=\mu_X$) und eine für die Streuung (die Standardabweichung $\sigma_X$).
+Eine Verteilung einer Zufallsvariablen $X$ kann durch mindestens zwei Kennzahlen zusammengefasst werden, eine für die Lage (der Erwartungswert $\E(X)=\mu_X$) und eine für die Streuung (die Standardabweichung $\sigma_X$).
 Der \emph{Erwartungswert} einer diskreten Zufallsvariable $X$ ist definiert durch
 \begin{align*}
 	%\label{erwartungswert}
-	\mu_X &= E(X) \nonumber\\
+	\mu_X &= \E(X) \nonumber\\
 	&\coloneqq \sum\limits_{x \in W}x p(x)\nonumber
 	\intertext{Für den Erwartungswert einer tranformierten diskreten Zufallsvariable $Y = f(X)$ ergibt sich daraus:}
-	E(Y) &= E(f(X))\nonumber\\
+	\E(Y) &= \E(f(X))\nonumber\\
 	&= \sum\limits_{x \in W} f(x)p(x)\nonumber
 	\intertext{Die \emph{Varianz} einer diskreten Zufallsvariable $X$ ist definiert durch:}
-	V(X) &\coloneqq E\left( \left( X-E(X) \right)^2 \right)\\
+	\V(X) &\coloneqq \E\!\left( \left( X-\E(X) \right)^2 \right)\\
 	&=\sum\limits_{x\in W} (x-\mu_X)^2 p(x)
 	\intertext{Die \emph{Standardabweichung} ist die Wurzel aus der Varianz, d.h.}
-	\sigma_X &= \sqrt{V(X)}.\nonumber \\
+	\sigma_X &= \sqrt{\V(X)}.\nonumber \\
 	\intertext{Folgende Rechenregeln sind nützlich:}
-	E(a+bX) &= a+bE(X), \ a,b \in \mathbb{R}\nonumber\\
-	V(X) &= E(X^2) - E(X)^2\nonumber\\
-	V(a+bX) &= b^2V(X)\nonumber
+	\E(a+bX) &= a+b\E(X), \ a,b \in \mathbb{R}\nonumber\\
+	\V(X) &= \E(X^2) - \E(X)^2\nonumber\\
+	\V(a+bX) &= b^2\V(X)\nonumber
 	\label{eq:varianz}
 \end{align*}
 In der frequentistischen Interpretation ist der Erwartungswert eine Idealisierung des arithmetischen Mittels der Werte einer Zufallsvariablen bei vielen Wiederholungen.
@@ -84,7 +84,7 @@ Die \emph{Binomialverteilung} $\mathrm{Bin}(n,p)$ ist die Verteilung der Anzahl 
 	{n\choose k}&=\frac{n!}{k!(n-k)!},\\
 	W &= {0,1,\cdots,n}\\
 	p(x) &= {n\choose x} p^x(1-p)^{n-x}\\
-	E(X) &= np\\
+	\E(X) &= np\\
 	\sigma_X &= \sqrt{np(1-p)}
 \end{align*}
 \subsection{Poissonverteilung}
@@ -92,7 +92,7 @@ Die \emph{Poissonverteilung} $\mathrm{Poi}(\lambda)$ ist eine Approximation der 
 \begin{align*}
 	W &= {0,1,\cdots},\\
 	p(x) &= e^{-\lambda} \frac{\lambda^x}{x!},\\
-	E(X) &= \lambda,\\
+	\E(X) &= \lambda,\\
 	\sigma_X &= \sqrt{\lambda}.
 \end{align*}
 \subsection{Geometrische Verteilung}
@@ -100,6 +100,6 @@ Die \emph{geometrische Verteilung} $\mathrm{Geo}(p)$ ist die Verteilung der Anza
 \begin{align*}
 	W &= {1,2,\cdots},\\
 	p(x) &= p(1-p)^{x-1},\\
-	E(X) &= \frac{1}{p},\\
+	\E(X) &= \frac{1}{p},\\
 	\sigma_X &= \frac{\sqrt{1-p}}{p}.
 \end{align*}

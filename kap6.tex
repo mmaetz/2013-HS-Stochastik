@@ -1,15 +1,14 @@
 \chapter{Gemeinsame und bedingte stetige Verteilungen}
 \label{kap6}
-Bei zwei oder mehreren stetigen Zufallsvariablen kann die gemeinsame und bedingte Verteilung nicht mehr mit Bäumen oder Matrizen dargestellt werde wie in Kapitel 5.
-Bei zwei oder mehreren stetigen Zufallsvariablen kann die gemeinsame und bedingte Verteilung nicht mehr mit Bäumen oder Matrizen dargestellt werden wie in Kapitel \ref{kap5}.
+Bei zwei oder mehreren stetigen Zufallsvariablen kann die gemeinsame und bedingte Verteilung nicht mehr mit Bäumen oder Matrizen dargestellt werde wie in Kapitel \ref{kap5}.
 \section{Gemeinsame Dichte}
-Die gemeinsame Dichte $f_{x,Y}(\cdot,\cdot)$ von zwei stetigen Zufallsvariablen $X$ und $Y$ ist gegeben, in \glqq Ingenieurnonation\grqq, durch
+Die gemeinsame Dichte $f_{X,Y}(\cdot,\cdot)$ von zwei stetigen Zufallsvariablen $X$ und $Y$ ist gegeben, in \glqq Ingenieurnonation\grqq, durch
 \begin{multline*}
 	\p(x\leq X\leq x+\dd{x}, y\leq Y\leq y+\dd{y})\\=f_{X,Y}(x,y)\rd x \rd y.
 \end{multline*}
-(Die Darstellugn als Ableitung einer geeigneten kumulativen Verteilungsfunktion ist nicht sehr instruktiv.) daraus kann man allgemein Wahrscheinlichkeiten durch Integration berechnen:
+(Die Darstellung als Ableitung einer geeigneten kumulativen Verteilungsfunktion ist nicht sehr instruktiv.) daraus kann man allgemein Wahrscheinlichkeiten durch Integration berechnen:
 \begin{gather*}
-\p\!\left( (X,Y)\in A \right)=\iint_{A}\!\dd{x}\dd{y}\, f_{X,Y}(x,y)
+\p\!\left( (X,Y)\in A \right)=\iint_{A}\!\dd{x}\!\dd{y}\, f_{X,Y}(x,y)
 \end{gather*}
 \section{Randdichte und bedingte Dichte}
 Aus der gemeinsamen Dichte erhält man insbesondere die Randdichte von $X$ bzw. $Y$
@@ -25,9 +24,9 @@ Aus den obigen Definitionen ist klar, dass all wahrscheinlichkeitstheoretischen 
 	f_{X,Y}(x,y)=f_{X}(x)f_{Y}(y), \qquad x,y \in \mathbb{R}^2.
 	\label{eq:unabh}
 \end{gather}
-In diesem Fall genügt das Konzept von 1-dimensionalen Dichten: die gemeinsame Dichte kann dann sehr einfach mittels Multiplikation berechnet werden.
+In diesem Fall genügt das Konzept von 1-dimensionalen Dichten: Die gemeinsame Dichte kann dann sehr einfach mittels Multiplikation berechnet werden.
 \section{Erwartungswert bei mehreren Zufallsvariablen}
-Der Erwartungswert macht nur Sinn für eine $\mathbb{R}$-wertige Gröss (oder Teilmenge von $\mathbb{R}$). Den Erwartungswert einer transformierten Zufallsvariable $Z=g(X,Y)$ mit $g:\mathbb{R}^2\to \mathbb{R}$ können wir berechnen als
+Der Erwartungswert macht nur Sinn für eine $\mathbb{R}$-wertige Grösse (oder Teilmenge von $\mathbb{R}$). Den Erwartungswert einer transformierten Zufallsvariable $Z=g(X,Y)$ mit $g:\mathbb{R}^2\to \mathbb{R}$ können wir berechnen als
 \begin{align*}
 	\E(g(X,Y))&=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\!\rd x\rd y \, g(x,y)f_{X,Y}(x,y)
 	\intertext{Im diskreten Fall lautet die entrpechende Formel:}

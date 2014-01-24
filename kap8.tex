@@ -3,13 +3,13 @@
 \label{sec8.1}
 In der schliessenden Statistik wollen wir anhand von Daten (Beobachtungen) Aussagen über ein Wahrscheinlichkeitsmodell machen. Dass man dies tun kann ist zunächst erstaunlich: Man benützt die induktive Logik um probilistische Aussagen (d.h. Aussagen, welche mit typischerweise hoher Wahrscheinlichkeit gelten)  zu machen.
 
-Grundlegend für die schliessende Statistik ist die Annahme, dass Daten Realisierungen von Zufallsvariablen sind. Das heisst: eine Beobachtung (oder \glqq Messung\grqq) $x$ ist entstanden in dem ein $\omega\in\Omega$ zufällig gezogen wurde, so dass die Zufallsvariable $X$ den Wert $X(\omega)=x$ annimmt. Bei mehreren Daten geht alles analog: $n$ Beobachtungen $x_1,\ldots,x_n$ werden aufgefasst als Realisierungen von Zufallsvariablen $X_1,\ldots,X_n$, welche die Werte $X_i=x_i$ mit $i=1,\ldots,n$  angenommen haben.
+Grundlegend für die schliessende Statistik ist die Annahme, dass Daten Realisierungen von Zufallsvariablen sind. Das heisst: Eine Beobachtung (oder \glqq Messung\grqq) $x$ ist entstanden in dem ein $\omega\in\Omega$ zufällig gezogen wurde, so dass die Zufallsvariable $X$ den Wert $X(\omega)=x$ annimmt. Bei mehreren Daten geht alles analog: $n$ Beobachtungen $x_1,\ldots,x_n$ werden aufgefasst als Realisierungen von Zufallsvariablen $X_1,\ldots,X_n$, welche die Werte $X_i=x_i$ mit $i=1,\ldots,n$  angenommen haben.
 \section{Erste Konzepte}
-Wir betrachten folgende Situation. Gegeben ist eine Beobachtung $x$ (eine Realisierung) einer $\bin(n,p)-$ oder einer  $\poi(\lambda)$-verteilten Zufallsvariablen $X$: z.B. Anzahl Ausfälle bei $n$ Wiederholungen oder während eine Beobachtungsdauer $t$, wobei dann $\lambda=\mu t$ und $\mu$ die erwartete Anzahl Ausfälle pro Zeiteinheit ist. Wir möchten daraus Rückschlüsse auf den unbekannten Parameter $p$ bzw. $\lambda$ ziehen. Genauer geht es um folgende drei Fragestellungen:
+Wir betrachten folgende Situation: Gegeben ist eine Beobachtung $x$ (eine Realisierung) einer $\bin(n,p)$- oder einer  $\poi(\lambda)$-verteilten Zufallsvariablen $X$: z.B. Anzahl Ausfälle bei $n$ Wiederholungen oder während eine Beobachtungsdauer $t$, wobei dann $\lambda=\mu t$ und $\mu$ die erwartete Anzahl Ausfälle pro Zeiteinheit ist. Wir möchten daraus Rückschlüsse auf den unbekannten Parameter $p$ bzw. $\lambda$ ziehen. Genauer geht es um folgende drei Fragestellungen:
 \begin{compactenum}[1.]
-	\item Welchen ist der plausibelste Wert des unbekannten Parameters (\emph{Punktschätzung})?
+	\item Welcher ist der plausibelste Wert des unbekannten Parameters (\emph{Punktschätzung})?
 	\item Ist ein bestimmter vorgegebener Parameterwert $p_0$, bzw. $\lambda_0$ (z.B. ein Sollwert) mit der Beobachtung verträglich (\emph{Test})?
-	\item Was ist der Bereich von plausiblen parameterwerten (\emph{Vertrauensintervall})?
+	\item Was ist der Bereich von plausiblen Parameterwerten (\emph{Vertrauensintervall})?
 \end{compactenum}
 \section{Das Testproblem}
 \label{sec8.3}
@@ -21,7 +21,7 @@ Beim Testproblem beschränken wir uns hier zur Vereinfachung der Notation auf di
 	p&> p_0,&&\text{einseitig nach oben, rechtseitig;}\\
 	p&<p_0, &&\text{einseitig nach unten, linksseitig.}
 \end{align*}
-Wir beschränken uns im Weiteren auf den Fall $H_A:p>p_0$. Dann lehnen wir die Nullhypothese $H_0: p=p_0$ ab, falls $x\geq c$. Das ist qualitativ betrachtet plausibel:Die quantitative Wahl von $c$ wird wie folgt gemacht. Wir nehmen einmal an, dass die Nullhypothese stimmt. Dann ist die Wahrscheinlichkeit die Nullhypothese fälschlicherweise abzulehnen (d.h. ein \emph{Fehler 1. Art})
+Wir beschränken uns im Weiteren auf den Fall $H_A:p>p_0$. Dann lehnen wir die Nullhypothese $H_0: p=p_0$ ab, falls $x\geq c$. Das ist qualitativ betrachtet plausibel: Die quantitative Wahl von $c$ wird wie folgt gemacht. Wir nehmen einmal an, dass die Nullhypothese stimmt. Dann ist die Wahrscheinlichkeit die Nullhypothese fälschlicherweise abzulehnen (d.h. ein \emph{Fehler 1. Art})
 \begin{align*}
 	\p_{p_0}(X\geq c)&=\sum_{k=c}^{n}{n \choose k}p_{0}^{k}(1-p_0)^{n-k}.
 	\intertext{Wir sollten also $c$ nicht zu klein wählen. Umgekehrt möchten wir aber auch $c$ nicht zu gross wählen, weil wir sonst zu häufig einen \emph{Fehler 2. Art} begehen: Kein Verwerfen der Nullhypothese $H_0$, obwohl sie falsch ist. Man schliesst einen Kompromiss, indem man das kleinste $c=c(\alpha)$ nimmt, so dass}
@@ -35,9 +35,9 @@ Im Fall, wo man nach Abweichungen nach unten interessiert ist, d.h. $H_A: p<p_0$
 	\sum_{k=c_2}^{n}{n\choose k}p_{0}^{k}(1-p_0)^{n-k}&\leq \frac{\alpha}{2}
 \end{align*}
 \subsection{Zusammenfassung eines statistischen Tests}
-Die Durchführung eines statistischen Tests kann, zumindest teilweise, \glqq rezeptartig\grqq erfolgen.
+Die Durchführung eines statistischen Tests kann, zumindest teilweise, \glqq rezeptartig\grqq\ erfolgen.
 \begin{enumerate}[1.]
-	\item Lege Nullhypothese $H_0: \theta=\theta_0$ fest. ($\theta$ bezeichnet hier allgemein einen Parameter in einem wahrscheinlichkeitstheoretischen Modell).
+	\item Lege Nullhypothese $H_0: \theta=\theta_0$ fest. ($\theta$ bezeichnet hier allgemein einen Parameter in einem wahrscheinlichkeitstheoretischen Modell.)
 	\item Anhand der Problemstellung, spezifiziere vernünftige Alternative $H_A:\theta\neq \theta_0$ (zweiseitig) oder $H_A:\theta> \theta_0$ (einseitig nach unten).
 	\item Wähle Signifikanzniveau $\alpha$, z.B. $\alpha=0.05$ oder $0.01$.
 	\item Konstruiere Verwerfungsbereich für $H_0$, so dass 
@@ -64,10 +64,11 @@ bedeutet, dass es (generell) schwieriger wird $H_0$ zu verwerfen, oder anders au
 %%% Skript:
 Der P-Wert ist die Wahrscheinlichkeit, unter der die Nullhypothese $H_0$ ein mindestens so extremes Ereignis (in Richtung der Alternative) zu beobachten wie das aktuell beobachtete. $H_0$ wird verworfen, falls der P-Wert kleiner als $\alpha$ ist.
 \section{Vertrauensintervalle}
-Ein Vertrauensintervall $I$ zum Niveau $1-\alpha$ (oft auch \emph{Konfidenzintervall genannt}) besteht aus allen Parameterwerten, die im Sinne eines statistischen Tests zum Signifikanzniveau $\alpha$ mit der Beobachtung verträglich sind (üblicherweise nimmt man den zweiseitigen Test). Mathematisch heisst das:
+Ein Vertrauensintervall $I$ zum Niveau $1-\alpha$ (oft auch \emph{Konfidenzintervall genannt}) besteht aus allen Parameterwerten, die im Sinne eines statistischen Tests zum Signifikanzniveau $\alpha$ mit der Beobachtung verträglich sind. (Üblicherweise nimmt man den zweiseitigen Test.) Mathematisch heisst das:
 \begin{align*}
-	I&=\{ \theta_0;\\
-		&\hphantom{=\{}\text{ Nullhypothese }H_0:\, \theta=\theta_0\text{ wird belassen} \}
+%	I&=\{ \theta_0;\\
+%		&\hphantom{=\{}\text{ Nullhypothese }H_0:\, \theta=\theta_0\text{ wird belassen} \}
+	I&=\{ \theta_0;\text{ Nullhypothese }H_0:\, \theta=\theta_0\text{ wird belassen} \}
 \end{align*}
 Diese Beziehung stellt eine Dualität zwischen Tests und Vertrauensintervall dar. 
 
@@ -113,6 +114,6 @@ $\spadesuit$: standardisieren. Da $\mathcal{N}(0,1)$ eine symmetrische Verteilun
 	\intertext{da $p$ unbekannt ist, ersetzen wir es durch den Schätzer $\hat{p}=X/n$}
 	c_u\approx z_{1-\alpha/2}\sqrt{\frac{X}{n}\left( 1-\frac{X}{n} \right)\frac{1}{n}}
 \end{align*}
-und wegen Symmetrie $c_o=c_u$ (oder analoge Heirleitung für $c_o$). Damit folgt die approximative Formel.
+und wegen Symmetrie $c_o=c_u$ (oder analoge Herleitung für $c_o$). Damit folgt die approximative Formel.
 \section{Mehrere Beobachtungen}
 Wenn man $n$ Beobachtungen hat, geht man oft zu den Summen über: $x_1+\cdots+x_n$. Für die zugehörigen Summen von Zufallsvariablen, welche als i.i.d. angenommen werden, kennen wir dann die Verteilung der Summen approximativ (ZGS) oder auch in einigen Fällen exakt. Damit lassen sich Verwerfungsbereiche und konfidenzintervalle konstruieren, analog zu Kapitel \ref{subsec8.5.1}.
