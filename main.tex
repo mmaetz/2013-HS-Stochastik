@@ -93,10 +93,21 @@
 	\input{kap9.tex}
 	\input{kap10.tex}
 	\input{kap11.tex}
-%	\columnbreak
-	\begin{sideways}
-	\input{appendix.tex}
-	\end{sideways}
+	\vfill
+	\columnbreak
+%	\begin{sideways}
+	\input{table.tex}
+	\vfill
+	\columnbreak
+	\mbox{}
+	\vfill
+	\columnbreak
+	\resizebox{0.65\columnwidth}{!}{
+		\begin{minipage}[t]{\textwidth}
+			\input{appendix.tex}
+		\end{minipage}
+}
+%	\end{sideways}
 \end{multicols*}
 \end{document}
 
